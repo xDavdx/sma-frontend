@@ -6,15 +6,16 @@ import { IoIosArrowForward } from "react-icons/io";
 const Koncerti = () => {
     const [koncerti, setKoncerti] = useState([]);
 
-    // Uporabimo useEffect za pridobivanje podatkov ob nalaganju komponente
+
     useEffect(() => {
-        fetch("http://localhost:5001/koncerti") // API klic na backend za pridobivanje koncertov
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/koncerti`) // API klic na backend za pridobivanje koncertov
             .then((res) => res.json())
             .then((data) => {
                 setKoncerti(data); // Shranimo pridobljene koncerte v stanje
             })
             .catch((error) => console.error("Napaka pri pridobivanju koncertov:", error)); // Napaka pri pridobivanju
     }, []);
+
 
     // Filtriraj in sortiraj prihodnje koncerte
     const danes = new Date().toISOString().split("T")[0]; // Dobimo današnji datum v formatu "YYYY-MM-DD"

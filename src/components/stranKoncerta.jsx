@@ -10,7 +10,7 @@ function StranKoncerta() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:5001/koncerti/${id}`)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/koncerti/${id}`)
             .then((res) => {
                 if (!res.ok) {
                     throw new Error("Koncert ni najden");

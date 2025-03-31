@@ -16,7 +16,7 @@ import PostaniAbonent from "./postaniAbonent";
         const [koncerti, setKoncerti] = useState([]);
 
         useEffect(() => {
-            fetch("http://localhost:5001/koncerti")
+            fetch(`${process.env.REACT_APP_BACKEND_URL}/koncerti`)
                 .then((res) => res.json())
                 .then((data) => {
                     setKoncerti(data);

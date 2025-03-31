@@ -10,7 +10,7 @@ const PostaniAbonent = () => {
         e.preventDefault();
         try {
             // Preveri, da pošiljaš na pravilno pot
-            const response = await axios.post("http://localhost:5001/abonent/dodaj", { name, email });
+            const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/abonent/dodaj`, { name, email });
             setMessage(response.data.message);
             setName("");
             setEmail("");
