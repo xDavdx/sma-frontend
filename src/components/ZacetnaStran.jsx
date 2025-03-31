@@ -60,8 +60,7 @@ import PostaniAbonent from "./postaniAbonent";
             </div>
 
 
-
-            <div className="prihajajoci-koncerti">
+            <div className="prihajajoci-koncerti prih-ozadje">
                 <div className="sdfsdf">
                     <div className="prih-koncerti-naslov">
                         <h1>Prihajajoči koncerti</h1>
@@ -91,17 +90,32 @@ import PostaniAbonent from "./postaniAbonent";
             </div>
 
 
-            <div className="kontakt center">
-                <div className="kontakt-levo kld">
-                    <h1>Kontaktirajte nas</h1>
-                    <h3><a href="tel:+38631726060"><FaPhoneAlt />
-                        +386 31 726 060</a></h3>
-                    <h3><a href="mailto:mladi.abonma@gmail.com"><MdOutlineMailOutline /> mladi.abonma@gmail.com</a></h3>
-                    <h1>Sledite nam:</h1>
-                    <a href=""><FaYoutube /></a>
-                    <a href=""><RiInstagramFill /></a>
-                    <a href=""><FaFacebook /></a>
-                </div>
+                <div className="kontakt center">
+                    <div className="kontakt-levo kld">
+                        <div>
+                            <h1>Kontaktirajte nas</h1>
+                            <h3>
+                                <a href="tel:+38631726060">
+                                    <FaPhoneAlt /> +386 31 726 060
+                                </a>
+                            </h3>
+                            <h3>
+                                <a href="mailto:mladi.abonma@gmail.com">
+                                    <MdOutlineMailOutline /> mladi.abonma@gmail.com
+                                </a>
+                            </h3>
+
+
+                            <h1>Sledite nam:</h1>
+                            <div className="social-icons">
+                                <a href=""><FaYoutube /></a>
+                                <a href=""><RiInstagramFill /></a>
+                                <a href=""><FaFacebook /></a>
+                            </div>
+                        </div>
+                    </div>
+
+
 
                 <div className="kontakt-desno center kld">
                     <KontaktForma />
