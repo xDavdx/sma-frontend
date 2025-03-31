@@ -1,0 +1,504 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Archivo", sans-serif;
+}
+
+Link {
+  text-decoration: none;
+  cursor: pointer;
+  all: unset;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(9, 40, 61, 0.95);;
+  color: white;
+  height: 6em;
+  padding: 15px 20em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+body.scrolled .navbar {
+  top: 0; /* Ko scrollaš, navbar se prilepi */
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2em;
+  font-size: 1.2em;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #BEE1FC;
+}
+
+
+
+img {
+  max-width: 100%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prva {
+  display: flex;
+} .prva div {
+    width: 100%;
+    height: 100vh;
+    color: white;
+  }
+
+.logo-besedilo {
+  display: flex;
+  flex-direction: column;
+  font-size: 30pt;
+}
+
+.zacetna-stran {
+  height: 400vh;
+  padding: 0 5em;
+  background-image: url("./components/zacetno-ozadje.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.prva-desno {
+  padding-top: 12em;
+}
+
+.prva-desno h2 {
+  color: #BEE1FC;
+  font-weight: 100;
+  line-height: 35px;
+}
+
+.prihajajoci-koncerti {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8em;
+}
+
+.koncert-karta {
+  display: flex;
+  gap: 2em;
+}
+
+.karta {
+  background-color: #3F7391;
+  border-radius: 1em;
+  width: 25vw;
+  height: 50vh;
+  padding: 0.5em;
+  transition: 400ms;
+  color: white;
+} .karta-slika {
+  height: 60%;
+  align-items: center;
+    transition: 300ms;
+  } .karta-tekst {
+  height: 40%;
+  margin-left: 0.2em;
+      } .karta-tekst h3 {
+  margin: 0.5em 0;
+              } .karta-tekst h1 {
+  margin: 0.3em 0;
+                              }
+
+.karta-tekst h5 {
+  margin: 0.5em 0;
+}
+
+    .karta-slika img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 1em;
+    }
+/*.karta:hover .karta-slika {*/
+    /*        opacity: 1;*/
+    /*        transform: scale(1.02) translateY(-5%);*/
+    /*      }*/
+
+.koncert-stran {
+  display: flex;
+  justify-content: space-between; /* Poravnaj vsebine na levo in desno */
+  padding: 40px;
+  gap: 40px; /* Razmik med levo in desno polovico */
+  margin-top: 6em; /* Dodaj zgornji razmik, da upošteva višino navbar-a */
+}
+
+.koncert-levo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start; /* Poravnaj vse na levo */
+}
+
+.koncert-levo button {
+  padding: 10px 20px;
+  background-color: #09283D;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.koncert-levo button:hover {
+  background-color: #4C7F93; /* Zasenčena barva na hover */
+}
+
+.koncert-levo p {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.koncert-levo h1 {
+  font-size: 2em;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.koncert-levo img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  align-self: flex-start; /* Poravnaj sliko z začetkom vsebine */
+}
+
+.koncert-desno {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.koncert-desno h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.koncert-desno p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.koncert-desno img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+.kontakt {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+} .kontakt .kld {
+  width: 50%;
+  }
+
+.prih-koncerti-v-koncertih {
+  height: 100vh;
+  background-color: #EEEEEE;
+}
+
+.prih-koncerti-naslov {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  padding: 2em;
+}
+
+.koncert-gumb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 2px solid #B9D9EA;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.6em 1em;
+  width: 46%;
+  border-radius: 1em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: 400ms;
+  color: white;
+}
+
+.koncert-gumb:hover {
+  background-color: #2B5E77;
+  text-indent: -15px;
+  border: 2px solid #2B5E77;
+}
+
+.koncert-gumb .puscica {
+  position: absolute;
+  right: 0.4em;
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.koncert-gumb:hover .puscica {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/*kontakt*/
+
+
+.kontakt-desno {
+  flex-direction: column;
+}
+
+.kontakt-forma-div {
+  flex-direction: column;
+}
+
+.kontaktForma {
+  padding: 2em;
+  background-color: white;
+  border-radius: 1em;
+  width: 70%;
+}
+
+.kontakt-forma {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+  max-width: 400px;
+}
+
+.kontakt-forma input,
+.kontakt-forma textarea {
+  width: 100%;
+  padding: 0.5em;
+  color: grey;
+  border: none;
+  border-bottom: 2px solid grey;
+  outline: none;
+  font-size: 1em;
+}
+
+.kontakt-forma textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.kontakt-forma button {
+  background-color: #09283D;
+  color: white;
+  border: none;
+  padding: 0.7em;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.kontakt-forma button:hover {
+  background-color: #064066;
+}
+
+/* Arhiv koncertov */
+.arhiv-koncertov-container {
+  padding: 40px 20px;
+  width: 100%;
+}
+
+/* Naslov arhiva koncertov */
+.arhiv-koncertov-naslov {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Ločitev let po letnicah (2025, 2024 itd.) */
+.arhiv-leto-koncerti {
+  margin-top: 40px;
+  width: 100%;
+}
+
+/* Naslov leta in ločitev črto */
+.arhiv-leto-naslov {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #1C5677;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+/* Container za karte koncertov */
+.arhiv-koncerti-karta-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Koncertna karta */
+.arhiv-koncert-karta {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+/* Slika koncerta (60% širine kartice) */
+.arhiv-karta-slika {
+  width: 100%;
+  height: 60%;
+  margin-bottom: 10px;
+}
+
+.arhiv-karta-slika img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tekstualni del karte */
+.arhiv-karta-tekst {
+  flex: 1;
+}
+
+/* Naslov koncerta */
+.arhiv-karta-tekst h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Vsebina koncerta */
+.arhiv-karta-tekst p {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* Datum koncerta */
+.arhiv-karta-tekst p p {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Gumb za več o koncertu */
+.arhiv-koncert-gumb {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.arhiv-koncert-gumb:hover {
+  background-color: #0056b3;
+}
+
+/* Responsivnost za manjše zaslone */
+@media (max-width: 768px) {
+  .arhiv-koncerti-karta-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .arhiv-koncert-karta {
+    padding: 10px;
+  }
+
+  .arhiv-karta-slika img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.ozadje-prih-koncerti {
+  height: 100vh;
+  background-image: url("./components/ozadje-prih-koncerti.png");
+  background-size: cover;
+  background-position: center;
+
+}
+
+.abonent-section {
+  text-align: center;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  max-width: 400px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.abonent-section h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.abonent-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.abonent-section input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.abonent-section button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.abonent-section button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
