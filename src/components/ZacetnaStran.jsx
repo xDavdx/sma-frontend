@@ -123,9 +123,6 @@ import PostaniAbonent from "./postaniAbonent";
                 </div>
             </div>
 
-            <div>
-                <PostaniAbonent />
-            </div>
 
 
 

@@ -9,20 +9,20 @@ const PostaniAbonent = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Preveri, da pošiljaš na pravilno pot
             const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/abonent/dodaj`, { name, email });
             setMessage(response.data.message);
             setName("");
             setEmail("");
         } catch (error) {
             setMessage("Napaka pri prijavi!");
-            console.error(error); // Poglej napako v konzoli za več podrobnosti
+            console.error(error);
         }
     };
 
     return (
         <div className="abonent-section">
             <h2>Postani abonent</h2>
+            <p className="abonent-section-p">Za prejem novic in povabil na koncerte</p>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -41,6 +41,9 @@ const PostaniAbonent = () => {
                 <button type="submit">Prijavi se</button>
             </form>
             {message && <p>{message}</p>}
+            <p>*Obrazec bo poslal vnesene podatke na naš kontaktni naslov. Podatke potrebujemo, da vas lahko dodamo na mailing listo. Vaših podatkov ne posredujemo tretjim osebam. Če želite naknadni izbris vaših podatkov iz naše baze prejetih e-pošt, stopite v stik preko kontaktnih podatkov.
+
+            </p>
         </div>
     );
 };
