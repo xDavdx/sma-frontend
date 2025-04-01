@@ -87,6 +87,7 @@ const Koncerti = () => {
 
             {/* Ostali koncerti - Arhiv koncertov */}
             <div className="arhiv-koncertov-container">
+                <Link to={"/koncerti/dodajadminmodule"}>Dodaj koncerte</Link>
                 <h2 className="arhiv-koncertov-naslov">Arhiv koncertov</h2>
                 {Object.keys(koncertiPoLetih).sort((a, b) => b - a).map((leto) => ( // Razvrstimo leta od najnovejšega
                     <div key={leto} className="arhiv-leto-koncerti">
