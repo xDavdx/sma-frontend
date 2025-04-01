@@ -1299,3 +1299,52 @@ img {
 
 
 
+
+
+
+
+
+/* dodaj koncerte */
+
+
+.dodaj-koncert {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 10em;
+}
+
+.dodaj-koncert h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.dodaj-koncert form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dodaj-koncert input, .dodaj-koncert textarea, .dodaj-koncert select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.dodaj-koncert button {
+  background-color: #1a5276;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+
+
+

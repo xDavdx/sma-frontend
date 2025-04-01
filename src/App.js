@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Koncerti from "./components/Koncerti";
 import DrustvoOdeon from "./components/DrustvoOdeon";
 import StranKoncerta from "./components/stranKoncerta";
+import DodajKoncerte from "./components/dodajKoncerte";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                   <Route path="/koncerti" element={<Koncerti />} />
                   <Route path="/drustvo-odeon" element={<DrustvoOdeon />} />
                   <Route path="/koncerti/:id" element={<StranKoncerta />} />
+                  <Route path="/koncerti/dodajadminmodule" element={<DodajKoncerte />} />
               </Routes>
           </Router>
       </div>

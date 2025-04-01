@@ -60,4 +60,9 @@ function StranKoncerta() {
     );
 }
 
+
+// {koncert.slike.map((slika, index) => (
+//     <img key={index} src={slika} alt={`Koncert ${koncert.ime}`} />
+// ))}
+
 export default StranKoncerta;
