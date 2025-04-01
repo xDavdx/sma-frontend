@@ -1,4 +1,4 @@
-import zacetnaSlika from "./zacetna-slika.png";
+import zacetnaSlika from "./placeholder.jpg";
 import KontaktForma from "./kontaktForma";
 import { Link } from "react-router-dom";
 import { FaPhoneAlt, FaRegCalendarAlt, FaYoutube, FaFacebook } from "react-icons/fa";
@@ -6,7 +6,6 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { IoIosArrowForward } from "react-icons/io";
 import { RiInstagramFill } from "react-icons/ri";
 import React, { useState, useEffect } from "react";
-import PostaniAbonent from "./postaniAbonent";
 
 
 
@@ -34,21 +33,23 @@ import PostaniAbonent from "./postaniAbonent";
         function formatirajDatum(datum) {
             const meseci = ["januar", "februar", "marec", "april", "maj", "junij", "julij", "avgust", "september", "oktober", "november", "december"];
             const date = new Date(datum);
-            return `${date.getDate()}. ${meseci[date.getMonth()]}`;
+
+            const ure = date.getHours().toString().padStart(2, "0"); // Poskrbi, da je vedno dvomestno (npr. 09 namesto 9)
+            const minute = date.getMinutes().toString().padStart(2, "0"); // Enako za minute
+
+            return `${date.getDate()}. ${meseci[date.getMonth()]} ob ${ure}:${minute}`;
         }
+
 
 
 
 
     return (
         <div className="zacetna-stran">
-            <div className="prva">
-                <div className="center logo-besedilo">
-                    <h1>Slovenski Mladi Abonma</h1>
-                </div>
-                <div className="center">
-                    <div className="prva-desno">
-                        <img src={zacetnaSlika} alt="SMA-skupina" />
+            <div className="zacetna-stran">
+                <div className="prva">
+                    <div className="prva-levo">
+                        <h1>Slovenski Mladi Abonma</h1>
                         <h2>
                             Cikel Slovenski mladi abonma je namenjen promociji mladih glasbenikov in
                             skladateljev, ki v Sloveniji iščejo pot do profesionalne kariere. V
@@ -56,8 +57,12 @@ import PostaniAbonent from "./postaniAbonent";
                             kjer lahko mladi umetniki ustvarjajo lastne projekte.
                         </h2>
                     </div>
+                    <div className="prva-desno">
+                        <img src={zacetnaSlika} alt="SMA-skupina" />
+                    </div>
                 </div>
             </div>
+
 
 
             <div className="prihajajoci-koncerti prih-ozadje">

@@ -41,17 +41,15 @@ const Koncerti = () => {
     const koncertiPoLetih = razvrstiPoLetih(koncerti);
 
     function formatirajDatum(datum) {
-        const meseci = [
-            "januar", "februar", "marec", "april", "maj", "junij",
-            "julij", "avgust", "september", "oktober", "november", "december"
-        ];
-
+        const meseci = ["januar", "februar", "marec", "april", "maj", "junij", "julij", "avgust", "september", "oktober", "november", "december"];
         const date = new Date(datum);
-        const dan = date.getDate();
-        const mesec = date.getMonth();
 
-        return `${dan}. ${meseci[mesec]}`;
+        const ure = date.getHours().toString().padStart(2, "0"); // Poskrbi, da je vedno dvomestno (npr. 09 namesto 9)
+        const minute = date.getMinutes().toString().padStart(2, "0"); // Enako za minute
+
+        return `${date.getDate()}. ${meseci[date.getMonth()]} ob ${ure}:${minute}`;
     }
+
 
     return (
         <div className="koncerti">

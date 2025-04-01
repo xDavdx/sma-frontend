@@ -5,6 +5,7 @@ const DodajKoncerte = () => {
     const [datum, setDatum] = useState("");
     const [vsebina, setVsebina] = useState("");
     const [program, setProgram] = useState("");
+    const [izvajalci, setIzvajalci] = useState("");
     const [cikel, setCikel] = useState("mlada klasika");
     const [slika, setSlika] = useState(null); // Spremljaj slike
 
@@ -17,13 +18,15 @@ const DodajKoncerte = () => {
 
         const formData = new FormData();
         formData.append("ime", ime);
-        formData.append("datum", datum);  // Preveri, da je datum v pravilnem formatu
+        formData.append("datum", datum);
         formData.append("vsebina", vsebina);
         formData.append("program", program);
+        formData.append("izvajalci", izvajalci);
         formData.append("cikel", cikel);
 
+        // Če je slika, jo naloži v Cloudinary
         if (slika) {
-            formData.append("slika", slika);  // Dodaj sliko, če je izbrana
+            formData.append("file", slika);
         }
 
         try {
@@ -43,6 +46,8 @@ const DodajKoncerte = () => {
             alert("Napaka pri pošiljanju podatkov.");
         }
     };
+
+
 
     return (
         <div className="dodaj-koncert">
@@ -71,6 +76,12 @@ const DodajKoncerte = () => {
                     placeholder="Program"
                     value={program}
                     onChange={(e) => setProgram(e.target.value)}
+                    required
+                />
+                <textarea
+                    placeholder="Izvajalci"
+                    value={izvajalci}
+                    onChange={(e) => setIzvajalci(e.target.value)}
                     required
                 />
                 <select value={cikel} onChange={(e) => setCikel(e.target.value)}>
