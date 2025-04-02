@@ -16,7 +16,7 @@ const DrustvoOdeon = () => {
             {/* Uvodni opis */}
             <div className="center">
                 <section className="odeon-content">
-                    <h1>O nas</h1>
+                    <h1>O društvu</h1>
                     <p>
                         Kulturno društvo Odeon je bilo ustanovljeno z namenom ustvarjanja
                         priložnosti in umetniških projektov. Glavni cilj je promocija in
