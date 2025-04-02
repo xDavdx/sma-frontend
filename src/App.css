@@ -370,6 +370,9 @@ img {
               } .karta-tekst h1 {
   margin: 0.3em 0;
                               }
+.karta-zac-stran {
+  background-color: #f2f2f2;
+}
 
 .karta-tekst h5 {
   margin: 0.5em 0;

@@ -73,6 +73,8 @@ import React, { useState, useEffect } from "react";
 
 
 
+
+
             <div className="prihajajoci-koncerti prih-ozadje">
                 <div className="sdfsdf">
                     <div className="prih-koncerti-naslov">
@@ -80,19 +82,19 @@ import React, { useState, useEffect } from "react";
                     </div>
                     <div className="koncert-karta">
                         {razvrsceniKoncerti.map((koncert) => (
-                            <div key={koncert._id} className="karta">
+                            <div key={koncert._id} className="karta karta-zac-stran">
                                 <div className="center karta-slika">
                                     <img src={koncert.slika} alt={koncert.ime} />
                                 </div>
                                 <div className="karta-tekst">
-                                    <h3 style={{ display: "flex", alignItems: "center", color: "#B9D9EA" }}>
+                                    <h3 style={{ display: "flex", alignItems: "center", color: "#8fabba" }}>
                                         <FaRegCalendarAlt style={{ marginRight: "10px" }}/>
                                         {formatirajDatum(koncert.datum)}
                                     </h3>
-                                    <h1>{koncert.ime}</h1>
-                                    <h5 style={{ color: "#B9D9EA" }}>{koncert.vsebina}</h5>
+                                    <h1 style={{ color: "#09283d" }}>{koncert.ime}</h1>
+                                    <h5 style={{ color: "#8fabba" }}>{koncert.vsebina}</h5>
                                     <Link to={`/koncerti/${koncert._id}`}>
-                                        <button className="koncert-gumb">Več o koncertu <IoIosArrowForward className="puscica" /></button>
+                                        <button className="koncert-gumb" style={{ color: "white", backgroundColor: "#09283d" }}>Več o koncertu <IoIosArrowForward className="puscica" /></button>
                                     </Link>
 
                                 </div>
