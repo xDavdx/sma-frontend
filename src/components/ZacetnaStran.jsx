@@ -51,12 +51,20 @@ import React, { useState, useEffect } from "react";
                     <div className="prva-levo">
                         <h1>Slovenski Mladi Abonma</h1>
                         <h2>
-                            Cikel Slovenski mladi abonma je namenjen promociji mladih glasbenikov in
-                            skladateljev, ki v Sloveniji iščejo pot do profesionalne kariere. V
-                            Radovljici želimo ustvariti novo središče za mlado kulturno dogajanje – prostor,
-                            kjer lahko mladi umetniki ustvarjajo lastne projekte.
+                            Slovenski mladi abonma organiziramo mladi glasbeniki, študenti glasbenih akademij po celi Evropi.
                         </h2>
+                        <h2>Abonma je razdeljen na 4 cikle: </h2>
+                        <div className="zamaknjeno-besedilo">
+                            <h2>- Slovenska mlada <em><b>Klasika</b></em></h2>
+                            <h2>- Slovenska mlada <em><b>Kreativa</b></em></h2>
+                            <h2>- Slovenski mladi abonma <em><b>Gostuje</b></em></h2>
+                            <h2>- Glasba mladih <em><b>IV</b></em></h2>
+                        </div>
+                        <Link to={`/o-nas`}>
+                            <button className="koncert-gumb">Več o nas <IoIosArrowForward className="puscica" /></button>
+                        </Link>
                     </div>
+
                     <div className="prva-desno">
                         <img src={zacetnaSlika} alt="SMA-skupina" />
                     </div>

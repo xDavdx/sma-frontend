@@ -56,7 +56,7 @@ const Koncerti = () => {
             {/* Prihajajoči koncerti */}
             <div className="prihajajoci-koncerti ozadje-prih-koncerti">
                 <div className="sdfsdf">
-                    <div className="prih-koncerti-naslov">
+                    <div className="prih-koncerti-naslov prih-koncerti-naslov-bel">
                         <h1>Prihajajoči koncerti</h1>
                     </div>
                     <div className="koncert-karta">
