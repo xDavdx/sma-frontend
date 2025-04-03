@@ -2,57 +2,49 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
+import "./koncerti.css"
 
 const Koncerti = () => {
     const [koncerti, setKoncerti] = useState([]);
 
-
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/koncerti`) // API klic na backend za pridobivanje koncertov
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/koncerti`)
             .then((res) => res.json())
-            .then((data) => {
-                setKoncerti(data); // Shranimo pridobljene koncerte v stanje
-            })
-            .catch((error) => console.error("Napaka pri pridobivanju koncertov:", error)); // Napaka pri pridobivanju
+            .then((data) => setKoncerti(data))
+            .catch((error) => console.error("Napaka pri pridobivanju koncertov:", error));
     }, []);
 
+    const danes = new Date().toISOString().split("T")[0];
 
-    // Filtriraj in sortiraj prihodnje koncerte
-    const danes = new Date().toISOString().split("T")[0]; // Dobimo današnji datum v formatu "YYYY-MM-DD"
+    // Filtriranje prihodnjih in preteklih koncertov
+    const prihodnjiKoncerti = koncerti
+        .filter((koncert) => koncert.datum > danes)
+        .sort((a, b) => new Date(a.datum) - new Date(b.datum));
 
-    const razvrsceniKoncerti = koncerti
-        .filter((koncert) => koncert.datum > danes) // Filtriramo prihodnje koncerte
-        .sort((a, b) => new Date(a.datum) - new Date(b.datum)) // Sortiramo od najbližjega do najbolj oddaljenega
-        .slice(0, 3); // Prikazujemo samo prve 3 prihajajoče koncerte
+    const pretekliKoncerti = koncerti
+        .filter((koncert) => koncert.datum <= danes)
+        .sort((a, b) => new Date(b.datum) - new Date(a.datum)); // Razvrščanje od najbližjega preteklega
 
-    // Funkcija za razvrščanje koncertov po letih
+    // Razvrstitev preteklih koncertov po letih in znotraj let
     const razvrstiPoLetih = (koncerti) => {
         return koncerti.reduce((letoKoncerti, koncert) => {
-            const leto = new Date(koncert.datum).getFullYear(); // Pridobi leto iz datuma
-            if (!letoKoncerti[leto]) {
-                letoKoncerti[leto] = []; // Če leto še ne obstaja, ga dodaj
-            }
-            letoKoncerti[leto].push(koncert); // Dodaj koncert v ustrezno leto
+            const leto = new Date(koncert.datum).getFullYear();
+            if (!letoKoncerti[leto]) letoKoncerti[leto] = [];
+            letoKoncerti[leto].push(koncert);
             return letoKoncerti;
         }, {});
     };
 
-    // Razvrstimo vse koncerte po letih
-    const koncertiPoLetih = razvrstiPoLetih(koncerti);
+    const koncertiPoLetih = razvrstiPoLetih(pretekliKoncerti);
 
     function formatirajDatum(datum) {
         const meseci = ["januar", "februar", "marec", "april", "maj", "junij", "julij", "avgust", "september", "oktober", "november", "december"];
         const date = new Date(datum);
-
-        const ure = date.getHours().toString().padStart(2, "0"); // Poskrbi, da je vedno dvomestno (npr. 09 namesto 9)
-        const minute = date.getMinutes().toString().padStart(2, "0"); // Enako za minute
-
-        return `${date.getDate()}. ${meseci[date.getMonth()]} ob ${ure}:${minute}`;
+        return `${date.getDate()}. ${meseci[date.getMonth()]} ob ${date.getHours().toString().padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`;
     }
 
-
     return (
-        <div className="koncerti">
+        <section className="koncerti">
             {/* Prihajajoči koncerti */}
             <div className="prihajajoci-koncerti ozadje-prih-koncerti">
                 <div className="sdfsdf">
@@ -60,17 +52,16 @@ const Koncerti = () => {
                         <h1>Prihajajoči koncerti</h1>
                     </div>
                     <div className="koncert-karta">
-                        {razvrsceniKoncerti.map((koncert) => (
+                        {prihodnjiKoncerti.slice(0, 3).map((koncert) => (
                             <div key={koncert._id} className="karta">
                                 <div className="center karta-slika">
                                     <img src={koncert.slika} alt={koncert.ime} />
                                 </div>
                                 <div className="karta-tekst">
                                     <h3 style={{ display: "flex", alignItems: "center", color: "#B9D9EA" }}>
-                                        <FaRegCalendarAlt style={{ marginRight: "10px" }}/>
+                                        <FaRegCalendarAlt style={{ marginRight: "10px" }} />
                                         {formatirajDatum(koncert.datum)}
                                     </h3>
-
                                     <h1>{koncert.ime}</h1>
                                     <h5 style={{ color: "#B9D9EA" }}>{koncert.vsebina}</h5>
                                     <Link to={`/koncerti/${koncert._id}`}>
@@ -83,35 +74,70 @@ const Koncerti = () => {
                 </div>
             </div>
 
-            {/* Ostali koncerti - Arhiv koncertov */}
-            <div className="arhiv-koncertov-container">
-                <Link to={"/koncerti/dodajadminmodule"}>Dodaj koncerte</Link>
-                <h2 className="arhiv-koncertov-naslov">Arhiv koncertov</h2>
-                {Object.keys(koncertiPoLetih).sort((a, b) => b - a).map((leto) => ( // Razvrstimo leta od najnovejšega
-                    <div key={leto} className="arhiv-leto-koncerti">
-                        <h3 className="arhiv-leto-naslov">{leto}</h3>
+            <section className="vsi-prihajajoci-koncerti">
+                {/* Sekcija vseh prihodnjih koncertov v arhivu */}
+                {prihodnjiKoncerti.length > 0 && (
+                    <div className="arhiv-leto-koncerti">
+                        <h3 className="arhiv-leto-naslov">Vsi prihajajoči koncerti</h3>
                         <div className="arhiv-koncerti-karta-container">
-                            {koncertiPoLetih[leto].map((koncert) => (
+                            {prihodnjiKoncerti.map((koncert) => (
                                 <div key={koncert._id} className="arhiv-koncert-karta">
                                     <div className="arhiv-karta-slika">
                                         <img src={koncert.slika} alt={koncert.ime} />
                                     </div>
                                     <div className="arhiv-karta-tekst">
-                                        <p><FaRegCalendarAlt />{formatirajDatum(koncert.datum)}</p>
+                                        <p style={{ display: "flex", alignItems: "center", color: "black" }}>
+                                            <FaRegCalendarAlt style={{ marginRight: "10px" }} />
+                                            {formatirajDatum(koncert.datum)}
+                                        </p>
                                         <h3>{koncert.ime}</h3>
                                         <p>{koncert.vsebina}</p>
                                         <Link to={`/koncerti/${koncert._id}`}>
-                                            <button className="koncert-gumb">Več o koncertu <IoIosArrowForward className="puscica" /></button>
+                                            <button className="koncert-gumb arhiv-gumb-barva">Več o koncertu <IoIosArrowForward className="puscica" /></button>
                                         </Link>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
-                ))}
-            </div>
+                )}
+            </section>
 
-        </div>
+            {/* Arhiv koncertov */}
+            <section className="arhiv-koncertov-container">
+                <Link to={"/koncerti/dodajadminmodule"}>Dodaj koncerte</Link>
+                <h2 className="arhiv-koncertov-naslov">Arhiv koncertov</h2>
+
+                {/* Razvrščeni pretekli koncerti po letih */}
+                {Object.keys(koncertiPoLetih).sort((a, b) => b - a).map((leto) => (
+                    <div key={leto} className="arhiv-leto-koncerti">
+                        <h3 className="arhiv-leto-naslov">{leto}</h3>
+                        <div className="arhiv-koncerti-karta-container">
+                            {koncertiPoLetih[leto]
+                                .sort((a, b) => new Date(b.datum) - new Date(a.datum)) // Znotraj leta sortiramo od najbližjega preteklega
+                                .map((koncert) => (
+                                    <div key={koncert._id} className="arhiv-koncert-karta">
+                                        <div className="arhiv-karta-slika">
+                                            <img src={koncert.slika} alt={koncert.ime} />
+                                        </div>
+                                        <div className="arhiv-karta-tekst">
+                                            <p style={{ display: "flex", alignItems: "center", color: "black" }}>
+                                                <FaRegCalendarAlt style={{ marginRight: "10px" }} />
+                                                {formatirajDatum(koncert.datum)}
+                                            </p>
+                                            <h3>{koncert.ime}</h3>
+                                            <p>{koncert.vsebina}</p>
+                                            <Link to={`/koncerti/${koncert._id}`}>
+                                                <button className="koncert-gumb arhiv-gumb-barva">Več o koncertu <IoIosArrowForward className="puscica" /></button>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                ))}
+                        </div>
+                    </div>
+                ))}
+            </section>
+        </section>
     );
 };
 

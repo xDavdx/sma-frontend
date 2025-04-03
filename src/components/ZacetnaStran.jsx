@@ -6,6 +6,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { IoIosArrowForward } from "react-icons/io";
 import { RiInstagramFill } from "react-icons/ri";
 import React, { useState, useEffect } from "react";
+import "./koncerti.css"
 
 
 
