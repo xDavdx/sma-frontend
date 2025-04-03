@@ -43,29 +43,32 @@ function StranKoncerta() {
     }
 
     return (
-        <div className="koncert-stran">
-            <div className="koncert-levo">
-                <Link to="/koncerti">
-                    <button>Nazaj na koncerte</button>
-                </Link>
-                <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
-                    <FaRegCalendarAlt style={{ marginRight: "10px" }}/>
-                    {formatirajDatum(koncert.datum)}
-                </h3>
-                <h1>{koncert.ime}</h1>
-                <img src={koncert.slika} alt={koncert.ime} />
-            </div>
-            <div className="koncert-desno">
-                <h1>O izvajalcih</h1>
-                <p>{koncert.vsebina}</p>
-            </div>
+        <div>
+            <section className="koncert-stran">
+                <div className="koncert-levo">
+                    <Link to="/koncerti">
+                        <button>Nazaj na koncerte</button>
+                    </Link>
+                    <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
+                        <FaRegCalendarAlt style={{ marginRight: "10px" }}/>
+                        {formatirajDatum(koncert.datum)}
+                    </h3>
+                    <h1>{koncert.ime}</h1>
+                    <img src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
+
+                </div>
+                <div className="koncert-desno">
+                    <h1>O izvajalcih</h1>
+                    <p>{koncert.vsebina}</p>
+                </div>
+            </section>
+            {koncert.slike.map((slika, index) => (
+                <img key={index} src={slika} alt={`Koncert ${koncert.ime}`} />
+            ))}
         </div>
     );
 }
 
 
-// {koncert.slike.map((slika, index) => (
-//     <img key={index} src={slika} alt={`Koncert ${koncert.ime}`} />
-// ))}
 
 export default StranKoncerta;

@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useEffect } from 'react';
 import ZacetnaStran from "./components/ZacetnaStran";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -8,13 +9,17 @@ import DrustvoOdeon from "./components/DrustvoOdeon";
 import StranKoncerta from "./components/stranKoncerta";
 import DodajKoncerte from "./components/dodajKoncerte";
 import Onas from "./components/oNas";
+import PoskrolajNavrh from "./components/poskrolajNavrh";
 
 
 function App() {
+
+
   return (
       <div className="App">
           <Router>
               <Navbar />
+              <PoskrolajNavrh />
               <Routes>
                   <Route path="/" element={<ZacetnaStran />} />
                   <Route path="/koncerti" element={<Koncerti />} />

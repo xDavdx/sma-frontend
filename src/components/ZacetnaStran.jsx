@@ -85,7 +85,8 @@ import "./koncerti.css"
                         {razvrsceniKoncerti.map((koncert) => (
                             <div key={koncert._id} className="karta karta-zac-stran">
                                 <div className="center karta-slika">
-                                    <img src={koncert.slika} alt={koncert.ime} />
+                                    <img src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
+
                                 </div>
                                 <div className="karta-tekst">
                                     <h3 style={{ display: "flex", alignItems: "center", color: "#8fabba" }}>

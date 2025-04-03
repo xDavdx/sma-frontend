@@ -55,7 +55,8 @@ const Koncerti = () => {
                         {prihodnjiKoncerti.slice(0, 3).map((koncert) => (
                             <div key={koncert._id} className="karta">
                                 <div className="center karta-slika">
-                                    <img src={koncert.slika} alt={koncert.ime} />
+                                    <img src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
+
                                 </div>
                                 <div className="karta-tekst">
                                     <h3 style={{ display: "flex", alignItems: "center", color: "#B9D9EA" }}>
@@ -83,7 +84,8 @@ const Koncerti = () => {
                             {prihodnjiKoncerti.map((koncert) => (
                                 <div key={koncert._id} className="arhiv-koncert-karta">
                                     <div className="arhiv-karta-slika">
-                                        <img src={koncert.slika} alt={koncert.ime} />
+                                        <img src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
+
                                     </div>
                                     <div className="arhiv-karta-tekst">
                                         <p style={{ display: "flex", alignItems: "center", color: "black" }}>
@@ -118,7 +120,8 @@ const Koncerti = () => {
                                 .map((koncert) => (
                                     <div key={koncert._id} className="arhiv-koncert-karta">
                                         <div className="arhiv-karta-slika">
-                                            <img src={koncert.slika} alt={koncert.ime} />
+                                            <img src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
+
                                         </div>
                                         <div className="arhiv-karta-tekst">
                                             <p style={{ display: "flex", alignItems: "center", color: "black" }}>
