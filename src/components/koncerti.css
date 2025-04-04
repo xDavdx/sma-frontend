@@ -215,7 +215,7 @@ Link {
     }
 
     .arhiv-koncert-karta {
-        padding: 10px;
+        padding: 10px !important;
     }
 
     .arhiv-koncertov-container {
@@ -243,6 +243,7 @@ Link {
     .koncert-gumb {
         font-size: 0.8rem;
         padding: 0.5em;
+        margin-top: 0.6em;
         width: 100%;
     }
 
@@ -264,6 +265,12 @@ Link {
 
     .ozadje-prih-koncerti {
         padding-top: 7em;
+    }
+    .arhiv-karta-tekst h3 {
+        font-size: 1.2rem !important;
+    }
+    .arhiv-karta-tekst p {
+        font-size: 0.8rem !important;
     }
 
     .karta-slika {
