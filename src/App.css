@@ -158,6 +158,10 @@ body.scrolled .navbar {
     height: 50px;
   }
 
+  .kontaktForma {
+    display: none;
+  }
+
   .mobile-menu {
     width: 70%;
   }
@@ -1380,6 +1384,10 @@ img {
     width: 45%;
   }
 
+  .onas-pridruzi {
+    height: 50vh;
+  }
+
   .ekipa-slika {
     width: 7em;
     height: 7em;
@@ -1417,7 +1425,6 @@ img {
   color: white;
   padding: 2em 0;
   text-align: center;
-  margin-top: 2em;
 }
 
 .footer-container {
@@ -1430,7 +1437,7 @@ img {
 }
 
 .footer-logo img {
-  max-width: 200px;
+  max-width: 300px;
   height: auto;
 }
 
@@ -1516,23 +1523,29 @@ img {
     margin-bottom: 1em;
   }
 
-  .footer-links ul {
-    flex-direction: column;
-    margin-bottom: 1em;
+  .footer-links {
+    display: none;
   }
 
-  .footer-links li {
-    margin: 0.5em 0;
+  .footer-spodaj {
+    padding: 0 1em;
   }
-
+  .footer-hr {
+    width: 60%;
+  }
 
   .social-icons-footer {
-    margin-top: 1.5em;
+    margin-top: 0;
   }
 
-  .social-icons-footer a {
-    margin-left: 1em;
+  .footer-contact {
+    margin: 2em 0;
   }
+
+  .social-icons-footer h1 {
+    display: none;
+  }
+
 }
 
 
