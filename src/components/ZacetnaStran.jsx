@@ -9,9 +9,6 @@ import React, { useState, useEffect } from "react";
 import "./koncerti.css"
 
 
-
-
-
     const ZacetnaStran = () => {
         const [koncerti, setKoncerti] = useState([]);
 
@@ -29,7 +26,7 @@ import "./koncerti.css"
         const razvrsceniKoncerti = koncerti
             .filter((koncert) => koncert.datum > danes)
             .sort((a, b) => new Date(a.datum) - new Date(b.datum))
-            .slice(0, 3);
+            .slice(0, 4);
 
         function formatirajDatum(datum) {
             const meseci = ["januar", "februar", "marec", "april", "maj", "junij", "julij", "avgust", "september", "oktober", "november", "december"];

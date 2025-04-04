@@ -643,7 +643,7 @@ img {
   }
 
   .kontakt-levo {
-    display: none;
+    margin-top: 10em;
   }
 
   .kontakt-levo h3 {
@@ -1018,6 +1018,25 @@ img {
     max-width: 320px;
   }
 
+  .odeon-content p {
+    font-size: 0.8rem !important;
+  }
+
+  .odeon-content {
+    max-width: 90vw !important;
+    padding: 0 !important;
+    text-align: justify !important;
+  } .odeon-content h1 {
+    text-align: center !important;
+   }
+
+  .onas-uvod-header-desno p {
+    text-align: justify !important;
+  }
+  .odeon-content h1 {
+    font-size: 2rem !important;
+  }
+
   .abonent-section h2 {
     font-size: 1rem;
   }
@@ -1253,7 +1272,7 @@ img {
 
 /*  Socialne ikone */
 .ekipa-social {
-  margin-top: 12px;
+  margin: 12px 0;
 }
 
 .ekipa-social a {
@@ -1358,11 +1377,35 @@ img {
 
 @media (max-width: 480px) {
   .ekipa-card {
-    width: 90%;
+    width: 45%;
+  }
+
+  .ekipa-slika {
+    width: 7em;
+    height: 7em;
+    margin: 1em auto 15px;
+  }
+  .ekipa-card h3 {
+    font-size: 1.1rem;
+  }
+  .ekipa-card p {
+    font-size: 0.8rem;
   }
 
   .onas-ekipa-grid{
     margin: 0 1rem 0 1rem;
+    gap: 10px;
+  }
+  .onas-ekipa h2 {
+    font-size: 2rem;
+  }
+  .odeon-column p {
+    font-size: 0.9rem !important;
+  }
+  .odeon-activities {
+    margin: 0 !important;
+    padding: 5em 3em !important;
+
   }
 
 }
@@ -1498,6 +1541,8 @@ img {
     text-align: center;
   }
 }
+
+
 
 
 

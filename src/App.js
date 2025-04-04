@@ -10,6 +10,9 @@ import StranKoncerta from "./components/stranKoncerta";
 import DodajKoncerte from "./components/dodajKoncerte";
 import Onas from "./components/oNas";
 import PoskrolajNavrh from "./components/poskrolajNavrh";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 
 function App() {

@@ -7,14 +7,16 @@ const DodajKoncerte = () => {
     const [program, setProgram] = useState("");
     const [izvajalci, setIzvajalci] = useState("");
     const [cikel, setCikel] = useState("mlada klasika");
-    const [slike, setSlike] = useState([]); // Shranimo array izbranih slik
+    const [slike, setSlike] = useState([]);
+    const [seShranjuje, setSeShranjuje] = useState(false); // 👈 Novo stanje
 
     const handleSlikaChange = (e) => {
-        setSlike([...e.target.files]); // Shrani vse izbrane slike v array
+        setSlike([...e.target.files]);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setSeShranjuje(true); // 👈 Pokaži napis
 
         const formData = new FormData();
         formData.append("ime", ime);
@@ -24,7 +26,6 @@ const DodajKoncerte = () => {
         formData.append("izvajalci", izvajalci);
         formData.append("cikel", cikel);
 
-        // Dodamo vse slike v formData
         slike.forEach((slika) => {
             formData.append("slike", slika);
         });
@@ -37,6 +38,8 @@ const DodajKoncerte = () => {
 
             if (response.ok) {
                 alert("Koncert uspešno dodan!");
+                // Po uspešni oddaji lahko resetiraš obrazec, če želiš:
+                // setIme(""); setDatum(""); ...
             } else {
                 const errorResponse = await response.json();
                 alert("Napaka pri dodajanju koncerta: " + errorResponse.message);
@@ -44,6 +47,8 @@ const DodajKoncerte = () => {
         } catch (error) {
             console.error("Napaka pri pošiljanju podatkov:", error);
             alert("Napaka pri pošiljanju podatkov.");
+        } finally {
+            setSeShranjuje(false); // 👈 Skrij napis
         }
     };
 
@@ -51,11 +56,14 @@ const DodajKoncerte = () => {
         <div>
             <div className="dodaj-koncert">
                 <h2>Dodaj Koncert</h2>
+
+                {seShranjuje && <p style={{ color: "green", fontWeight: "bold" }}>Evo koncert se shranjuje...</p>}
+
                 <div className="legend-container">
                     <h3 className="legend-title">Legenda za dodajanje :)</h3>
                     <ol className="legend-list">
                         <li className="legend-text">
-                            <ul> <br/>
+                            <ul><br />
                                 <li>
                                     Pri programu: vse skladbe ločiš z <b className="highlight">podčrtajem (;)</b> in skladbo od avtorja z <b className="highlight">vejico (,)</b>
                                 </li>
@@ -65,7 +73,7 @@ const DodajKoncerte = () => {
                             </ul>
                         </li>
                         <li className="legend-text">
-                            <ul> <br/>
+                            <ul><br />
                                 <li>
                                     Pri izvajalcih: imena izvajalcev ločiš z <b className="highlight">vejico (,)</b>
                                 </li>
@@ -75,16 +83,14 @@ const DodajKoncerte = () => {
                             </ul>
                         </li>
                         <li className="legend-text">
-                            <ul> <br/>
+                            <ul><br />
                                 <li>
                                     Pri slikah: Dodaš lahko <b className="highlight">do 10 slik</b>, v formatih <b className="highlight">JPG, JPEG, PNG</b>
                                 </li>
                             </ul>
-                            </li>
+                        </li>
                     </ol>
                 </div>
-
-
 
                 <form onSubmit={handleSubmit}>
                     <input type="text" placeholder="Ime" value={ime} onChange={(e) => setIme(e.target.value)} required />
@@ -100,7 +106,6 @@ const DodajKoncerte = () => {
                         <option value="gostuje">Gostuje</option>
                     </select>
 
-                    {/* Omogočimo izbiro več slik */}
                     <input type="file" multiple onChange={handleSlikaChange} />
 
                     <button type="submit">Shrani koncert</button>
