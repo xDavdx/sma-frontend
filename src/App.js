@@ -12,6 +12,7 @@ import Onas from "./components/oNas";
 import PoskrolajNavrh from "./components/poskrolajNavrh";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Footer from "./components/footer";
 
 
 
@@ -30,8 +31,8 @@ function App() {
                   <Route path="/koncerti/:id" element={<StranKoncerta />} />
                   <Route path="/koncerti/dodajadminmodule" element={<DodajKoncerte />} />
                   <Route path="/o-nas" element={<Onas />} />
-
               </Routes>
+              <Footer />
           </Router>
       </div>
   );

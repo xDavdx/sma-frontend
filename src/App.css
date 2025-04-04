@@ -1411,6 +1411,132 @@ img {
 }
 
 
+/* Footer */
+.footer {
+  background-color: rgba(9, 40, 61);
+  color: white;
+  padding: 2em 0;
+  text-align: center;
+  margin-top: 2em;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+.footer-logo img {
+  max-width: 200px;
+  height: auto;
+}
+
+.footer-links ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-links li {
+  margin: 0 1em;
+}
+
+.footer-links a {
+  color: white;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #f2f2f2;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-info p {
+  margin: 1em;
+}
+
+.contact-info p a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #90C0D3;
+} .contact-info p a:hover {
+  color: #B9D9EA;
+  }
+
+
+.social-icons-footer {
+  margin-top: 1em;
+}
+.social-icons-footer h1 {
+  margin: 0.5em 0;
+}
+
+.social-icons-footer a {
+  color: #90C0D3;
+  font-size: 1.5rem;
+  margin: 1em 0.5em;
+  transition: color 0.3s ease;
+}
+
+.social-icons-footer a:hover {
+  color: #B9D9EA;
+}
+
+.footer-spodaj {
+  margin-top: 2em;
+  flex-direction: column;
+} .footer-spodaj p {
+  margin-top: 1em;
+  }
+
+.footer-hr {
+  width: 40%;
+  border: 1px solid #8fabba;
+}
+
+/* Responsivnost */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    margin-bottom: 1em;
+  }
+
+  .footer-links ul {
+    flex-direction: column;
+    margin-bottom: 1em;
+  }
+
+  .footer-links li {
+    margin: 0.5em 0;
+  }
+
+
+  .social-icons-footer {
+    margin-top: 1.5em;
+  }
+
+  .social-icons-footer a {
+    margin-left: 1em;
+  }
+}
+
+
+
 
 
 
