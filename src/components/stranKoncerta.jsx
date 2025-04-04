@@ -1,11 +1,11 @@
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import koledar from "./calendar.png";
-import React from "react";
-import {FaRegCalendarAlt} from "react-icons/fa";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
+import { FaRegCalendarAlt } from "react-icons/fa";
 
 function StranKoncerta() {
-    const { id } = useParams(); // Dobi ID iz URL-ja
+    const { id } = useParams();
     const [koncert, setKoncert] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -32,13 +32,16 @@ function StranKoncerta() {
     if (loading) return <h2>Nalaganje...</h2>;
     if (error) return <h2>{error}</h2>;
 
+    const images = koncert.slike.map((slika) => ({
+        original: slika,
+        thumbnail: slika,
+    }));
+
     function formatirajDatum(datum) {
         const meseci = ["januar", "februar", "marec", "april", "maj", "junij", "julij", "avgust", "september", "oktober", "november", "december"];
         const date = new Date(datum);
-
-        const ure = date.getHours().toString().padStart(2, "0"); // Poskrbi, da je vedno dvomestno (npr. 09 namesto 9)
-        const minute = date.getMinutes().toString().padStart(2, "0"); // Enako za minute
-
+        const ure = date.getHours().toString().padStart(2, "0");
+        const minute = date.getMinutes().toString().padStart(2, "0");
         return `${date.getDate()}. ${meseci[date.getMonth()]} ob ${ure}:${minute}`;
     }
 
@@ -50,11 +53,17 @@ function StranKoncerta() {
                         <button>Nazaj na koncerte</button>
                     </Link>
                     <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
-                        <FaRegCalendarAlt style={{ marginRight: "10px" }}/>
+                        <FaRegCalendarAlt style={{ marginRight: "10px" }} />
                         {formatirajDatum(koncert.datum)}
                     </h3>
                     <h1>{koncert.ime}</h1>
-                    <img src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
+                    <ImageGallery
+                        items={images}
+                        showPlayButton={false}
+                        autoPlay={true}
+                        slideInterval={4000}
+                        showFullscreenButton={false}
+                    />
 
                 </div>
                 <div className="koncert-desno">
@@ -62,13 +71,8 @@ function StranKoncerta() {
                     <p>{koncert.vsebina}</p>
                 </div>
             </section>
-            {koncert.slike.map((slika, index) => (
-                <img key={index} src={slika} alt={`Koncert ${koncert.ime}`} />
-            ))}
         </div>
     );
 }
-
-
 
 export default StranKoncerta;

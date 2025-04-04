@@ -370,17 +370,25 @@ img {
 }
 
 .koncert-levo button {
-  padding: 10px 20px;
-  background-color: #09283D;
   color: white;
   border: none;
+  object-fit: cover;
   cursor: pointer;
+  padding: 0;
+  align-items: center;
   transition: background-color 0.3s ease;
 }
 
-.koncert-levo button:hover {
-  background-color: #4C7F93; /* Zasenčena barva na hover */
+.koncert-levo button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  margin: 0;
+  border-radius: 6px;        /* če hočeš zaobljen rob */
 }
+
+
 
 .koncert-levo p {
   font-size: 1.2em;
@@ -1682,6 +1690,195 @@ img {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Stil za koncerte in slike */
+.koncert-slike {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-image {
+  width: 80%;
+  max-width: 800px;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.other-images {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 800px;
+  gap: 10px;
+}
+
+.small-image {
+  width: 48%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Responsivnost */
+@media (max-width: 768px) {
+  .koncert-slike {
+    flex-direction: column;
+  }
+
+  .main-image {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .other-images {
+    flex-direction: column;
+  }
+
+  .small-image {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+
+
+
+/* Glavni wrapper */
+.image-gallery {
+  max-width: 800px;
+  margin: 2em auto;
+  font-family: inherit;
+}
+
+/* Glavna slika */
+.image-gallery-slide .image-gallery-image {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+
+/* Wrapper za thumbnaile */
+.image-gallery-thumbnails-wrapper {
+  display: flex !important;
+  justify-content: center;
+  overflow: hidden;
+  max-height: 90px;
+  margin-top: 1em;
+}
+
+/* Thumbnaili */
+.image-gallery-thumbnails {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+/* Samo prvi dve thumb sliki */
+.image-gallery-thumbnail:nth-child(n+4) {
+  display: none !important;
+}
+
+/* Thumbnail slika – ne bo odrezana */
+.image-gallery-thumbnail {
+  width: 100px !important;
+  height: 60px !important;
+  overflow: hidden;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.image-gallery-thumbnail img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* Navigacijski gumbi - modern kvadratni */
+.image-gallery-left-nav,
+.image-gallery-right-nav {
+  background-color: #d0e6f5 !important;
+  color: #1d4d6d !important;
+  border-radius: 4px !important;
+  padding: 6px 10px !important;
+  font-size: 18px !important;
+  top: 45% !important;
+  transform: translateY(-50%);
+  transition: 0.3s ease;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pozicija - levo/desno */
+.image-gallery-left-nav {
+  left: 10px;
+}
+
+.image-gallery-right-nav {
+  right: 10px;
+}
+
+/* Skrije play/fullscreen gumbe */
+.image-gallery-play-button,
+.image-gallery-fullscreen-button {
+  display: none !important;
+}
+
+/* Na hover malo temnejše */
+.image-gallery-left-nav:hover,
+.image-gallery-right-nav:hover {
+  background-color: #a4cce6 !important;
+  color: #0b2c45 !important;
+}
+
+/* Responsive za telefone */
+@media (max-width: 600px) {
+  .image-gallery-slide .image-gallery-image {
+    max-height: 250px;
+  }
+
+  .image-gallery-thumbnail {
+    width: 80px !important;
+    height: 50px !important;
+  }
+
+  .image-gallery-left-nav,
+  .image-gallery-right-nav {
+    width: 30px;
+    height: 30px;
+    font-size: 14px !important;
+  }
+}
 
 
 
