@@ -57,8 +57,6 @@ const DodajKoncerte = () => {
             <div className="dodaj-koncert">
                 <h2>Dodaj Koncert</h2>
 
-                {seShranjuje && <p style={{ color: "green", fontWeight: "bold" }}>Evo koncert se shranjuje...</p>}
-
                 <div className="legend-container">
                     <h3 className="legend-title">Legenda za dodajanje :)</h3>
                     <ol className="legend-list">
@@ -107,7 +105,7 @@ const DodajKoncerte = () => {
                     </select>
 
                     <input type="file" multiple onChange={handleSlikaChange} />
-
+                    {seShranjuje && <h3 style={{ color: "green", fontWeight: "bold" }}>Evo koncert se shranjuje :D...</h3>}
                     <button type="submit">Shrani koncert</button>
                 </form>
             </div>
