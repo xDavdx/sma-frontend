@@ -214,12 +214,20 @@ Link {
         top: -1.5em;
     }
 
+    .arhiv-koncert-karta {
+        padding: 10px;
+    }
+
+    .arhiv-koncertov-container {
+        padding: 0 !important;
+    }
+
     .prih-koncerti-naslov {
         padding: 0.8em;
     }
 
     .karta {
-        width: 90vw;
+        width: 45vw;
         padding: 0.8em;
     }
 
@@ -235,7 +243,35 @@ Link {
     .koncert-gumb {
         font-size: 0.8rem;
         padding: 0.5em;
-        width: 80%;
+        width: 100%;
+    }
+
+    .arhiv-koncerti-karta-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
+        margin-top: 20px;
+        padding: 1em;
+    }
+
+    .koncert-karta {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
+        margin-top: 1em;
+        padding: 1em;
+    }
+
+    .ozadje-prih-koncerti {
+        padding-top: 7em;
+    }
+
+    .karta-slika {
+        height: auto;
+    }
+
+    .vsi-prihajajoci-koncerti  {
+        padding: 0 !important;
     }
 }
 
@@ -243,10 +279,6 @@ Link {
 @media (max-width: 768px) {
     .arhiv-koncerti-karta-container {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-
-    .arhiv-koncert-karta {
-        padding: 10px;
     }
 
     .arhiv-karta-slika img {
