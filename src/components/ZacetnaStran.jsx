@@ -51,15 +51,15 @@ import "./koncerti.css"
                         <h2>
                             Slovenski mladi abonma organiziramo mladi glasbeniki, študenti glasbenih akademij po celi Evropi.
                         </h2>
-                        <h2>Abonma je razdeljen na 4 cikle: </h2>
-                        <div className="zamaknjeno-besedilo">
-                            <h2>- Slovenska mlada <em><b>Klasika</b></em></h2>
-                            <h2>- Slovenska mlada <em><b>Kreativa</b></em></h2>
-                            <h2>- Slovenski mladi abonma <em><b>Gostuje</b></em></h2>
-                            <h2>- Glasba mladih <em><b>IV</b></em></h2>
-                        </div>
+                        {/*<h2>Abonma je razdeljen na 4 cikle: </h2>*/}
+                        {/*<div className="zamaknjeno-besedilo">*/}
+                        {/*    <h2>- Slovenska mlada <em><b>Klasika</b></em></h2>*/}
+                        {/*    <h2>- Slovenska mlada <em><b>Kreativa</b></em></h2>*/}
+                        {/*    <h2>- Slovenski mladi abonma <em><b>Gostuje</b></em></h2>*/}
+                        {/*    <h2>- Glasba mladih <em><b>IV</b></em></h2>*/}
+                        {/*</div>*/}
                         <Link to={`/o-nas`}>
-                            <button className="koncert-gumb">Več o nas <IoIosArrowForward className="puscica" /></button>
+                            <button className="koncert-gumb vec-o-nas">Več o nas <IoIosArrowForward className="puscica" /></button>
                         </Link>
                     </div>
 

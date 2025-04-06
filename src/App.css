@@ -159,6 +159,7 @@ body.scrolled .navbar {
     height: 50px;
   }
 
+
   .kontaktForma {
     display: none;
   }
@@ -1911,27 +1912,52 @@ img {
 .array-program {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0; /* brez razmika, ker hočeš da se stikajo */
-  margin-top: 1rem;
   border-top: 1px dashed #ccc;
   border-left: 1px dashed #ccc;
 }
 
-.array-program h3 {
+.program-item {
   padding: 0.75rem;
-  background-color: #fafafa;
-  font-weight: 500;
-  font-size: 1rem;
-  text-align: center;
   border-right: 1px dashed #ccc;
   border-bottom: 1px dashed #ccc;
+  background-color: #fafafa;
 }
+
+.program-item h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.program-item h4 {
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-top: 0.25rem;
+  color: #555;
+}
+
 
 
 .zac-stran-novice {
   background-color: #f8f9fa;
 }
 
+
+
+
+.vec-o-nas {
+  margin-top: 1em;
+  width: 13vw !important;
+  color: #2c3e50 !important;
+  background-color: #B9D9EA !important;
+}
+
+@media (max-width: 480px) {
+  .vec-o-nas {
+    width: 100% !important;
+    margin-bottom: 3em !important;
+  }
+}
 
 
 
