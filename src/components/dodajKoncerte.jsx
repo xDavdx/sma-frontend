@@ -65,27 +65,27 @@ const DodajKoncerte = () => {
                         <li className="legend-text">
                             <ul><br />
                                 <li>
-                                    Pri programu: vse skladbe ločiš z <b className="highlight">podčrtajem (;)</b> in skladbo od avtorja z <b className="highlight">vejico (,)</b>
+                                    <b>Pri programu:</b> vse skladbe ločiš z <b className="highlight">podčrtajem (;)</b> in skladbo od avtorja z <b className="highlight">vejico (,)</b>
                                 </li>
                                 <li>
-                                    Primer: <i className="example-text">Der Musikant<b className="highlight">,</b> Joseph von Eichendorff<b className="highlight">;</b> Fußreise<b className="highlight">,</b> Eduard Mörike<b className="highlight">;</b> ...</i>
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="legend-text">
-                            <ul><br />
-                                <li>
-                                    Pri izvajalcih: imena izvajalcev ločiš z <b className="highlight">vejico (,)</b>
-                                </li>
-                                <li>
-                                    Primer: <i className="example-text">Timotej Willewaldt<b className="highlight">,</b> Janez Novak<b className="highlight">,</b> ...</i>
+                                    <b>Primer:</b> <i className="example-text">Der Musikant<b className="highlight">,</b> Joseph von Eichendorff<b className="highlight">;</b> Fußreise<b className="highlight">,</b> Eduard Mörike<b className="highlight">;</b> ...</i>
                                 </li>
                             </ul>
                         </li>
                         <li className="legend-text">
                             <ul><br />
                                 <li>
-                                    Pri slikah: Dodaš lahko <b className="highlight">do 10 slik</b>, v formatih <b className="highlight">JPG, JPEG, PNG</b>
+                                    <b>Pri izvajalcih:</b>  imena izvajalcev ločiš z <b className="highlight">vejico (,)</b>
+                                </li>
+                                <li>
+                                    <b>Primer:</b> <i className="example-text">Timotej Willewaldt<b className="highlight">,</b> Janez Novak<b className="highlight">,</b> ...</i>
+                                </li>
+                            </ul>
+                        </li>
+                        <li className="legend-text">
+                            <ul><br />
+                                <li>
+                                    <b>Pri slikah:</b> Dodaš lahko <b className="highlight">do 10 slik</b>, v formatih <b className="highlight">JPG, JPEG, PNG</b>
                                 </li>
                             </ul>
                         </li>
