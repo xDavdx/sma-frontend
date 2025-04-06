@@ -47,13 +47,13 @@ function StranKoncerta() {
 
     return (
         <div>
-            <section className="koncert-stran">
+            <section className="koncert-stran center">
                 <div className="koncert-levo">
                     <Link to="/koncerti">
                         <button>Nazaj na koncerte</button>
                     </Link>
                     <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
-                        <FaRegCalendarAlt style={{ marginRight: "10px" }} />
+                        <FaRegCalendarAlt style={{ marginRight: "10px", fontWeight: "300" }} />
                         {formatirajDatum(koncert.datum)}
                     </h3>
                     <h1>{koncert.ime}</h1>
@@ -69,6 +69,19 @@ function StranKoncerta() {
                 <div className="koncert-desno">
                     <h1>O izvajalcih</h1>
                     <p>{koncert.vsebina}</p>
+                </div>
+            </section>
+
+
+
+            <section className="center koncert-program">
+                <div>
+                    <h1>Program</h1>
+                    <div className="array-program">
+                        {koncert.program.map((item, index) => (
+                            <h3 key={index}>{item}</h3>
+                        ))}
+                    </div>
                 </div>
             </section>
         </div>

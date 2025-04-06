@@ -68,6 +68,12 @@ const ONas = () => {
                             <h1>Postani del ekipe!</h1>
                             <h3>
                                 <a href="tel:+38631726060">
+                                    Vedno iščemo mlade, ki si želijo tudi izkušenj v organizacijskih vodah! Če vas zanima, nam pišite ali nas kontaktirajte preko družabnih omrežij!
+                                </a>
+                            </h3>
+                            <h1>Kontakt:</h1>
+                            <h3>
+                                <a href="tel:+38631726060">
                                     <FaPhoneAlt /> +386 31 726 060
                                 </a>
                             </h3>
@@ -76,9 +82,6 @@ const ONas = () => {
                                     <MdOutlineMailOutline /> mladi.abonma@gmail.com
                                 </a>
                             </h3>
-
-
-                            <h1>Socialna omrežja:</h1>
                             <div className="social-icons">
                                 <a href=""><FaYoutube /></a>
                                 <a href=""><RiInstagramFill /></a>
@@ -90,7 +93,7 @@ const ONas = () => {
 
 
                     <div className="kontakt-desno center kld">
-                        {/*<KontaktForma />*/}
+                        <KontaktForma />
 
                     </div>
                 </div>

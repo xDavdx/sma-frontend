@@ -12,6 +12,7 @@
 
 body {
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 
@@ -689,6 +690,26 @@ img {
 @media (max-width: 480px) {
   .kontakt {
     padding: 1rem;
+  }
+
+  .koncert-stran {
+    flex-direction: column;
+    padding: 8px;
+    max-width: 90vw;
+    overflow: hidden;
+  }
+
+  .koncert-levo {
+    gap: 10px;
+    max-width: 100vw;
+  }
+
+  .image-gallery {
+    margin: 1em 0 !important;
+    max-width: 50vw !important;
+    width: 80vw;
+    display: contents;
+    align-items: center;
   }
 
   .kontakt-levo h1 {
@@ -1879,6 +1900,34 @@ img {
     font-size: 14px !important;
   }
 }
+
+
+
+
+
+
+
+
+.array-program {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0; /* brez razmika, ker hočeš da se stikajo */
+  margin-top: 1rem;
+  border-top: 1px dashed #ccc;
+  border-left: 1px dashed #ccc;
+}
+
+.array-program h3 {
+  padding: 0.75rem;
+  background-color: #fafafa;
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: center;
+  border-right: 1px dashed #ccc;
+  border-bottom: 1px dashed #ccc;
+}
+
+
 
 
 

@@ -63,6 +63,7 @@ const Koncerti = () => {
                             <div key={koncert._id} className="karta">
                                 <div className="center karta-slika">
                                     <img src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
+                                    <p className="tekst-nad-sliko">{koncert.cikel}</p>
                                 </div>
                                 <div className="karta-tekst">
                                     <h3 style={{ display: "flex", alignItems: "center", color: "#B9D9EA" }}>
@@ -100,6 +101,7 @@ const Koncerti = () => {
                                     <div key={koncert._id} className="arhiv-koncert-karta">
                                         <div className="arhiv-karta-slika">
                                             <img src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
+                                            <p className="tekst-nad-sliko">{koncert.cikel}</p>
                                         </div>
                                         <div className="arhiv-karta-tekst">
                                             <p style={{ display: "flex", alignItems: "center", color: "black" }}>

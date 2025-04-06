@@ -43,7 +43,6 @@ function KontaktForma() {
                     required
                 />
                 <button type="submit">Pošlji</button>
-                <p>*Obrazec bo poslal vnesene podatke na naš kontaktni naslov. Podatke potrebujemo, da vas lahko dodamo na mailing listo. Vaših podatkov ne posredujemo tretjim osebam. Če želite naknadni izbris vaših podatkov iz naše baze prejetih e-pošt, stopite v stik preko kontaktnih podatkov.</p>
             </form>
         </div>
     );
