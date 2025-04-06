@@ -1950,7 +1950,9 @@ img {
   width: 13vw !important;
   color: #2c3e50 !important;
   background-color: #B9D9EA !important;
-}
+} .vec-o-nas:hover {
+  background-color: #a0c7dc !important;
+  }
 
 @media (max-width: 480px) {
   .vec-o-nas {
