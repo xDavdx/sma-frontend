@@ -140,6 +140,15 @@ import "./koncerti.css"
 
 
 
+
+
+            <section className="zac-stran-novice">
+                <h1 className="center">Novice</h1>
+            </section>
+
+
+
+
         </div>
     );
 };

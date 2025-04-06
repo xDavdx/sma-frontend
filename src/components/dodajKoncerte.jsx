@@ -3,6 +3,7 @@ import { useState } from "react";
 const DodajKoncerte = () => {
     const [ime, setIme] = useState("");
     const [datum, setDatum] = useState("");
+    const [lokacija, setLokacija] = useState("");
     const [vsebina, setVsebina] = useState("");
     const [program, setProgram] = useState("");
     const [izvajalci, setIzvajalci] = useState("");
@@ -21,6 +22,7 @@ const DodajKoncerte = () => {
         const formData = new FormData();
         formData.append("ime", ime);
         formData.append("datum", datum);
+        formData.append("lokacija", lokacija);
         formData.append("vsebina", vsebina);
         formData.append("program", program);
         formData.append("izvajalci", izvajalci);
@@ -93,6 +95,7 @@ const DodajKoncerte = () => {
                 <form onSubmit={handleSubmit}>
                     <input type="text" placeholder="Ime" value={ime} onChange={(e) => setIme(e.target.value)} required />
                     <input type="datetime-local" value={datum} onChange={(e) => setDatum(e.target.value)} required />
+                    <textarea placeholder="Lokacija" value={lokacija} onChange={(e) => setLokacija(e.target.value)} required />
                     <textarea placeholder="Vsebina" value={vsebina} onChange={(e) => setVsebina(e.target.value)} required />
                     <textarea placeholder="Program (upoštevaj ločitve!!)" value={program} onChange={(e) => setProgram(e.target.value)} required />
                     <textarea placeholder="Izvajalci (upoštevaj ločitve!!)" value={izvajalci} onChange={(e) => setIzvajalci(e.target.value)} required />
