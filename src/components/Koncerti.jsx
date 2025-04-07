@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
+import { FaLocationDot } from "react-icons/fa6";
 import "./koncerti.css";
 
 const Koncerti = () => {
@@ -43,7 +44,7 @@ const Koncerti = () => {
         return `${date.getDate()}. ${meseci[date.getMonth()]} ob ${date.getHours().toString().padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`;
     }
 
-    function prikaziKrajseBesedilo(besedilo, steviloBesed = 12) {
+    function prikaziKrajseBesedilo(besedilo, steviloBesed = 10) {
         const besede = besedilo.split(" ");
         if (besede.length <= steviloBesed) return besedilo;
         return besede.slice(0, steviloBesed).join(" ") + "...";
@@ -69,6 +70,10 @@ const Koncerti = () => {
                                     <h3 style={{ display: "flex", alignItems: "center", color: "#B9D9EA" }}>
                                         <FaRegCalendarAlt style={{ marginRight: "10px" }} />
                                         {formatirajDatum(koncert.datum)}
+                                    </h3>
+                                    <h3 style={{ display: "flex", alignItems: "center", color: "#B9D9EA", fontSize: "12pt" }}>
+                                        <FaLocationDot style={{ marginRight: "10px" }} />
+                                        {koncert.lokacija}
                                     </h3>
                                     <h1>{koncert.ime}</h1>
                                     <h5 style={{ color: "#B9D9EA" }}>{prikaziKrajseBesedilo(koncert.vsebina)}</h5>
@@ -108,6 +113,10 @@ const Koncerti = () => {
                                                 <FaRegCalendarAlt style={{ marginRight: "10px" }} />
                                                 {formatirajDatum(koncert.datum)}
                                             </p>
+                                            <p style={{ display: "flex", alignItems: "center", color: "black" }}>
+                                                <FaLocationDot style={{ marginRight: "10px" }} />
+                                                {koncert.lokacija}
+                                            </p>
                                             <h3>{koncert.ime}</h3>
                                             <p>{prikaziKrajseBesedilo(koncert.vsebina)}</p>
                                             <Link to={`/koncerti/${koncert._id}`}>
@@ -128,7 +137,7 @@ const Koncerti = () => {
                                         }
                                         className="koncert-gumb-vec"
                                     >
-                                        Prikaži več
+                                        Prikaži več >
                                     </button>
                                 </div>
                             )}

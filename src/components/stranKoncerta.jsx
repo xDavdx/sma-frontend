@@ -3,6 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+
 
 function StranKoncerta() {
     const { id } = useParams();
@@ -29,7 +31,7 @@ function StranKoncerta() {
             });
     }, [id]);
 
-    if (loading) return <h2>Nalaganje...</h2>;
+    if (loading) return <h2 style={{ marginTop: "8em" }}>Nalaganje...</h2>;
     if (error) return <h2>{error}</h2>;
 
     const images = koncert.slike.map((slika) => ({
@@ -45,16 +47,24 @@ function StranKoncerta() {
         return `${date.getDate()}. ${meseci[date.getMonth()]} ob ${ure}:${minute}`;
     }
 
+
+
+
+
     return (
         <div>
             <section className="koncert-stran center">
                 <div className="koncert-levo">
-                    <Link to="/koncerti">
-                        <button>Nazaj na koncerte</button>
+                    <Link to="/koncerti" className="gumb-nazaj-na-koncerte">
+                        <button className="gumb-nazaj-na-koncerte">Nazaj na koncerte</button>
                     </Link>
                     <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
                         <FaRegCalendarAlt style={{ marginRight: "10px", fontWeight: "300" }} />
                         {formatirajDatum(koncert.datum)}
+                    </h3>
+                    <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
+                        <FaLocationDot style={{ marginRight: "10px", fontWeight: "300" }} />
+                        {koncert.lokacija}
                     </h3>
                     <h1>{koncert.ime}</h1>
                     <ImageGallery
@@ -67,7 +77,13 @@ function StranKoncerta() {
 
                 </div>
                 <div className="koncert-desno">
-                    <h1>O izvajalcih</h1>
+                    <h1>Izvajalci:</h1>
+                    <div className="array-izvajalci">
+                        {koncert.izvajalci.map((item, index) => (
+                            <p key={index}>{item}</p>
+                        ))}
+                    </div>
+                    <h1>O koncertu</h1>
                     <p>{koncert.vsebina}</p>
                 </div>
             </section>
@@ -84,6 +100,50 @@ function StranKoncerta() {
                     </div>
                 </div>
             </section>
+
+
+
+            <section className="rezervacija-vstopnic center">
+                <div className="rezervacija-vstopnic-levo">
+                    <h1>Rezervacija vstopnic</h1>
+                    <form className="rezervacija-vstopnic-form">
+                        <input
+                            type="text"
+                            placeholder="Ime in priimek"
+                            // value={name}
+                            // onChange={(e) => setName(e.target.value)}
+                            required
+                        />
+                        <input
+                            type="email"
+                            placeholder="E-mail"
+                            // value={name}
+                            // onChange={(e) => setName(e.target.value)}
+                            required
+                        />
+                        <input
+                            type="number"
+                            placeholder="Število vstopnic"
+                            className="input-st-kart"
+                            // value={name}
+                            // onChange={(e) => setName(e.target.value)}
+                            required
+                        />
+                    </form>
+                </div>
+                <div className="rezervacija-vstopnic-desno">
+                    <h1>Podrobnosti koncerta</h1>
+                    <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
+                        <FaRegCalendarAlt style={{ marginRight: "10px", fontWeight: "300" }} />
+                        {formatirajDatum(koncert.datum)}
+                    </h3>
+                    <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
+                        <FaLocationDot style={{ marginRight: "10px", fontWeight: "300" }} />
+                        {koncert.lokacija}
+                    </h3>
+                </div>
+            </section>
+
         </div>
     );
 }

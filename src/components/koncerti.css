@@ -490,3 +490,129 @@ a {
     background-color: unset;
   }
 
+  .koncert-gumb-vec {
+      padding: 15px 20px;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      background-color: unset;
+      border: 1px solid #4C7F93;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+      transition: 300ms;
+  }
+  .koncert-gumb-vec:hover {
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .vsebina-koncert-stran {
+      margin: 2em 10em;
+  } .vsebina-koncert-stran h1 {
+        font-size: 2em;
+    margin-bottom: 20px;
+      } .vsebina-koncert-stran p {
+                  font-size: 1.1em;
+                  line-height: 1.6;
+              }
+
+        @media (max-width: 480px) {
+            .vsebina-koncert-stran {
+                margin: 2em 2em;
+            }
+        }
+
+.koncert-levo p {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.koncert-levo h1 {
+    font-size: 2em;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.koncert-levo img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    align-self: flex-start; /* Poravnaj sliko z začetkom vsebine */
+}
+
+.koncert-desno {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.koncert-desno h1 {
+    font-size: 2em;
+    margin-bottom: -15px;
+}
+
+.koncert-desno p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.koncert-desno img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.koncert-program {
+    background-color: #1c5677;
+    color: white;
+    min-height: 70vh;
+    padding: 2em;
+}
+
+.gumb-nazaj-na-koncerte {
+    padding: 10px;
+    background-color: #2c3e50;
+    color: #B9D9EA !important;
+    border-radius: 10px;
+}
+
+
+.rezervacija-vstopnic {
+    display: flex;
+    padding: 4em 5em;
+    background-color: #f8f9fa;
+}
+.rezervacija-vstopnic-levo {
+    flex: 1;
+}
+.rezervacija-vstopnic-desno {
+    flex: 1;
+}
+
+.rezervacija-vstopnic-form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 1em;
+}
+.rezervacija-vstopnic-form input {
+    padding: 1em;
+    border: none;
+    border-bottom: 1px solid #2c3e50;
+    background-color: unset;
+    margin: 0.5em;
+}
+
+.array-program {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+.input-st-kart {
+    width: 30%;
+}
+.array-program h3 {
+    padding: 1em;
+    margin: 2em;
+    border-bottom: 2px solid #4C7F93;
+}

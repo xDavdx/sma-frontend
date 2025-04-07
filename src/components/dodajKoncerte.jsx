@@ -108,7 +108,7 @@ const DodajKoncerte = () => {
                     </select>
 
                     <input type="file" multiple onChange={handleSlikaChange} />
-                    {seShranjuje && <h3 style={{ color: "green", fontWeight: "bold" }}>Evo koncert se shranjuje :D...</h3>}
+                    {seShranjuje && <h3 style={{ color: "green", fontWeight: "bold" }}>Evo se shranjuje :D...</h3>}
                     <button type="submit">Shrani koncert</button>
                 </form>
             </div>
