@@ -7,6 +7,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { RiInstagramFill } from "react-icons/ri";
 import React, { useState, useEffect } from "react";
 import "./koncerti.css"
+import { FaLocationDot } from "react-icons/fa6";
 
 
     const ZacetnaStran = () => {
@@ -95,6 +96,10 @@ import "./koncerti.css"
                                     <h3 style={{ display: "flex", alignItems: "center", color: "#8fabba" }}>
                                         <FaRegCalendarAlt style={{ marginRight: "10px" }}/>
                                         {formatirajDatum(koncert.datum)}
+                                    </h3>
+                                    <h3 style={{ display: "flex", alignItems: "center", color: "#8fabba" }}>
+                                        <FaLocationDot style={{ marginRight: "10px" }}/>
+                                        {formatirajDatum(koncert.lokacija)}
                                     </h3>
                                     <h1 style={{ color: "#09283d" }}>{koncert.ime}</h1>
                                     <h5 style={{ color: "#8fabba" }}>{prikaziKrajseBesedilo(koncert.vsebina)}</h5>

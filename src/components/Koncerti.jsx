@@ -73,7 +73,7 @@ const Koncerti = () => {
                                         <FaRegCalendarAlt style={{ marginRight: "10px" }} />
                                         {formatirajDatum(koncert.datum)}
                                     </h3>
-                                    <h3 style={{ display: "flex", alignItems: "center", color: "#B9D9EA", fontSize: "12pt" }}>
+                                    <h3 style={{ display: "flex", alignItems: "center", color: "#B9D9EA" }}>
                                         <FaLocationDot style={{ marginRight: "10px" }} />
                                         {koncert.lokacija}
                                     </h3>

@@ -302,7 +302,7 @@ a {
 
     .arhiv-koncerti-karta-container {
         display: grid;
-        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-columns: repeat(1, 1fr) !important;
         gap: 11px !important;
         margin: 0 !important;
         padding: 1em;
