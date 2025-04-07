@@ -38,6 +38,12 @@ import "./koncerti.css"
             return `${date.getDate()}. ${meseci[date.getMonth()]} ob ${ure}:${minute}`;
         }
 
+        function prikaziKrajseBesedilo(besedilo, steviloBesed = 10) {
+            const besede = besedilo.split(" ");
+            if (besede.length <= steviloBesed) return besedilo;
+            return besede.slice(0, steviloBesed).join(" ") + "...";
+        }
+
 
 
 
@@ -91,7 +97,7 @@ import "./koncerti.css"
                                         {formatirajDatum(koncert.datum)}
                                     </h3>
                                     <h1 style={{ color: "#09283d" }}>{koncert.ime}</h1>
-                                    <h5 style={{ color: "#8fabba" }}>{koncert.vsebina}</h5>
+                                    <h5 style={{ color: "#8fabba" }}>{prikaziKrajseBesedilo(koncert.vsebina)}</h5>
                                     <Link to={`/koncerti/${koncert._id}`}>
                                         <button className="koncert-gumb" style={{ color: "white", backgroundColor: "#09283d" }}>Več o koncertu <IoIosArrowForward className="puscica" /></button>
                                     </Link>

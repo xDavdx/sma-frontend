@@ -36,6 +36,8 @@ const Koncerti = () => {
         }, {});
     };
 
+
+
     const koncertiPoLetih = razvrstiPoLetih(pretekliKoncerti);
 
     function formatirajDatum(datum) {
