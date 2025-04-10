@@ -5,7 +5,10 @@ const DodajKoncerte = () => {
     const [datum, setDatum] = useState("");
     const [lokacija, setLokacija] = useState("");
     const [vsebina, setVsebina] = useState("");
-    const [program, setProgram] = useState("");
+    const [programItems, setProgramItems] = useState([
+        { skladatelj: "", naslov: "", stavki: [""] }
+    ]);
+
     const [cikel, setCikel] = useState("mlada klasika");
     const [slike, setSlike] = useState([]);
     const [seShranjuje, setSeShranjuje] = useState(false);
@@ -25,7 +28,7 @@ const DodajKoncerte = () => {
         formData.append("datum", datum);
         formData.append("lokacija", lokacija);
         formData.append("vsebina", vsebina);
-        formData.append("program", program);
+        formData.append("program", JSON.stringify(programItems));
         formData.append("cikel", cikel);
 
         // Poslano bo kot seznam skupin z izvajalci
@@ -89,6 +92,29 @@ const DodajKoncerte = () => {
         setSkupine(newSkupine);
     };
 
+    const handleProgramChange = (index, field, value) => {
+        const newProgram = [...programItems];
+        newProgram[index][field] = value;
+        setProgramItems(newProgram);
+    };
+
+    const handleStavekChange = (programIdx, stavekIdx, value) => {
+        const newProgram = [...programItems];
+        newProgram[programIdx].stavki[stavekIdx] = value;
+        setProgramItems(newProgram);
+    };
+
+    const addStavek = (programIdx) => {
+        const newProgram = [...programItems];
+        newProgram[programIdx].stavki.push("");
+        setProgramItems(newProgram);
+    };
+
+    const addProgramItem = () => {
+        setProgramItems([...programItems, { skladatelj: "", naslov: "", stavki: [""] }]);
+    };
+
+
     return (
         <div>
             <div className="dodaj-koncert">
@@ -99,9 +125,42 @@ const DodajKoncerte = () => {
                     <input type="datetime-local" value={datum} onChange={(e) => setDatum(e.target.value)} required />
                     <textarea placeholder="Lokacija" value={lokacija} onChange={(e) => setLokacija(e.target.value)} required />
                     <textarea placeholder="Vsebina" value={vsebina} onChange={(e) => setVsebina(e.target.value)} required />
-                    <textarea placeholder="Program (upoštevaj ločitve!!)" value={program} onChange={(e) => setProgram(e.target.value)} required />
+                    <div>
+                        <h3>Program</h3>
+                        {programItems.map((item, index) => (
+                            <div key={index}>
+                                <input
+                                    type="text"
+                                    placeholder="Skladatelj"
+                                    value={item.skladatelj}
+                                    onChange={(e) => handleProgramChange(index, "skladatelj", e.target.value)}
+                                    required
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="Naslov"
+                                    value={item.naslov}
+                                    onChange={(e) => handleProgramChange(index, "naslov", e.target.value)}
+                                    required
+                                />
+                                {item.stavki.map((stavek, stavekIdx) => (
+                                    <input
+                                        key={stavekIdx}
+                                        type="text"
+                                        placeholder={`Stavek ${stavekIdx + 1}`}
+                                        value={stavek}
+                                        onChange={(e) => handleStavekChange(index, stavekIdx, e.target.value)}
+                                    />
+                                ))}
+                                <button className="dodaj-gumb" type="button" onClick={() => addStavek(index)}>Dodaj stavek</button>
+                            </div>
+                        ))}
+                        <button className="dodaj-gumb" type="button" onClick={addProgramItem}>Dodaj skladbo</button>
+                    </div>
+
 
                     {/* Dodajanje skupin z izvajalci */}
+                    <h3>Izvajalci</h3>
                     <div>
                         {skupine.map((skupina, skupinaIndex) => (
                             <div key={skupinaIndex}>

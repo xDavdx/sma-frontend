@@ -602,10 +602,6 @@ a {
     margin: 0.5em;
 }
 
-.array-program {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
 
 
 .input-st-kart {
@@ -614,7 +610,6 @@ a {
 .array-program h3 {
     padding: 1em;
     margin: 2em;
-    border-bottom: 2px solid #4C7F93;
 }
 
 .odstrani {

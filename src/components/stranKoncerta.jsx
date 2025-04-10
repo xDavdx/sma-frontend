@@ -126,12 +126,20 @@ function StranKoncerta() {
 
             <section className="center koncert-program">
                 <div>
-                    <h1>Program</h1>
                     <div className="array-program">
                         {koncert.program.map((item, index) => (
-                            <h3 key={index}>{item}</h3>
+                            <div key={index}>
+                                <h3>{item.skladatelj}: {item.naslov}</h3>
+                                {Array.isArray(item.stavki) && item.stavki.map((stavek, idx) => (
+                                    <p key={idx}>
+                                        <b>{toRoman(idx + 1)}.</b> {stavek}
+                                    </p>
+                                ))}
+
+                            </div>
                         ))}
                     </div>
+
                 </div>
             </section>
 
