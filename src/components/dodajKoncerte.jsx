@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const DodajKoncerte = () => {
     const [ime, setIme] = useState("");
+    const [podnaslov, setPodnaslov] = useState("");
     const [datum, setDatum] = useState("");
     const [lokacija, setLokacija] = useState("");
     const [vsebina, setVsebina] = useState("");
@@ -25,6 +26,7 @@ const DodajKoncerte = () => {
 
         const formData = new FormData();
         formData.append("ime", ime);
+        formData.append("podnaslov", podnaslov);
         formData.append("datum", datum);
         formData.append("lokacija", lokacija);
         formData.append("vsebina", vsebina);
@@ -121,7 +123,14 @@ const DodajKoncerte = () => {
                 <h2>Dodaj Koncert</h2>
 
                 <form onSubmit={handleSubmit}>
-                    <input type="text" placeholder="Ime" value={ime} onChange={(e) => setIme(e.target.value)} required />
+                    <input type="text" placeholder="Ime koncerta" value={ime} onChange={(e) => setIme(e.target.value)} required />
+                    <input
+                        type="text"
+                        placeholder="Podnaslov"
+                        value={podnaslov}
+                        onChange={(e) => setPodnaslov(e.target.value)}
+                    />
+
                     <input type="datetime-local" value={datum} onChange={(e) => setDatum(e.target.value)} required />
                     <textarea placeholder="Lokacija" value={lokacija} onChange={(e) => setLokacija(e.target.value)} required />
                     <textarea placeholder="Vsebina" value={vsebina} onChange={(e) => setVsebina(e.target.value)} required />
