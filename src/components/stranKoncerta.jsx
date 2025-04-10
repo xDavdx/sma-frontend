@@ -47,6 +47,27 @@ function StranKoncerta() {
         return `${date.getDate()}. ${meseci[date.getMonth()]} ob ${ure}:${minute}`;
     }
 
+    const izvajalciData = typeof koncert.izvajalci === "string"
+        ? JSON.parse(koncert.izvajalci)
+        : koncert.izvajalci;
+
+
+    const toRoman = (num) => {
+        const romanMap = [
+            ["M", 1000], ["CM", 900], ["D", 500], ["CD", 400],
+            ["C", 100], ["XC", 90], ["L", 50], ["XL", 40],
+            ["X", 10], ["IX", 9], ["V", 5], ["IV", 4], ["I", 1]
+        ];
+
+        return romanMap.reduce((acc, [letter, value]) => {
+            while (num >= value) {
+                acc += letter;
+                num -= value;
+            }
+            return acc;
+        }, "");
+    };
+
 
 
 
@@ -78,11 +99,24 @@ function StranKoncerta() {
                 </div>
                 <div className="koncert-desno">
                     <h1>Izvajalci:</h1>
-                    <div className="array-izvajalci">
-                        {koncert.izvajalci.map((item, index) => (
-                            <p key={index}>{item}</p>
-                        ))}
-                    </div>
+
+
+                    {izvajalciData.map((skupina, index) => (
+                        <div key={index}>
+                            {skupina.imeSkupine && <h3>{skupina.imeSkupine}</h3>}
+                            {skupina.izvajalci.map((izvajalec, idx) => (
+                                <p key={idx}>
+                                    <b>{izvajalec.ime}</b> - {izvajalec.instrument}
+                                </p>
+                            ))}
+                        </div>
+                    ))}
+
+
+
+
+
+
                     <h1>O koncertu</h1>
                     <p>{koncert.vsebina}</p>
                 </div>

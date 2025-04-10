@@ -6,10 +6,11 @@ const DodajKoncerte = () => {
     const [lokacija, setLokacija] = useState("");
     const [vsebina, setVsebina] = useState("");
     const [program, setProgram] = useState("");
-    const [izvajalci, setIzvajalci] = useState("");
     const [cikel, setCikel] = useState("mlada klasika");
     const [slike, setSlike] = useState([]);
-    const [seShranjuje, setSeShranjuje] = useState(false); // 👈 Novo stanje
+    const [seShranjuje, setSeShranjuje] = useState(false);
+
+    const [skupine, setSkupine] = useState([{ imeSkupine: "", izvajalci: [{ ime: "", instrument: "" }] }]);
 
     const handleSlikaChange = (e) => {
         setSlike([...e.target.files]);
@@ -17,7 +18,7 @@ const DodajKoncerte = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setSeShranjuje(true); // 👈 Pokaži napis
+        setSeShranjuje(true);
 
         const formData = new FormData();
         formData.append("ime", ime);
@@ -25,8 +26,10 @@ const DodajKoncerte = () => {
         formData.append("lokacija", lokacija);
         formData.append("vsebina", vsebina);
         formData.append("program", program);
-        formData.append("izvajalci", izvajalci);
         formData.append("cikel", cikel);
+
+        // Poslano bo kot seznam skupin z izvajalci
+        formData.append("izvajalci", JSON.stringify(skupine));
 
         slike.forEach((slika) => {
             formData.append("slike", slika);
@@ -40,8 +43,6 @@ const DodajKoncerte = () => {
 
             if (response.ok) {
                 alert("Koncert uspešno dodan!");
-                // Po uspešni oddaji lahko resetiraš obrazec, če želiš:
-                // setIme(""); setDatum(""); ...
             } else {
                 const errorResponse = await response.json();
                 alert("Napaka pri dodajanju koncerta: " + errorResponse.message);
@@ -50,8 +51,42 @@ const DodajKoncerte = () => {
             console.error("Napaka pri pošiljanju podatkov:", error);
             alert("Napaka pri pošiljanju podatkov.");
         } finally {
-            setSeShranjuje(false); // 👈 Skrij napis
+            setSeShranjuje(false);
         }
+    };
+
+    const handleAddSkupina = () => {
+        setSkupine([...skupine, { imeSkupine: "", izvajalci: [{ ime: "", instrument: "" }] }]);
+    };
+
+    const handleRemoveSkupina = (index) => {
+        const newSkupine = [...skupine];
+        newSkupine.splice(index, 1);
+        setSkupine(newSkupine);
+    };
+
+    const handleSkupinaChange = (index, field, value) => {
+        const newSkupine = [...skupine];
+        newSkupine[index][field] = value;
+        setSkupine(newSkupine);
+    };
+
+    const handleAddIzvajalec = (skupinaIndex) => {
+        const newSkupine = [...skupine];
+        newSkupine[skupinaIndex].izvajalci.push({ ime: "", instrument: "" });
+        setSkupine(newSkupine);
+    };
+
+    const handleRemoveIzvajalec = (skupinaIndex, izvajalecIndex) => {
+        const newSkupine = [...skupine];
+        newSkupine[skupinaIndex].izvajalci.splice(izvajalecIndex, 1);
+        setSkupine(newSkupine);
+    };
+
+    const handleIzvajalecChange = (skupinaIndex, izvajalecIndex, field, value) => {
+        const newSkupine = [...skupine];
+        newSkupine[skupinaIndex].izvajalci[izvajalecIndex][field] = value;
+        setSkupine(newSkupine);
     };
 
     return (
@@ -59,46 +94,48 @@ const DodajKoncerte = () => {
             <div className="dodaj-koncert">
                 <h2>Dodaj Koncert</h2>
 
-                <div className="legend-container">
-                    <h3 className="legend-title">Legenda za dodajanje :)</h3>
-                    <ol className="legend-list">
-                        <li className="legend-text">
-                            <ul><br />
-                                <li>
-                                    <b>Pri programu:</b> vse skladbe ločiš z <b className="highlight">podčrtajem (;)</b> in skladbo od avtorja z <b className="highlight">vejico (,)</b>
-                                </li>
-                                <li>
-                                    <b>Primer:</b> <i className="example-text">Der Musikant<b className="highlight">,</b> Joseph von Eichendorff<b className="highlight">;</b> Fußreise<b className="highlight">,</b> Eduard Mörike<b className="highlight">;</b> ...</i>
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="legend-text">
-                            <ul><br />
-                                <li>
-                                    <b>Pri izvajalcih:</b>  imena izvajalcev ločiš z <b className="highlight">vejico (,)</b>
-                                </li>
-                                <li>
-                                    <b>Primer:</b> <i className="example-text">Timotej Willewaldt<b className="highlight">,</b> Janez Novak<b className="highlight">,</b> ...</i>
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="legend-text">
-                            <ul><br />
-                                <li>
-                                    <b>Pri slikah:</b> Dodaš lahko <b className="highlight">do 10 slik</b>, v formatih <b className="highlight">JPG, JPEG, PNG</b>
-                                </li>
-                            </ul>
-                        </li>
-                    </ol>
-                </div>
-
                 <form onSubmit={handleSubmit}>
                     <input type="text" placeholder="Ime" value={ime} onChange={(e) => setIme(e.target.value)} required />
                     <input type="datetime-local" value={datum} onChange={(e) => setDatum(e.target.value)} required />
                     <textarea placeholder="Lokacija" value={lokacija} onChange={(e) => setLokacija(e.target.value)} required />
                     <textarea placeholder="Vsebina" value={vsebina} onChange={(e) => setVsebina(e.target.value)} required />
                     <textarea placeholder="Program (upoštevaj ločitve!!)" value={program} onChange={(e) => setProgram(e.target.value)} required />
-                    <textarea placeholder="Izvajalci (upoštevaj ločitve!!)" value={izvajalci} onChange={(e) => setIzvajalci(e.target.value)} required />
+
+                    {/* Dodajanje skupin z izvajalci */}
+                    <div>
+                        {skupine.map((skupina, skupinaIndex) => (
+                            <div key={skupinaIndex}>
+                                <input
+                                    type="text"
+                                    placeholder="Ime skupine"
+                                    value={skupina.imeSkupine}
+                                    onChange={(e) => handleSkupinaChange(skupinaIndex, "imeSkupine", e.target.value)}
+                                />
+                                {skupina.izvajalci.map((izvajalec, izvajalecIndex) => (
+                                    <div key={izvajalecIndex}>
+                                        <input
+                                            type="text"
+                                            placeholder="Ime izvajalca"
+                                            value={izvajalec.ime}
+                                            onChange={(e) => handleIzvajalecChange(skupinaIndex, izvajalecIndex, "ime", e.target.value)}
+                                            required
+                                        />
+                                        <input
+                                            type="text"
+                                            placeholder="Inštrument"
+                                            value={izvajalec.instrument}
+                                            onChange={(e) => handleIzvajalecChange(skupinaIndex, izvajalecIndex, "instrument", e.target.value)}
+                                            required
+                                        />
+                                        <button className="odstrani" type="button" onClick={() => handleRemoveIzvajalec(skupinaIndex, izvajalecIndex)}>Odstrani izvajalca</button>
+                                    </div>
+                                ))}
+                                <button className="dodaj-gumb" type="button" onClick={() => handleAddIzvajalec(skupinaIndex)}>Dodaj izvajalca</button>
+                                <button className="odstrani" type="button" onClick={() => handleRemoveSkupina(skupinaIndex)}>Odstrani skupino</button>
+                            </div>
+                        ))}
+                        <button className="dodaj-gumb" type="button" onClick={handleAddSkupina}>Dodaj skupino</button>
+                    </div>
 
                     <select value={cikel} onChange={(e) => setCikel(e.target.value)}>
                         <option value="mlada klasika">Mlada Klasika</option>

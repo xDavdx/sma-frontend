@@ -616,3 +616,13 @@ a {
     margin: 2em;
     border-bottom: 2px solid #4C7F93;
 }
+
+.odstrani {
+    background-color: indianred !important;
+    opacity: 0.5;
+}
+
+.dodaj-gumb {
+    background-color: rgba(109, 161, 109, 0.75) !important;
+    margin: 5px;
+}
