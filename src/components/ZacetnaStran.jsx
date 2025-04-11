@@ -111,7 +111,7 @@ import {cikli} from "./cikli";
                                         {koncert.lokacija}
                                     </h3>
                                     <h1 style={{ color: "#09283d" }}>{koncert.ime}</h1>
-                                    <h5 style={{ color: "#8fabba" }}>{prikaziKrajseBesedilo(koncert.vsebina)}</h5>
+                                    <h5 style={{ color: "#8fabba" }}>{koncert.podnaslov}</h5>
                                     <Link to={`/koncerti/${koncert._id}`}>
                                         <button className="koncert-gumb" style={{ color: "white", backgroundColor: "#09283d" }}>Več o koncertu <IoIosArrowForward className="puscica" /></button>
                                     </Link>
