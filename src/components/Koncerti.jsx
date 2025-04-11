@@ -87,7 +87,7 @@ const Koncerti = () => {
                                         {koncert.lokacija}
                                     </h3>
                                     <h1>{koncert.ime}</h1>
-                                    <h5 style={{ color: "#B9D9EA" }}>{prikaziKrajseBesedilo(koncert.vsebina)}</h5>
+                                    <h5 style={{ color: "#B9D9EA" }}>{koncert.podnaslov}</h5>
                                     <Link to={`/koncerti/${koncert._id}`}>
                                         <button className="koncert-gumb">Več o koncertu <IoIosArrowForward className="puscica" /></button>
                                     </Link>
@@ -137,7 +137,7 @@ const Koncerti = () => {
                                                 {koncert.lokacija}
                                             </p>
                                             <h3>{koncert.ime}</h3>
-                                            <p style={{ color: "#656565", marginBottom: "0.7em" }}>{prikaziKrajseBesedilo(koncert.vsebina)}</p>
+                                            <p style={{ color: "#656565", marginBottom: "0.7em" }}>{koncert.podnaslov}</p>
                                             <Link to={`/koncerti/${koncert._id}`}>
                                                 <button className="koncert-gumb arhiv-gumb-barva">Več o koncertu <IoIosArrowForward className="puscica" /></button>
                                             </Link>

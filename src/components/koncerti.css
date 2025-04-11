@@ -584,9 +584,21 @@ a {
 }
 .rezervacija-vstopnic-levo {
     flex: 1;
+    margin-left: 4em;
+}
+.rezervacija-vstopnic-levo h1 {
+    font-size: 20pt;
 }
 .rezervacija-vstopnic-desno {
     flex: 1;
+background-color: #f0f4f8;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 3em;
+    flex-direction: column;
+    margin: 3em;
+}
+.rezervacija-vstopnic-desno h3 {
+    margin: 0.5em;
 }
 
 .rezervacija-vstopnic-form {
@@ -596,8 +608,9 @@ a {
     padding: 1em;
 }
 .rezervacija-vstopnic-form input {
-    padding: 1em;
+    padding: 0.8em;
     border: none;
+    font-size: 12pt;
     border-bottom: 1px solid #2c3e50;
     background-color: unset;
     margin: 0.5em;
@@ -609,8 +622,12 @@ a {
     width: 30%;
 }
 .array-program h3 {
-    padding: 1em;
-    margin: 2em;
+    padding: 0.8em 0;
+}
+
+.array-program p {
+    color: #B9D9EA;
+    padding-bottom: 0.3em;
 }
 
 .odstrani {
@@ -625,4 +642,49 @@ a {
 
 .karta-tekst h3 {
     font-size: 12pt;
+}
+
+.koncert-stran-vsebina {
+    margin: 2em 10em;
+}
+
+.koncert-stran-vsebina h1 {
+    font-size: 26pt;
+    margin: 1em 0;
+}
+.koncert-stran-vsebina p {
+    font-size: 14pt;
+    line-height: 1.4;
+}
+
+
+.stran-koncerta-program-wrapper {
+    position: relative;
+    padding-left: 80px; /* prostor za navpični naslov */
+}
+
+.stran-koncerta-program-h1 {
+    position: absolute;
+    top: -13em;
+    left: 0;
+    transform: rotate(-90deg);
+    transform-origin: left center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stran-koncerta-program-h1 h1 {
+    font-size: 18pt;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.stran-koncerta-program-h1 hr {
+    height: 50vh; /* dolžina črte */
+    width: 2px;
+    background-color: white;
+    transform: rotate(-90deg) translateY(-50%);
+    border: none;
+    margin-top: 3em;
 }

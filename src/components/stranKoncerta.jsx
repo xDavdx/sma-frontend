@@ -88,6 +88,7 @@ function StranKoncerta() {
                         {koncert.lokacija}
                     </h3>
                     <h1>{koncert.ime}</h1>
+                    <p>{koncert.podnaslov}</p>
                     <ImageGallery
                         items={images}
                         showPlayButton={false}
@@ -113,19 +114,18 @@ function StranKoncerta() {
                     ))}
 
 
-
-
-
-
-                    <h1>O koncertu</h1>
-                    <p>{koncert.vsebina}</p>
                 </div>
             </section>
 
 
 
             <section className="center koncert-program">
-                <div>
+                <div className="stran-koncerta-program-wrapper">
+                    <div className="stran-koncerta-program-h1">
+                        <h1>Program</h1>
+                        <hr/>
+                    </div>
+
                     <div className="array-program">
                         {koncert.program.map((item, index) => (
                             <div key={index}>
@@ -142,6 +142,15 @@ function StranKoncerta() {
 
                 </div>
             </section>
+
+
+
+
+            <section className="koncert-stran-vsebina">
+                <h1>O koncertu</h1>
+                <p>{koncert.vsebina}</p>
+            </section>
+
 
 
 
@@ -165,7 +174,7 @@ function StranKoncerta() {
                         />
                         <input
                             type="number"
-                            placeholder="Število vstopnic"
+                            placeholder="Št. vstopnic"
                             className="input-st-kart"
                             // value={name}
                             // onChange={(e) => setName(e.target.value)}
@@ -173,7 +182,7 @@ function StranKoncerta() {
                         />
                     </form>
                 </div>
-                <div className="rezervacija-vstopnic-desno">
+                <div className="rezervacija-vstopnic-desno center">
                     <h1>Podrobnosti koncerta</h1>
                     <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
                         <FaRegCalendarAlt style={{ marginRight: "10px", fontWeight: "300" }} />
