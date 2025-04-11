@@ -286,14 +286,17 @@ a {
     }
 
     .karta-tekst h1 {
-        font-size: 1rem;
+        font-size: 1.4rem !important;
     }
 
     .karta-tekst h3,
     .karta-tekst h5 {
-        font-size: 0.8rem;
+        font-size: 0.85rem !important;
     }
 
+    .karta-slika {
+        height: 230px;
+    }
     .koncert-gumb {
         font-size: 0.8rem;
         padding: 1em;
