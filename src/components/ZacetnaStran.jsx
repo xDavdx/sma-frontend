@@ -8,6 +8,7 @@ import { RiInstagramFill } from "react-icons/ri";
 import React, { useState, useEffect } from "react";
 import "./koncerti.css"
 import { FaLocationDot } from "react-icons/fa6";
+import {cikli} from "./cikli";
 
 
     const ZacetnaStran = () => {
@@ -90,7 +91,15 @@ import { FaLocationDot } from "react-icons/fa6";
                             <div key={koncert._id} className="karta karta-zac-stran">
                                 <div className="center karta-slika">
                                     <img src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
-
+                                    <div className="tekst-nad-sliko">
+                                        {cikli[koncert.cikel] && (
+                                            <Link to={"/o-nas"}><img
+                                                src={cikli[koncert.cikel].logo}
+                                                alt={cikli[koncert.cikel].ime}
+                                                style={{ maxWidth: "70px" }}
+                                            /></Link>
+                                        )}
+                                    </div>
                                 </div>
                                 <div className="karta-tekst">
                                     <h3 style={{ display: "flex", alignItems: "center", color: "#8fabba" }}>

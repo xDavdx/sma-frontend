@@ -208,8 +208,8 @@ const DodajKoncerte = () => {
                     <select value={cikel} onChange={(e) => setCikel(e.target.value)}>
                         <option value="mlada klasika">Mlada Klasika</option>
                         <option value="mlada kreativa">Mlada Kreativa</option>
-                        <option value="abonma">Abonma</option>
                         <option value="gostuje">Gostuje</option>
+                        <option value="glasbaMladih">glasba mladih</option>
                     </select>
 
                     <input type="file" multiple onChange={handleSlikaChange} />

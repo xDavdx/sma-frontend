@@ -87,7 +87,7 @@ a {
 }
 
 .karta-tekst h1 {
-    margin: 0.3em 0;
+    font-size: 22pt !important;
 }
 
 .karta-zac-stran {
@@ -95,7 +95,8 @@ a {
 }
 
 .karta-tekst h5 {
-    margin: 0.5em 0;
+    margin: 0.5em 0 0.8em 0;
+    font-size: 13pt !important;
 }
 
 .karta-slika img {
@@ -128,7 +129,7 @@ a {
 
 .koncert-gumb:hover {
     background-color: #1A3C4E; /* Spreminjanje barve ozadja na hover */
-    transform: scale(1.05); /* Lahka povečava ob hoverju */
+    transform: scale(1.02); /* Lahka povečava ob hoverju */
 }
 
 .koncert-gumb .puscica {
@@ -143,7 +144,7 @@ a {
     bottom: 10px;
     background-color: white;
     left: 14px;
-    padding: 5px 8px;
+    padding: 3px 8px 2px 8px;
     border-radius: 10px;
     color: black;
 }
@@ -446,7 +447,7 @@ a {
 
 /* Naslov koncerta */
 .arhiv-karta-tekst h3 {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
     font-weight: bold;
     color: #333;
     margin-bottom: 10px;
@@ -620,4 +621,8 @@ a {
 .dodaj-gumb {
     background-color: rgba(109, 161, 109, 0.75) !important;
     margin: 5px;
+}
+
+.karta-tekst h3 {
+    font-size: 12pt;
 }

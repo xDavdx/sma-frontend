@@ -4,6 +4,7 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import "./koncerti.css";
+import {cikli} from "./cikli";
 
 const Koncerti = () => {
     const [koncerti, setKoncerti] = useState([]);
@@ -66,7 +67,15 @@ const Koncerti = () => {
                             <div key={koncert._id} className="karta">
                                 <div className="center karta-slika">
                                     <img src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
-                                    <p className="tekst-nad-sliko">{koncert.cikel}</p>
+                                    <div className="tekst-nad-sliko">
+                                        {cikli[koncert.cikel] && (
+                                            <Link to={"/o-nas"}> <img
+                                                src={cikli[koncert.cikel].logo}
+                                                alt={cikli[koncert.cikel].ime}
+                                                style={{ maxWidth: "70px" }}
+                                            /></Link>
+                                        )}
+                                    </div>
                                 </div>
                                 <div className="karta-tekst">
                                     <h3 style={{ display: "flex", alignItems: "center", color: "#B9D9EA" }}>
@@ -108,19 +117,27 @@ const Koncerti = () => {
                                     <div key={koncert._id} className="arhiv-koncert-karta">
                                         <div className="arhiv-karta-slika">
                                             <img src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
-                                            <p className="tekst-nad-sliko">{koncert.cikel}</p>
+                                            <div className="tekst-nad-sliko">
+                                                {cikli[koncert.cikel] && (
+                                                    <Link to={"/o-nas"}><img
+                                                        src={cikli[koncert.cikel].logo}
+                                                        alt={cikli[koncert.cikel].ime}
+                                                        style={{ maxWidth: "70px" }}
+                                                    /></Link>
+                                                )}
+                                            </div>
                                         </div>
                                         <div className="arhiv-karta-tekst">
-                                            <p style={{ display: "flex", alignItems: "center", color: "black" }}>
+                                            <p style={{ display: "flex", alignItems: "center", color: "#656565" }}>
                                                 <FaRegCalendarAlt style={{ marginRight: "10px" }} />
                                                 {formatirajDatum(koncert.datum)}
                                             </p>
-                                            <p style={{ display: "flex", alignItems: "center", color: "black" }}>
+                                            <p style={{ display: "flex", alignItems: "center", color: "#656565" }}>
                                                 <FaLocationDot style={{ marginRight: "10px" }} />
                                                 {koncert.lokacija}
                                             </p>
                                             <h3>{koncert.ime}</h3>
-                                            <p>{prikaziKrajseBesedilo(koncert.vsebina)}</p>
+                                            <p style={{ color: "#656565", marginBottom: "0.7em" }}>{prikaziKrajseBesedilo(koncert.vsebina)}</p>
                                             <Link to={`/koncerti/${koncert._id}`}>
                                                 <button className="koncert-gumb arhiv-gumb-barva">Več o koncertu <IoIosArrowForward className="puscica" /></button>
                                             </Link>
