@@ -311,7 +311,7 @@ a {
 
     .koncert-karta {
         display: grid;
-        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-columns: repeat(1, 1fr) !important;
         gap: 11px;
         margin-top: 1em;
         padding: 1em;
@@ -329,13 +329,24 @@ a {
         font-size: 0.8rem !important;
     }
 
-    .karta-slika {
-        height: auto;
-    }
 
     .vsi-prihajajoci-koncerti {
         padding: 0 !important;
     }
+    .koncert-stran-vsebina {
+        margin: 2em 1em !important;
+    }
+    .rezervacija-vstopnic {
+        flex-direction: column;
+        padding: 4em 2em !important;
+    }
+    .rezervacija-vstopnic-levo {
+        margin-left: 0 !important;
+    }
+    .rezervacija-vstopnic-form {
+        width: 100% !important;
+    }
+
 
     .arhiv-koncertov-naslov {
         font-size: 2rem !important;
