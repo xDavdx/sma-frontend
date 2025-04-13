@@ -30,6 +30,9 @@ const Navbar = () => {
                             <Link to="/koncerti" onClick={() => setMenuOpen(false)}>Koncerti</Link>
                         </li>
                         <li>
+                            <Link to="/novice" onClick={() => setMenuOpen(false)}>Novice</Link>
+                        </li>
+                        <li>
                             <Link to="/o-nas" onClick={() => setMenuOpen(false)}>O nas</Link>
                         </li>
                         <li>

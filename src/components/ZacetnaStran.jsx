@@ -9,6 +9,7 @@ import React, { useState, useEffect } from "react";
 import "./koncerti.css"
 import { FaLocationDot } from "react-icons/fa6";
 import {cikli} from "./cikli";
+import "./Novice.css";
 
 
     const ZacetnaStran = () => {
@@ -47,7 +48,37 @@ import {cikli} from "./cikli";
         }
 
 
+        const [novice, setNovice] = useState([]);
 
+        useEffect(() => {
+            const fetchNovice = async () => {
+                try {
+                    const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/novice`);
+                    const data = await res.json();
+                    setNovice(data); // najnovejša prva
+                } catch (err) {
+                    console.error("Napaka pri pridobivanju novic:", err);
+                }
+            };
+
+            fetchNovice();
+        }, []);
+
+        const featured = novice[0];
+        const nextThree = novice.slice(1, 4);
+        const remaining = novice.slice(4);
+
+        const renderSlika = (novica) => {
+            if (!novica.slike || novica.slike.length === 0) return null;
+            console.log(novica.slike[0])
+            return (
+                <img
+                    src={novica.slike[0]}
+                    alt="Novica"
+                    className="novica-slika"
+                />
+            );
+        };
 
 
     return (
@@ -124,6 +155,38 @@ import {cikli} from "./cikli";
             </div>
 
 
+
+            <section className="featured-section featured-section-zac">
+                <h1 className="center naslov-novice-zac">Novice</h1>
+                <div className="center">
+                <div className="featured-grid">
+                    {featured && (
+                        <div className="featured-main featured-main-zac">
+                            {renderSlika(featured)}
+                            <h2>{featured.ime}</h2>
+                            <p>{featured.podnaslov}</p>
+                            <span>{new Date(featured.datum).toLocaleString()}</span>
+                            <Link to={`/novice/${featured._id}`} className="preberi-vec">Preberi več</Link>
+                        </div>
+                    )}
+
+                    <div className="featured-side">
+                        {nextThree.map((novica, index) => (
+                            <div key={index} className="side-novica side-novica-zac">
+                                {renderSlika(novica)}
+                                <div className="side-novica-content">
+                                    <h3>{novica.ime}</h3>
+                                    <p>{novica.podnaslov}</p>
+                                    <span>{new Date(novica.datum).toLocaleString()}</span>
+                                    <Link to={`/novice/${novica._id}`} className="preberi-vec">Preberi več</Link>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                </div>
+            </section>
+
                 <div className="kontakt center">
                     <div className="kontakt-levo kld">
                         <div>
@@ -162,9 +225,6 @@ import {cikli} from "./cikli";
 
 
 
-            <section className="zac-stran-novice">
-                <h1 className="center">Novice</h1>
-            </section>
 
 
 

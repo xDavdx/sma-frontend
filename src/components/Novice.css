@@ -1,0 +1,272 @@
+.novice-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+
+
+
+
+
+/* FEATURED NOVICE SECTION */
+.naslov-novice-zac {
+    font-size: 26pt;
+    margin-bottom: 1em;
+}
+
+.featured-section {
+    background-image: url("./proba-landing.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    min-height: 80vh;
+    padding: 8em 20px 20px 30px;
+}
+
+.featured-section-zac {
+    background-color: #f8f9fa;
+    background-image: none;
+    color: black;
+    padding: 2em 20px 20px 30px;
+}
+
+.featured-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70vw !important;
+}
+
+@media screen and (min-width: 768px) {
+    .featured-grid {
+        flex-direction: row;
+        width: 100vw;
+    }
+
+}
+
+.featured-main {
+    flex: 2;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 400ms;
+} .featured-main:hover {
+      background-color: #216287;
+  }
+.featured-main-zac:hover {
+    background-color: #ecebeb;
+}
+
+.featured-main h2 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.featured-main p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.featured-main .preberi-vec {
+    display: inline-block;
+    margin-top: 10px;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #4C7F93;
+    text-decoration: none;
+}
+
+.featured-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+} .side-novica:hover {
+      background-color: #216287;
+  }
+  .side-novica-zac:hover {
+      background-color: #ecebeb;
+  }
+
+.side-novica {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    transition: 400ms;
+}
+
+.side-novica img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.side-novica-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-novica-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.side-novica-content p {
+    font-size: 14px;
+    margin: 0 0 5px 0;
+}
+
+.side-novica-content span {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.side-novica-content .preberi-vec {
+    margin-top: 5px;
+    color: white;
+    font-size: 14px;
+    padding: 5px;
+    background-color: #4C7F93;
+    text-decoration: none;
+}
+
+
+.side-novica h3 {
+    margin-top: 10px;
+}
+
+.side-novica .preberi-vec {
+    display: inline-block;
+    margin-top: 5px;
+    color: white;
+    width: 50%;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #4C7F93;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* VSE OSTALE NOVICE       */
+
+.all-novice {
+    padding: 0 20px;
+}
+
+.all-novice h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.novice-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .novice-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.novica-card {
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.novica-card h3 {
+    margin-top: 10px;
+}
+
+.novica-card .preberi-vec {
+    display: inline-block;
+    margin-top: 8px;
+    border-radius: 10px;
+    color: white;
+    padding: 5px;
+    background-color: #4C7F93;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+/* SLIKE                    */
+.novica-slika {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    max-height: 250px;
+}
+
+
+
+.stran-novice-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 8em 20px 0 20px;
+}
+
+.stran-novice-content {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.leva-stran {
+    flex: 1;
+}
+
+.leva-stran h1 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.leva-stran h3 {
+    margin-bottom: 20px;
+    font-weight: normal;
+    color: #555;
+}
+
+.stran-novice-slika {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.desna-stran {
+    flex: 2;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.vsebina p {
+    margin-bottom: 1rem;
+}
+
