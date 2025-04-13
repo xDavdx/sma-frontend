@@ -101,7 +101,7 @@ const Koncerti = () => {
 
             {/* ARHIV koncertov */}
             <section className="arhiv-koncertov-container">
-                <Link to={"/koncerti/dodajkoncerte"}><h1 className="koncert-gumb dodaj-koncerte-gumb">+ Dodaj koncert</h1></Link>
+                <Link to={"/admin-dodajaj"}><h1 className="koncert-gumb dodaj-koncerte-gumb">+ Dodaj koncert</h1></Link>
                 <h2 className="arhiv-koncertov-naslov">Arhiv koncertov</h2>
 
                 {Object.keys(koncertiPoLetih).sort((a, b) => b - a).map((leto) => {

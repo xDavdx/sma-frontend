@@ -5,12 +5,17 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 
-
 function StranKoncerta() {
     const { id } = useParams();
+
+    // 📌 HOOKI NA VRHU
     const [koncert, setKoncert] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const [ime, setIme] = useState("");
+    const [email, setEmail] = useState("");
+    const [steviloVstopnic, setSteviloVstopnic] = useState("");
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_BACKEND_URL}/koncerti/${id}`)
@@ -31,26 +36,13 @@ function StranKoncerta() {
             });
     }, [id]);
 
-    if (loading) return <h2 style={{ marginTop: "8em" }}>Nalaganje...</h2>;
-    if (error) return <h2>{error}</h2>;
-
-    const images = koncert.slike.map((slika) => ({
-        original: slika,
-        thumbnail: slika,
-    }));
-
-    function formatirajDatum(datum) {
+    const formatirajDatum = (datum) => {
         const meseci = ["januar", "februar", "marec", "april", "maj", "junij", "julij", "avgust", "september", "oktober", "november", "december"];
         const date = new Date(datum);
         const ure = date.getHours().toString().padStart(2, "0");
         const minute = date.getMinutes().toString().padStart(2, "0");
         return `${date.getDate()}. ${meseci[date.getMonth()]} ob ${ure}:${minute}`;
-    }
-
-    const izvajalciData = typeof koncert.izvajalci === "string"
-        ? JSON.parse(koncert.izvajalci)
-        : koncert.izvajalci;
-
+    };
 
     const toRoman = (num) => {
         const romanMap = [
@@ -68,9 +60,51 @@ function StranKoncerta() {
         }, "");
     };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
+        const novaRezervacija = {
+            ime,
+            email,
+            steviloVstopnic,
+            koncertId: koncert._id,
+            koncertIme: koncert.ime,
+        };
 
+        try {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/rezervacije`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(novaRezervacija),
+            });
 
+            if (res.ok) {
+                alert("Rezervacija uspešno poslana!");
+                setIme("");
+                setEmail("");
+                setSteviloVstopnic("");
+            } else {
+                alert("Napaka pri pošiljanju rezervacije.");
+            }
+        } catch (err) {
+            console.error("Napaka pri pošiljanju rezervacije:", err);
+            alert("Napaka pri povezavi s strežnikom.");
+        }
+    };
+
+    // 📌 POGOJI ZA NALAGANJE/ERROR
+    if (loading) return <h2 style={{ marginTop: "8em" }}>Nalaganje...</h2>;
+    if (error) return <h2>{error}</h2>;
+
+    // 📌 PRIPRAVA PODATKOV ZA PRIKAZ
+    const images = koncert.slike.map((slika) => ({
+        original: slika,
+        thumbnail: slika,
+    }));
+
+    const izvajalciData = typeof koncert.izvajalci === "string"
+        ? JSON.parse(koncert.izvajalci)
+        : koncert.izvajalci;
 
     return (
         <div>
@@ -80,11 +114,11 @@ function StranKoncerta() {
                         <button className="gumb-nazaj-na-koncerte">Nazaj na koncerte</button>
                     </Link>
                     <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
-                        <FaRegCalendarAlt style={{ marginRight: "10px", fontWeight: "300" }} />
+                        <FaRegCalendarAlt style={{ marginRight: "10px" }} />
                         {formatirajDatum(koncert.datum)}
                     </h3>
                     <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
-                        <FaLocationDot style={{ marginRight: "10px", fontWeight: "300" }} />
+                        <FaLocationDot style={{ marginRight: "10px" }} />
                         {koncert.lokacija}
                     </h3>
                     <h1>{koncert.ime}</h1>
@@ -96,12 +130,10 @@ function StranKoncerta() {
                         slideInterval={4000}
                         showFullscreenButton={false}
                     />
-
                 </div>
+
                 <div className="koncert-desno">
                     <h1>Izvajalci:</h1>
-
-
                     {izvajalciData.map((skupina, index) => (
                         <div key={index}>
                             {skupina.imeSkupine && <h3>{skupina.imeSkupine}</h3>}
@@ -112,18 +144,14 @@ function StranKoncerta() {
                             ))}
                         </div>
                     ))}
-
-
                 </div>
             </section>
-
-
 
             <section className="center koncert-program">
                 <div className="stran-koncerta-program-wrapper">
                     <div className="stran-koncerta-program-h1">
                         <h1>Program</h1>
-                        <hr/>
+                        <hr />
                     </div>
 
                     <div className="array-program">
@@ -135,66 +163,59 @@ function StranKoncerta() {
                                         <b>{toRoman(idx + 1)}.</b> {stavek}
                                     </p>
                                 ))}
-
                             </div>
                         ))}
                     </div>
-
                 </div>
             </section>
-
-
-
 
             <section className="koncert-stran-vsebina">
                 <h1>O koncertu</h1>
                 <p>{koncert.vsebina}</p>
             </section>
 
-
-
-
             <section className="rezervacija-vstopnic center">
                 <div className="rezervacija-vstopnic-levo">
                     <h1>Rezervacija vstopnic</h1>
-                    <form className="rezervacija-vstopnic-form">
+                    <form className="rezervacija-vstopnic-form" onSubmit={handleSubmit}>
                         <input
                             type="text"
                             placeholder="Ime in priimek"
-                            // value={name}
-                            // onChange={(e) => setName(e.target.value)}
+                            value={ime}
+                            onChange={(e) => setIme(e.target.value)}
                             required
                         />
                         <input
                             type="email"
                             placeholder="E-mail"
-                            // value={name}
-                            // onChange={(e) => setName(e.target.value)}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             required
                         />
                         <input
                             type="number"
                             placeholder="Št. vstopnic"
                             className="input-st-kart"
-                            // value={name}
-                            // onChange={(e) => setName(e.target.value)}
+                            value={steviloVstopnic}
+                            onChange={(e) => setSteviloVstopnic(e.target.value)}
                             required
                         />
+                        <button type="submit" className="gumb-rezerviraj">Rezerviraj</button>
                     </form>
                 </div>
+
                 <div className="rezervacija-vstopnic-desno center">
                     <h1>Podrobnosti koncerta</h1>
                     <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
-                        <FaRegCalendarAlt style={{ marginRight: "10px", fontWeight: "300" }} />
+                        <FaRegCalendarAlt style={{ marginRight: "10px" }} />
                         {formatirajDatum(koncert.datum)}
                     </h3>
                     <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
-                        <FaLocationDot style={{ marginRight: "10px", fontWeight: "300" }} />
+                        <FaLocationDot style={{ marginRight: "10px" }} />
                         {koncert.lokacija}
                     </h3>
                 </div>
             </section>
-
         </div>
     );
 }

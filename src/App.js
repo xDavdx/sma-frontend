@@ -12,6 +12,8 @@ import StranNovice from "./components/stranNovice";
 import DodajKoncerte from "./components/dodajKoncerte";
 import DodajNovice from "./components/dodajNovice";
 import Onas from "./components/oNas";
+import Admin from "./components/admin";
+import PregledRezervacij from "./components/pregledRezervacij";
 import PoskrolajNavrh from "./components/poskrolajNavrh";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -35,8 +37,10 @@ function App() {
                   <Route path="/drustvo-odeon" element={<DrustvoOdeon />} />
                   <Route path="/koncerti/:id" element={<StranKoncerta />} />
                   <Route path="/novice/:id" element={<StranNovice />} />
-                  <Route path="/koncerti/dodajkoncerte" element={<DodajKoncerte />} />
-                  <Route path="/novice/dodajnovice" element={<DodajNovice />} />
+                  <Route path="/admin/dodaj-koncerte" element={<DodajKoncerte />} />
+                  <Route path="/admin/dodaj-novice" element={<DodajNovice />} />
+                  <Route path="/admin-dodajaj" element={<Admin />} />
+                  <Route path="/admin/pregled-rezervacij" element={<PregledRezervacij />} />
                   <Route path="/o-nas" element={<Onas />} />
               </Routes>
               <Footer />

@@ -69,7 +69,7 @@ const Novice = () => {
 
             {/* Vse ostale novice */}
             <section className="all-novice">
-                <Link to={"/novice/dodajnovice"}><h1 className="koncert-gumb dodaj-koncerte-gumb">+ Dodaj novico</h1></Link>
+                <Link to={"/admin-dodajaj"}><h1 className="koncert-gumb dodaj-koncerte-gumb">+ Dodaj novico</h1></Link>
                 <h2>Vse novice</h2>
                 <div className="novice-grid">
                     {remaining.map((novica, index) => (
