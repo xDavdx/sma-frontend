@@ -8,7 +8,7 @@ const DrustvoOdeon = () => {
             {/* Naslovna sekcija */}
             <section className="onas-uvod center">
                 <div className="onas-uvod-header-levo">
-                    <img src={logo} alt="logo" style={{ width: "40em" }}/>
+                    <img src={logo} alt="logo" style={{ width: "25em" }}/>
                     {/*<h2>Prostor razvoja in umetnosti</h2>*/}
                 </div>
             </section>

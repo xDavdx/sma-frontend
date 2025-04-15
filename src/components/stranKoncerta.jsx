@@ -228,7 +228,7 @@ function StranKoncerta() {
                             onChange={(e) => setSteviloVstopnic(e.target.value)}
                             required
                         />
-                        <button type="submit" className="gumb-rezerviraj">Rezerviraj</button>
+                        <button type="submit" className="koncert-gumb">Rezerviraj</button>
                     </form>
                 </div>
 

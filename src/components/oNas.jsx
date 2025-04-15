@@ -13,7 +13,7 @@ const ONas = () => {
             {/* Sekcija: O nas */}
             <section className="onas-uvod center">
                 <div className="onas-uvod-header-levo">
-                    <img src={logo} alt="logo" style={{ width: "40em" }}/>
+                    <img src={logo} alt="logo" style={{ width: "25em" }}/>
                 </div>
             </section>
 

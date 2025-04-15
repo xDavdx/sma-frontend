@@ -5,7 +5,14 @@
 }
 
 
-
+@keyframes noviceZoom {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
 
 
@@ -51,6 +58,7 @@
     padding: 10px;
     border-radius: 10px;
     transition: 400ms;
+    animation: noviceZoom 0.8s ease-out forwards;
 } .featured-main:hover {
       background-color: #216287;
   }
@@ -83,6 +91,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    animation: noviceZoom 0.8s ease-in 0.25s backwards ;
 } .side-novica:hover {
       background-color: #216287;
   }

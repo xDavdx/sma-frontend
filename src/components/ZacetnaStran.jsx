@@ -5,7 +5,7 @@ import { FaPhoneAlt, FaRegCalendarAlt, FaYoutube, FaFacebook } from "react-icons
 import { MdOutlineMailOutline } from "react-icons/md";
 import { IoIosArrowForward } from "react-icons/io";
 import { RiInstagramFill } from "react-icons/ri";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./koncerti.css"
 import { FaLocationDot } from "react-icons/fa6";
 import {cikli} from "./cikli";
@@ -79,6 +79,9 @@ import "./Novice.css";
                 />
             );
         };
+
+
+
 
 
     return (
