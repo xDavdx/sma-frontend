@@ -5,8 +5,15 @@ import { IoIosArrowForward } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import "./koncerti.css";
 import {cikli} from "./cikli";
+import {Helmet} from "react-helmet";
 
 const Koncerti = () => {
+
+
+
+
+
+
     const [koncerti, setKoncerti] = useState([]);
     const [steviloVidnihPrihodnjih, setSteviloVidnihPrihodnjih] = useState(4);
     const [vidniPoLetih, setVidniPoLetih] = useState({});
@@ -56,6 +63,10 @@ const Koncerti = () => {
 
     return (
         <section className="koncerti">
+            <Helmet>
+                <title>SMA - Koncerti</title>
+                <meta name="description" content="Koncerti Slovenskega mladega abonmaja" />
+            </Helmet>
             {/* Prihajajoči koncerti TOP sekcija */}
             <div className="prihajajoci-koncerti ozadje-prih-koncerti">
                 <div className="sdfsdf">

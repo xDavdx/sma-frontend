@@ -6,10 +6,15 @@ import onasSlika from "./placeholder.jpg";
 import KontaktForma from "./kontaktForma";
 import {MdOutlineMailOutline} from "react-icons/md";
 import {RiInstagramFill} from "react-icons/ri";
+import {Helmet} from "react-helmet";
 
 const ONas = () => {
     return (
         <div className="onas-container">
+            <Helmet>
+                <title>SMA - O nas</title>
+                <meta name="description" content="O Slovenskem mladem abonmaju" />
+            </Helmet>
             {/* Sekcija: O nas */}
             <section className="onas-uvod center">
                 <div className="onas-uvod-header-levo">

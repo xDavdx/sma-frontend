@@ -92,7 +92,7 @@ function StranKoncerta() {
         }
     };
 
-    // 📌 POGOJI ZA NALAGANJE/ERROR
+    //  POGOJI ZA NALAGANJE/ERROR
     if (loading) return <h2 style={{ marginTop: "8em" }}>Nalaganje...</h2>;
     if (error) return <h2>{error}</h2>;
 
@@ -136,7 +136,7 @@ function StranKoncerta() {
 
                 <div className="koncert-desno">
                     <div className="koncert-desno-info center">
-                        <h3 style={{ color: "#2B5E77" }}>
+                        <h3>
                             <h4><FaRegCalendarAlt style={{ marginRight: "10px" }} /></h4>
                             {razdeliPoDvehBesedah(formatirajDatum(koncert.datum)).map((del, i) => (
                                 <span key={i}>
@@ -145,7 +145,7 @@ function StranKoncerta() {
                                  </span>
                             ))}
                         </h3>
-                        <h3 style={{ color: "#2B5E77" }}>
+                        <h3>
                             <h4><FaLocationDot style={{ marginRight: "10px" }} /></h4>
                             {razdeliPoDvehBesedah(koncert.lokacija).map((del, i) => (
                                 <span key={i}>
@@ -234,14 +234,26 @@ function StranKoncerta() {
 
                 <div className="rezervacija-vstopnic-desno center">
                     <h1>Podrobnosti koncerta</h1>
-                    <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
-                        <FaRegCalendarAlt style={{ marginRight: "10px" }} />
-                        {formatirajDatum(koncert.datum)}
-                    </h3>
-                    <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
-                        <FaLocationDot style={{ marginRight: "10px" }} />
-                        {koncert.lokacija}
-                    </h3>
+                    <div className="koncert-desno-info center" style={{ backgroundColor: "unset", boxShadow: "none" }}>
+                        <h3>
+                            <h4><FaRegCalendarAlt style={{ marginRight: "10px" }} /></h4>
+                            {razdeliPoDvehBesedah(formatirajDatum(koncert.datum)).map((del, i) => (
+                                <span key={i}>
+                                    {del}
+                                    <br />
+                                 </span>
+                            ))}
+                        </h3>
+                        <h3>
+                            <h4><FaLocationDot style={{ marginRight: "10px" }} /></h4>
+                            {razdeliPoDvehBesedah(koncert.lokacija).map((del, i) => (
+                                <span key={i}>
+                                    {del}
+                                    <br />
+                                </span>
+                            ))}
+                        </h3>
+                    </div>
                 </div>
             </section>
         </div>

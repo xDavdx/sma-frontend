@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "./odeon-logo.png";
 import onasSlika from "./placeholder.jpg";
+import {Helmet} from "react-helmet";
 
 const DrustvoOdeon = () => {
     return (
@@ -15,6 +16,12 @@ const DrustvoOdeon = () => {
 
             {/* Uvodni opis */}
             <div className="center">
+                <Helmet>
+                    <title>SMA - Odeon</title>
+                    <meta name="description" content="Kulturno društvo Odeon je bilo ustanovljeno z namenom ustvarjanja
+                        priložnosti in umetniških projektov. Glavni cilj je promocija in
+                        razvoj mladih glasbenikov in skladateljev." />
+                </Helmet>
                 <section className="odeon-content">
                     <h1>O društvu</h1>
                     <p>
