@@ -66,6 +66,7 @@ const Koncerti = () => {
             <Helmet>
                 <title>SMA - Koncerti</title>
                 <meta name="description" content="Koncerti Slovenskega mladega abonmaja" />
+                <meta name="robots" content="index, follow" />
             </Helmet>
             {/* Prihajajoči koncerti TOP sekcija */}
             <div className="prihajajoci-koncerti ozadje-prih-koncerti">

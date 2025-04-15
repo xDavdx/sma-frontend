@@ -124,7 +124,8 @@ function StranKoncerta() {
                         <button className="gumb-nazaj-na-koncerte">Nazaj na koncerte</button>
                     </Link>
                     <h1>{koncert.ime}</h1>
-                    <p style={{ color: "grey" }}>{koncert.podnaslov}</p>
+                    {/*<p style={{ color: "grey" }}>{koncert.podnaslov}</p>*/}
+                    <p><FaRegCalendarAlt style={{ marginRight: "10px" }}/>{formatirajDatum(koncert.datum)}</p>
                     <ImageGallery
                         items={images}
                         showPlayButton={false}
@@ -135,26 +136,6 @@ function StranKoncerta() {
                 </div>
 
                 <div className="koncert-desno">
-                    <div className="koncert-desno-info center">
-                        <h3>
-                            <h4><FaRegCalendarAlt style={{ marginRight: "10px" }} /></h4>
-                            {razdeliPoDvehBesedah(formatirajDatum(koncert.datum)).map((del, i) => (
-                                <span key={i}>
-                                    {del}
-                                    <br />
-                                 </span>
-                            ))}
-                        </h3>
-                        <h3>
-                            <h4><FaLocationDot style={{ marginRight: "10px" }} /></h4>
-                            {razdeliPoDvehBesedah(koncert.lokacija).map((del, i) => (
-                                <span key={i}>
-                                    {del}
-                                    <br />
-                                </span>
-                            ))}
-                        </h3>
-                    </div>
                     <div className="koncert-stran-vsebina">
                         <h1>O koncertu</h1>
                         <p>{koncert.vsebina}</p>
@@ -166,6 +147,7 @@ function StranKoncerta() {
                 <div className="izvajalci-pri-programu">
                     <div className="izvajalci-pri-programu-tekst">
                         <h1>Izvajalci:</h1>
+                        <hr />
                         {izvajalciData.map((skupina, index) => (
                             <div key={index} className="izvajalci-karta">
                                 {skupina.imeSkupine && <h3>{skupina.imeSkupine}</h3>}
@@ -178,11 +160,11 @@ function StranKoncerta() {
                         ))}
                     </div>
                 </div>
-                <div>
+                <div className="center">
                     <div className="stran-koncerta-program-wrapper">
-                        <div className="stran-koncerta-program-h1">
-                            <h1>Program</h1>
-                            <hr />
+                        <div className="center-program">
+                            <h1>Program:</h1>
+                            <hr style={{ width: "10%" }} />
                         </div>
 
                         <div className="array-program">
@@ -204,7 +186,7 @@ function StranKoncerta() {
 
             <section className="rezervacija-vstopnic center">
                 <div className="rezervacija-vstopnic-levo">
-                    <h1>Rezervacija vstopnic</h1>
+                    <h1>Rezervacija brezplačnih vstopnic</h1>
                     <form className="rezervacija-vstopnic-form" onSubmit={handleSubmit}>
                         <input
                             type="text"

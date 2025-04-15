@@ -272,8 +272,23 @@ a {
         top: -1.5em;
     }
 
+    .stran-koncerta-program-wrapper {
+        margin-top: 3em;
+    }
+
     .koncert-program {
         flex-direction: column;
+        align-items: flex-start;
+    }
+    .koncert-stran-vsebina p {
+        font-size: 11pt !important;
+    }
+    .koncert-desno-info h3 {
+        font-size: 10pt;
+    }
+    .izvajalci-pri-programu {
+        align-items: flex-start !important;
+        margin-bottom: 1em;
     }
 
     .arhiv-koncert-karta {
@@ -591,6 +606,7 @@ a {
     min-height: 70vh;
     padding: 2em;
     display: flex;
+    align-items: center;
 } .koncert-program div {
     flex: 1;
   }
@@ -682,35 +698,30 @@ background-color: #f0f4f8;
 }
 
 
-.stran-koncerta-program-wrapper {
-    position: relative;
-    padding-left: 80px; /* prostor za navpični naslov */
-}
 
-.stran-koncerta-program-h1 {
-    position: absolute;
-    top: -13em;
-    left: 0;
-    transform: rotate(-90deg);
-    transform-origin: left center;
+.center-program {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.stran-koncerta-program-h1 h1 {
-    font-size: 18pt;
+.center-program h1 {
+    text-align: left;
     margin: 0;
-    white-space: nowrap;
 }
 
-.stran-koncerta-program-h1 hr {
-    height: 50vh; /* dolžina črte */
-    width: 2px;
-    background-color: white;
-    transform: rotate(-90deg) translateY(-50%);
-    border: none;
-    margin-top: 3em;
+.center-program hr {
+    width: 10%;
+    margin-top: 10px;
+    margin-left: 0;
+    margin-right: auto;
+    border: 0.5px solid white;
+}
+
+.izvajalci-pri-programu-tekst hr {
+    border: 0.5px solid white;
+    width: 35%;
+    margin: 10px 0 0.5em 0;
 }
 
 
@@ -737,9 +748,7 @@ background-color: #f0f4f8;
     justify-content: center;
     align-items: center;
 }
-.izvajalci-pri-programu-tekst h1 {
-    margin-bottom: 0.5em;
-}
+
 .izvajalci-karta {
     padding: 0.2em;
 }

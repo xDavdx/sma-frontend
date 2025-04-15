@@ -1880,8 +1880,7 @@ img {
 /* Navigacijski gumbi - modern kvadratni */
 .image-gallery-left-nav,
 .image-gallery-right-nav {
-  background-color: #d0e6f5 !important;
-  color: #1d4d6d !important;
+  color: black !important;
   border-radius: 4px !important;
   padding: 6px 10px !important;
   font-size: 18px !important;
@@ -1910,12 +1909,7 @@ img {
   display: none !important;
 }
 
-/* Na hover malo temnejše */
-.image-gallery-left-nav:hover,
-.image-gallery-right-nav:hover {
-  background-color: #a4cce6 !important;
-  color: #0b2c45 !important;
-}
+
 
 /* Responsive za telefone */
 @media (max-width: 600px) {
