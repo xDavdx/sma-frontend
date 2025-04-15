@@ -96,7 +96,7 @@ function StranKoncerta() {
     if (loading) return <h2 style={{ marginTop: "8em" }}>Nalaganje...</h2>;
     if (error) return <h2>{error}</h2>;
 
-    // 📌 PRIPRAVA PODATKOV ZA PRIKAZ
+    // slike
     const images = koncert.slike.map((slika) => ({
         original: slika,
         thumbnail: slika,
@@ -106,6 +106,16 @@ function StranKoncerta() {
         ? JSON.parse(koncert.izvajalci)
         : koncert.izvajalci;
 
+
+    const razdeliPoDvehBesedah = (besedilo) => {
+        const besede = besedilo.split(" ");
+        const deli = [];
+        for (let i = 0; i < besede.length; i += 2) {
+            deli.push(besede.slice(i, i + 2).join(" "));
+        }
+        return deli;
+    };
+
     return (
         <div>
             <section className="koncert-stran center">
@@ -113,16 +123,8 @@ function StranKoncerta() {
                     <Link to="/koncerti" className="gumb-nazaj-na-koncerte">
                         <button className="gumb-nazaj-na-koncerte">Nazaj na koncerte</button>
                     </Link>
-                    <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
-                        <FaRegCalendarAlt style={{ marginRight: "10px" }} />
-                        {formatirajDatum(koncert.datum)}
-                    </h3>
-                    <h3 style={{ display: "flex", alignItems: "center", color: "black" }}>
-                        <FaLocationDot style={{ marginRight: "10px" }} />
-                        {koncert.lokacija}
-                    </h3>
                     <h1>{koncert.ime}</h1>
-                    <p>{koncert.podnaslov}</p>
+                    <p style={{ color: "grey" }}>{koncert.podnaslov}</p>
                     <ImageGallery
                         items={images}
                         showPlayButton={false}
@@ -133,46 +135,72 @@ function StranKoncerta() {
                 </div>
 
                 <div className="koncert-desno">
-                    <h1>Izvajalci:</h1>
-                    {izvajalciData.map((skupina, index) => (
-                        <div key={index}>
-                            {skupina.imeSkupine && <h3>{skupina.imeSkupine}</h3>}
-                            {skupina.izvajalci.map((izvajalec, idx) => (
-                                <p key={idx}>
-                                    <b>{izvajalec.ime}</b> - {izvajalec.instrument}
-                                </p>
+                    <div className="koncert-desno-info center">
+                        <h3 style={{ color: "#2B5E77" }}>
+                            <h4><FaRegCalendarAlt style={{ marginRight: "10px" }} /></h4>
+                            {razdeliPoDvehBesedah(formatirajDatum(koncert.datum)).map((del, i) => (
+                                <span key={i}>
+                                    {del}
+                                    <br />
+                                 </span>
                             ))}
-                        </div>
-                    ))}
+                        </h3>
+                        <h3 style={{ color: "#2B5E77" }}>
+                            <h4><FaLocationDot style={{ marginRight: "10px" }} /></h4>
+                            {razdeliPoDvehBesedah(koncert.lokacija).map((del, i) => (
+                                <span key={i}>
+                                    {del}
+                                    <br />
+                                </span>
+                            ))}
+                        </h3>
+                    </div>
+                    <div className="koncert-stran-vsebina">
+                        <h1>O koncertu</h1>
+                        <p>{koncert.vsebina}</p>
+                    </div>
                 </div>
             </section>
 
             <section className="center koncert-program">
-                <div className="stran-koncerta-program-wrapper">
-                    <div className="stran-koncerta-program-h1">
-                        <h1>Program</h1>
-                        <hr />
-                    </div>
-
-                    <div className="array-program">
-                        {koncert.program.map((item, index) => (
-                            <div key={index}>
-                                <h3>{item.skladatelj}: {item.naslov}</h3>
-                                {Array.isArray(item.stavki) && item.stavki.map((stavek, idx) => (
+                <div className="izvajalci-pri-programu">
+                    <div className="izvajalci-pri-programu-tekst">
+                        <h1>Izvajalci:</h1>
+                        {izvajalciData.map((skupina, index) => (
+                            <div key={index} className="izvajalci-karta">
+                                {skupina.imeSkupine && <h3>{skupina.imeSkupine}</h3>}
+                                {skupina.izvajalci.map((izvajalec, idx) => (
                                     <p key={idx}>
-                                        <b>{toRoman(idx + 1)}.</b> {stavek}
+                                        <b>{izvajalec.ime}</b> - {izvajalec.instrument}
                                     </p>
                                 ))}
                             </div>
                         ))}
                     </div>
                 </div>
+                <div>
+                    <div className="stran-koncerta-program-wrapper">
+                        <div className="stran-koncerta-program-h1">
+                            <h1>Program</h1>
+                            <hr />
+                        </div>
+
+                        <div className="array-program">
+                            {koncert.program.map((item, index) => (
+                                <div key={index}>
+                                    <h3>{item.skladatelj}: {item.naslov}</h3>
+                                    {Array.isArray(item.stavki) && item.stavki.map((stavek, idx) => (
+                                        <p key={idx}>
+                                            <b>{toRoman(idx + 1)}.</b> {stavek}
+                                        </p>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <section className="koncert-stran-vsebina">
-                <h1>O koncertu</h1>
-                <p>{koncert.vsebina}</p>
-            </section>
 
             <section className="rezervacija-vstopnic center">
                 <div className="rezervacija-vstopnic-levo">

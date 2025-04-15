@@ -267,6 +267,10 @@ a {
         top: -1.5em;
     }
 
+    .koncert-program {
+        flex-direction: column;
+    }
+
     .arhiv-koncert-karta {
         padding: 10px !important;
     }
@@ -565,7 +569,7 @@ a {
 }
 
 .koncert-desno p {
-    font-size: 1.1em;
+    font-size: 12pt;
     line-height: 1.6;
     margin: 0;
 }
@@ -581,7 +585,10 @@ a {
     color: white;
     min-height: 70vh;
     padding: 2em;
-}
+    display: flex;
+} .koncert-program div {
+    flex: 1;
+  }
 
 .gumb-nazaj-na-koncerte {
     padding: 10px;
@@ -658,16 +665,14 @@ background-color: #f0f4f8;
     font-size: 12pt;
 }
 
-.koncert-stran-vsebina {
-    margin: 2em 10em;
-}
+
 
 .koncert-stran-vsebina h1 {
-    font-size: 26pt;
+    font-size: 20pt;
     margin: 1em 0;
 }
 .koncert-stran-vsebina p {
-    font-size: 14pt;
+    font-size: 12pt;
     line-height: 1.4;
 }
 
@@ -701,4 +706,42 @@ background-color: #f0f4f8;
     transform: rotate(-90deg) translateY(-50%);
     border: none;
     margin-top: 3em;
+}
+
+
+.koncert-desno-info {
+    display: flex;
+    width: 100%;
+    gap: 5em;
+}
+.koncert-desno-info h3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.izvajalci-pri-programu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.izvajalci-pri-programu-tekst h1 {
+    margin-bottom: 0.5em;
+}
+.izvajalci-karta {
+    padding: 0.2em;
+}
+.izvajalci-karta h3 {
+    margin-bottom: 0.4em;
+}
+.izvajalci-karta p {
+    margin-bottom: 0.4em;
+    color: #B9D9EA;
+}
+.image-gallery-swipe {
+    width: 100%;
+    max-height: 60vh;
 }
