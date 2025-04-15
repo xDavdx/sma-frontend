@@ -165,7 +165,7 @@ import "./Novice.css";
                             {renderSlika(featured)}
                             <h2>{featured.ime}</h2>
                             <p>{featured.podnaslov}</p>
-                            <span>{new Date(featured.datum).toLocaleString()}</span>
+                            {/*<span>{new Date(featured.datum).toLocaleString()}</span>*/}
                             <Link to={`/novice/${featured._id}`} className="preberi-vec">Preberi več</Link>
                         </div>
                     )}
@@ -177,7 +177,7 @@ import "./Novice.css";
                                 <div className="side-novica-content">
                                     <h3>{novica.ime}</h3>
                                     <p>{novica.podnaslov}</p>
-                                    <span>{new Date(novica.datum).toLocaleString()}</span>
+                                    {/*<span>{new Date(novica.datum).toLocaleString()}</span>*/}
                                     <Link to={`/novice/${novica._id}`} className="preberi-vec">Preberi več</Link>
                                 </div>
                             </div>

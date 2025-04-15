@@ -36,6 +36,7 @@ const Novice = () => {
     };
 
 
+
     return (
         <div className="novice-wrapper">
             {/* Glavna novica + 3 naslednje */}
@@ -46,7 +47,15 @@ const Novice = () => {
                             {renderSlika(featured)}
                             <h2>{featured.ime}</h2>
                             <p>{featured.podnaslov}</p>
-                            <span>{new Date(featured.datum).toLocaleString()}</span>
+                            {/*<span>*/}
+                              {/*{new Date(featured.datum).toLocaleString("sl-SI", {*/}
+                              {/*    day: "2-digit",*/}
+                              {/*    month: "2-digit",*/}
+                              {/*    year: "numeric",*/}
+                              {/*    hour: "2-digit",*/}
+                              {/*    minute: "2-digit",*/}
+                              {/*})}*/}
+                            {/*</span>*/}
                             <Link to={`/novice/${featured._id}`} className="preberi-vec">Preberi več</Link>
                         </div>
                     )}
@@ -56,9 +65,17 @@ const Novice = () => {
                             <div key={index} className="side-novica">
                                 {renderSlika(novica)}
                                 <div className="side-novica-content">
+                                    {/*<span>*/}
+                                    {/*  {new Date(novica.datum).toLocaleString("sl-SI", {*/}
+                                    {/*      day: "2-digit",*/}
+                                    {/*      month: "2-digit",*/}
+                                    {/*      year: "numeric",*/}
+                                    {/*      hour: "2-digit",*/}
+                                    {/*      minute: "2-digit",*/}
+                                    {/*  })}*/}
+                                    {/*</span>*/}
                                     <h3>{novica.ime}</h3>
                                     <p>{novica.podnaslov}</p>
-                                    <span>{new Date(novica.datum).toLocaleString()}</span>
                                     <Link to={`/novice/${novica._id}`} className="preberi-vec">Preberi več</Link>
                                 </div>
                             </div>
@@ -75,9 +92,17 @@ const Novice = () => {
                     {remaining.map((novica, index) => (
                         <div key={index} className="novica-card">
                             {renderSlika(novica)}
+                            {/*<span style={{ color: "grey" }}>*/}
+                            {/*  {new Date(novica.datum).toLocaleString("sl-SI", {*/}
+                            {/*      day: "2-digit",*/}
+                            {/*      month: "2-digit",*/}
+                            {/*      year: "numeric",*/}
+                            {/*      hour: "2-digit",*/}
+                            {/*      minute: "2-digit",*/}
+                            {/*  })}*/}
+                            {/*</span>*/}
                             <h3>{novica.ime}</h3>
                             <p>{novica.podnaslov}</p>
-                            <span>{new Date(novica.datum).toLocaleString()}</span>
                             <Link to={`/novice/${novica._id}`} className="preberi-vec">Preberi več</Link>
                         </div>
                     ))}

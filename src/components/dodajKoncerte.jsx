@@ -116,6 +116,19 @@ const DodajKoncerte = () => {
         setProgramItems([...programItems, { skladatelj: "", naslov: "", stavki: [""] }]);
     };
 
+    const handleRemoveStavek = (itemIndex, stavekIndex) => {
+        setProgramItems((prev) => {
+            const novi = [...prev];
+            novi[itemIndex].stavki.splice(stavekIndex, 1);
+            return novi;
+        });
+    };
+
+    const handleRemoveProgramItem = (itemIndex) => {
+        setProgramItems((prev) => prev.filter((_, i) => i !== itemIndex));
+    };
+
+
 
     return (
         <div>
@@ -153,18 +166,38 @@ const DodajKoncerte = () => {
                                     required
                                 />
                                 {item.stavki.map((stavek, stavekIdx) => (
-                                    <input
-                                        key={stavekIdx}
-                                        type="text"
-                                        placeholder={`Stavek ${stavekIdx + 1}`}
-                                        value={stavek}
-                                        onChange={(e) => handleStavekChange(index, stavekIdx, e.target.value)}
-                                    />
+                                    <div key={stavekIdx}>
+                                        <input
+                                            type="text"
+                                            placeholder={`Stavek ${stavekIdx + 1}`}
+                                            value={stavek}
+                                            onChange={(e) => handleStavekChange(index, stavekIdx, e.target.value)}
+                                        />
+                                        <button
+                                            className="odstrani"
+                                            type="button"
+                                            onClick={() => handleRemoveStavek(index, stavekIdx)}
+                                        >
+                                            Odstrani stavek
+                                        </button>
+                                    </div>
                                 ))}
-                                <button className="dodaj-gumb" type="button" onClick={() => addStavek(index)}>Dodaj stavek</button>
+                                <button className="dodaj-gumb" type="button" onClick={() => addStavek(index)}>
+                                    Dodaj stavek
+                                </button>
+                                <button
+                                    className="odstrani"
+                                    type="button"
+                                    onClick={() => handleRemoveProgramItem(index)}
+                                >
+                                    Odstrani skladbo
+                                </button>
                             </div>
                         ))}
-                        <button className="dodaj-gumb" type="button" onClick={addProgramItem}>Dodaj skladbo</button>
+                        <button className="dodaj-gumb" type="button" onClick={addProgramItem}>
+                            Dodaj skladbo
+                        </button>
+
                     </div>
 
 
