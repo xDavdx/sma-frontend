@@ -53,9 +53,9 @@ const Navbar = () => {
 
                     {/* Socialne ikone */}
                     <div className="social-icons">
-                        <a href="#"><FaYoutube /></a>
-                        <a href="#"><RiInstagramFill /></a>
-                        <a href="#"><FaFacebook /></a>
+                        <a href="https://www.youtube.com/@glasbamladih" target="_blank"><FaYoutube /></a>
+                        <a href="https://www.instagram.com/sm.abonma/" target="_blank"><RiInstagramFill /></a>
+                        <a href="https://www.facebook.com/sm.abonma/" target="_blank"><FaFacebook /></a>
                     </div>
                 </div>
             </nav>

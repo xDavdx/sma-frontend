@@ -38,13 +38,13 @@ const Footer = () => {
                     </div>
                     <div className="social-icons-footer">
                         <h1>Sledite nam:</h1>
-                        <a href="#" aria-label="YouTube">
+                        <a href="https://www.youtube.com/@glasbamladih" target="_blank" aria-label="YouTube">
                             <FaYoutube />
                         </a>
-                        <a href="#" aria-label="Instagram">
+                        <a href="https://www.instagram.com/sm.abonma/" target="_blank"  aria-label="Instagram">
                             <RiInstagramFill />
                         </a>
-                        <a href="#" aria-label="Facebook">
+                        <a href="https://www.facebook.com/sm.abonma/" target="_blank" aria-label="Facebook">
                             <FaFacebook />
                         </a>
                     </div>
