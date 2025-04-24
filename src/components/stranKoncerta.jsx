@@ -60,8 +60,14 @@ function StranKoncerta() {
         }, "");
     };
 
+    const [privacyChecked, setPrivacyChecked] = useState(false);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!privacyChecked) {
+            alert("Prosimo, da se strinjate s pravilnikom o zasebnosti.");
+            return;
+        }
 
         const novaRezervacija = {
             ime,
@@ -210,6 +216,18 @@ function StranKoncerta() {
                             onChange={(e) => setSteviloVstopnic(e.target.value)}
                             required
                         />
+                        <div className="checkbox-wrapper" style={{ margin: "1em 0", fontSize: "0.95em" }}>
+                            <input
+                                type="checkbox"
+                                id="privacy"
+                                checked={privacyChecked}
+                                onChange={(e) => setPrivacyChecked(e.target.checked)}
+                                required
+                            />
+                            <label htmlFor="privacy" style={{ marginLeft: "0.5em" }}>
+                                Strinjam se s <a href="/pravilnik-zasebnosti" target="_blank" style={{ color: "#4C7F93" }}>pogoji zasebnosti</a>.
+                            </label>
+                        </div>
                         <button type="submit" className="koncert-gumb">Rezerviraj</button>
                     </form>
                 </div>

@@ -1628,6 +1628,13 @@ img {
   color: #B9D9EA;
   }
 
+.zasebnost-footer {
+  color: #90C0D3;
+}
+.zasebnost-footer:hover {
+  color: #B9D9EA;
+}
+
 
 .social-icons-footer {
   margin-top: 1em;
@@ -2073,4 +2080,71 @@ img {
 
 
 
+/* Splošno za pravilnik */
+.pravilnik-container {
+  width: 80%;
+  margin: 0 auto 5em auto;
+  font-family: Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.pravilnik-container h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: #004a7c;
+}
+
+.pravilnik-container h3 {
+  font-size: 1.6em;
+  color: #005e90;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.pravilnik-container p {
+  font-size: 1.1em;
+  margin-bottom: 1em;
+}
+
+.pravilnik-container ul {
+  list-style-type: disc;
+  margin-left: 2em;
+  margin-bottom: 1.5em;
+}
+
+.pravilnik-container ul li {
+  margin-bottom: 0.5em;
+}
+
+.pravilnik-container a {
+  color: #005e90;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.pravilnik-container a:hover {
+  text-decoration: underline;
+  color: #007acc;
+}
+
+@media (max-width: 768px) {
+  .pravilnik-container {
+    width: 95%;
+  }
+
+  .pravilnik-container h2 {
+    font-size: 1.8em;
+  }
+
+  .pravilnik-container h3 {
+    font-size: 1.4em;
+  }
+
+  .pravilnik-container p,
+  .pravilnik-container ul li {
+    font-size: 1em;
+  }
+}
 

@@ -52,7 +52,12 @@ const Footer = () => {
             </div>
             <div className="center footer-spodaj">
                 <hr className="footer-hr"/>
-                <p>&copy; 2025 - Slovenski mladi abonma. Vse pravice pridržane</p>
+                <p>
+                    © 2025 - Slovenski mladi abonma. Vse pravice pridržane |{" "}
+                    <a href="/pravilnik-zasebnosti" className="zasebnost-footer">
+                        Pravilnik o zasebnosti
+                    </a>
+                </p>
             </div>
         </footer>
     );

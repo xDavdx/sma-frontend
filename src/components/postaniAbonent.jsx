@@ -6,8 +6,15 @@ const PostaniAbonent = () => {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
+
+    const [privacyChecked, setPrivacyChecked] = useState(false);
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!privacyChecked) {
+            alert("Prosimo, da se strinjate s pravilnikom o zasebnosti.");
+            return;
+        }
+
         try {
             const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/abonent/dodaj`, { name, email });
             setMessage(response.data.message);
@@ -38,12 +45,22 @@ const PostaniAbonent = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
+                <div className="checkbox-wrapper" style={{ margin: "1em 0", fontSize: "0.95em", flexDirection: "column" }}>
+                    <input
+                        type="checkbox"
+                        id="privacy"
+                        checked={privacyChecked}
+                        onChange={(e) => setPrivacyChecked(e.target.checked)}
+                        required
+                    />
+                    <label htmlFor="privacy" style={{ marginLeft: "0.5em" }}>
+                        Strinjam se s <a href="/pravilnik-zasebnosti" target="_blank" style={{ color: "#4C7F93" }}>pogoji zasebnosti</a>.
+                    </label>
+                </div>
+
                 <button type="submit">Prijavi se</button>
             </form>
             {message && <p>{message}</p>}
-            <p>*Obrazec bo poslal vnesene podatke na naš kontaktni naslov. Podatke potrebujemo, da vas lahko dodamo na mailing listo. Vaših podatkov ne posredujemo tretjim osebam. Če želite naknadni izbris vaših podatkov iz naše baze prejetih e-pošt, stopite v stik preko kontaktnih podatkov.
-
-            </p>
         </div>
     );
 };
