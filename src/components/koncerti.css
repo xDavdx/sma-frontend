@@ -653,11 +653,15 @@ background-color: #f0f4f8;
     padding: 0.8em;
     border: none;
     font-size: 12pt;
-    border-bottom: 1px solid #2c3e50;
+    border-bottom: 1px solid #4C7F93;
     background-color: unset;
     margin: 0.5em;
 }
 
+.rezervacija-vstopnic-form input:focus {
+    outline: none;
+    border-bottom: 1px solid #2c3e50;
+}
 
 
 .input-st-kart {

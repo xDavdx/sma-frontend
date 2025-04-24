@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Novice.css";
+import {Helmet} from "react-helmet";
 
 const Novice = () => {
     const [novice, setNovice] = useState([]);
@@ -39,6 +40,11 @@ const Novice = () => {
 
     return (
         <div className="novice-wrapper">
+            <Helmet>
+                <title>SMA - Novice</title>
+                <meta name="description" content="S svojim trudom si želimo pomagati mladim slovenskim umetnikom, ki iščejo pot do profesionalne kariere" />
+                <meta name="robots" content="index, follow" />
+            </Helmet>
             {/* Glavna novica + 3 naslednje */}
             <section className="featured-section center">
                 <div className="featured-grid">

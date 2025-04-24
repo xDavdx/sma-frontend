@@ -2,12 +2,19 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FaYoutube, FaFacebook } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
+import { IoIosArrowDown } from "react-icons/io";
 import PostaniAbonent from "./postaniAbonent";
 import logo from "../logo-sma.png";
+
+
+
 
 const Navbar = () => {
     const [showAbonentForm, setShowAbonentForm] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+
+
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
     return (
         <div>
@@ -32,12 +39,43 @@ const Navbar = () => {
                         <li>
                             <Link to="/novice" onClick={() => setMenuOpen(false)}>Novice</Link>
                         </li>
-                        <li>
-                            <Link to="/o-nas" onClick={() => setMenuOpen(false)}>O nas</Link>
+                        <li className={`dropdown ${dropdownOpen ? "open" : ""}`}>
+                            <div className="dropdown-toggle" onClick={() => {
+                                if (window.innerWidth <= 800) {
+                                    setDropdownOpen(!dropdownOpen);
+                                }
+                            }}>
+                                <Link
+                                    to="/o-nas"
+                                    onClick={() => {
+                                        setMenuOpen(false);
+                                        if (window.innerWidth > 800) setDropdownOpen(false);
+                                    }}
+                                    className="dropdown-link"
+                                >
+                                    O nas
+                                </Link>
+                                <IoIosArrowDown className={`dropdown-icon ${dropdownOpen ? "rotated" : ""}`} />
+                            </div>
+
+                            <ul className="dropdown-menu">
+                                <li>
+                                    <Link to="/drustvo-odeon" onClick={() => {
+                                        setMenuOpen(false);
+                                        setDropdownOpen(false);
+                                    }}>Društvo Odeon</Link>
+                                </li>
+                                <li>
+                                    <Link to="/glasba-mladih" onClick={() => {
+                                        setMenuOpen(false);
+                                        setDropdownOpen(false);
+                                    }}>Glasba mladih</Link>
+                                </li>
+                            </ul>
                         </li>
-                        <li>
-                            <Link to="/drustvo-odeon" onClick={() => setMenuOpen(false)}>Društvo Odeon</Link>
-                        </li>
+
+
+
                         <li>
                             <button
                                 className="abonent-btn"

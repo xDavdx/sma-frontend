@@ -10,6 +10,7 @@ import "./koncerti.css"
 import { FaLocationDot } from "react-icons/fa6";
 import {cikli} from "./cikli";
 import "./Novice.css";
+import {Helmet} from "react-helmet";
 
 
     const ZacetnaStran = () => {
@@ -86,6 +87,11 @@ import "./Novice.css";
 
     return (
         <div className="zacetna-stran">
+            <Helmet>
+                <title>Slovenski mladi abonma</title>
+                <meta name="description" content="Slovenski mladi abonma organiziramo mladi glasbeniki, študenti glasbenih akademij po celi Evropi." />
+                <meta name="robots" content="index, follow" />
+            </Helmet>
             <div className="zacetna-stran">
                 <div className="prva">
                     <div className="prva-levo">

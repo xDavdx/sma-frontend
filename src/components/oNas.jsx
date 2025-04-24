@@ -13,7 +13,7 @@ const ONas = () => {
         <div className="onas-container">
             <Helmet>
                 <title>SMA - O nas</title>
-                <meta name="description" content="O Slovenskem mladem abonmaju" />
+                <meta name="description" content="S svojim trudom si želimo pomagati mladim slovenskim umetnikom, ki iščejo pot do profesionalne kariere" />
                 <meta name="robots" content="index, follow" />
             </Helmet>
             {/* Sekcija: O nas */}
