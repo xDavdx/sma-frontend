@@ -4,6 +4,7 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import {IoIosArrowBack} from "react-icons/io";
 
 function StranKoncerta() {
     const { id } = useParams();
@@ -122,12 +123,52 @@ function StranKoncerta() {
         return deli;
     };
 
+    const VsebinaKoncert = ({ vsebina }) => {
+        const [razsirjeno, setRazsirjeno] = useState(false);
+
+        const skrajsajVsebino = (text, steviloBesed = 80) => {
+            const besede = text.split(' ');
+            if (besede.length <= steviloBesed) return text;
+            return besede.slice(0, steviloBesed).join(' ') + '...';
+        };
+
+        const toggleRazsirjeno = () => {
+            setRazsirjeno(!razsirjeno);
+        };
+
+        return (
+            <>
+                <p style={{ lineHeight: "1.6" }}>
+                    {razsirjeno ? vsebina : skrajsajVsebino(vsebina)}
+                </p>
+                {vsebina.split(' ').length > 80 && (
+                    <button
+                        onClick={toggleRazsirjeno}
+                        style={{
+                            background: "none",
+                            border: "none",
+                            color: "#4C7F93",
+                            cursor: "pointer",
+                            marginTop: "0.5em",
+                            fontSize: "1em",
+                            textDecoration: "none"
+                        }}
+                    >
+                        {razsirjeno ? "Pokaži manj" : "Preberi več.."}
+                    </button>
+                )}
+            </>
+        );
+    };
+
+
+
     return (
         <div>
             <section className="koncert-stran center">
                 <div className="koncert-levo">
-                    <Link to="/koncerti" className="gumb-nazaj-na-koncerte">
-                        <button className="gumb-nazaj-na-koncerte">Nazaj na koncerte</button>
+                    <Link to="/koncerti" className="gumb-nazaj-aan center">
+                        <IoIosArrowBack /> Nazaj na koncerte
                     </Link>
                     <h1>{koncert.ime}</h1>
                     {/*<p style={{ color: "grey" }}>{koncert.podnaslov}</p>*/}
@@ -144,7 +185,11 @@ function StranKoncerta() {
                 <div className="koncert-desno">
                     <div className="koncert-stran-vsebina">
                         <h1>O koncertu</h1>
-                        <p>{koncert.vsebina}</p>
+
+                        <p><VsebinaKoncert vsebina={koncert.vsebina} /></p>
+
+
+
                     </div>
                 </div>
             </section>
