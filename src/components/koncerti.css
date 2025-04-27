@@ -319,7 +319,7 @@ a {
     }
 
     .karta-slika {
-        height: 230px;
+        height: 170px;
     }
     .koncert-gumb {
         font-size: 0.8rem;
@@ -397,9 +397,19 @@ a {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 
-    .arhiv-karta-slika img {
-        width: 100%;
-        height: auto;
+    .arhiv-karta-slika {
+        width: 40% !important;
+        height: 150px !important;
+        margin-right: 1em;
+    }
+
+    .arhiv-koncert-karta {
+        display: flex !important;
+        flex-direction: row !important;
+    }
+
+    .arhiv-karta-tekst {
+
     }
 
     .ozadje-prih-koncerti {
@@ -464,10 +474,11 @@ a {
 /* Slika koncerta (60% širine kartice) */
 .arhiv-karta-slika {
     width: 100%;
-    height: 60%;
+    height: 225px;
     margin-bottom: 10px;
     position: relative;
     text-align: center;
+    overflow: hidden;
 }
 
 .arhiv-karta-slika img {
@@ -475,6 +486,7 @@ a {
     height: 100%;
     object-fit: cover;
     border-radius: 1em;
+    overflow: hidden;
 }
 
 /* Tekstualni del karte */

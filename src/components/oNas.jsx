@@ -66,44 +66,78 @@ const ONas = () => {
                 </div>
             </section>
 
-            {/* Sekcija: Postani del ekipe */}
-            <section className="onas-pridruzi">
-                <div className="kontakt center">
-                    <div className="kontakt-levo kld">
-                        <div>
-                            <h1>Postani del ekipe!</h1>
-                            <h3>
-                                <a href="tel:+38631726060">
-                                    Vedno iščemo mlade, ki si želijo tudi izkušenj v organizacijskih vodah! Če vas zanima, nam pišite ali nas kontaktirajte preko družabnih omrežij!
-                                </a>
-                            </h3>
-                            <h1>Kontakt:</h1>
-                            <h3>
-                                <a href="tel:+38631726060">
-                                    <FaPhoneAlt /> +386 31 726 060
-                                </a>
-                            </h3>
-                            <h3>
-                                <a href="mailto:mladi.abonma@gmail.com">
-                                    <MdOutlineMailOutline /> mladi.abonma@gmail.com
-                                </a>
-                            </h3>
-                            <div className="social-icons">
-                                <a href=""><FaYoutube /></a>
-                                <a href=""><RiInstagramFill /></a>
-                                <a href=""><FaFacebook /></a>
-                            </div>
-                        </div>
+
+            {/* Sekcija "Kaj počnemo?" */}
+            <section className="odeon-activities onas-act">
+                <div className="odeon-columns">
+                    {/* Leva kolona */}
+                    <div className="odeon-column">
+                        <h3>Postani del ekipe!</h3>
+                        <p>
+                            Vedno iščemo mlade, ki si želijo tudi izkušenj v organizacijskih vodah! Če vas zanima, nam pišite ali nas kontaktirajte preko družabnih omrežij!
+                        </p>
                     </div>
 
+                    {/* Desna kolona */}
+                    <div className="odeon-column">
+                        <h3>Kontakt:</h3>
 
+                                            <a href="tel:+38631726060">
+                                                <p><FaPhoneAlt /> +386 31 726 060</p>
+                                            </a>
 
-                    <div className="kontakt-desno center kld">
-                        <KontaktForma />
+                                            <a href="mailto:mladi.abonma@gmail.com">
+                                                <p><MdOutlineMailOutline /> mladi.abonma@gmail.com</p>
+                                            </a>
 
+                                        <div className="social-icons">
+                                            <a href=""><p><FaYoutube /></p></a>
+                                            <a href=""><RiInstagramFill /></a>
+                                            <a href=""><FaFacebook /></a>
+                                        </div>
                     </div>
                 </div>
             </section>
+
+
+            {/*/!* Sekcija: Postani del ekipe *!/*/}
+            {/*<section className="onas-pridruzi">*/}
+            {/*    <div className="kontakt center">*/}
+            {/*        <div className="kontakt-levo kld">*/}
+            {/*            <div>*/}
+            {/*                <h1>Postani del ekipe!</h1>*/}
+            {/*                <h3>*/}
+            {/*                    <a href="tel:+38631726060">*/}
+            {/*                        Vedno iščemo mlade, ki si želijo tudi izkušenj v organizacijskih vodah! Če vas zanima, nam pišite ali nas kontaktirajte preko družabnih omrežij!*/}
+            {/*                    </a>*/}
+            {/*                </h3>*/}
+            {/*                <h1>Kontakt:</h1>*/}
+            {/*                <h3>*/}
+            {/*                    <a href="tel:+38631726060">*/}
+            {/*                        <FaPhoneAlt /> +386 31 726 060*/}
+            {/*                    </a>*/}
+            {/*                </h3>*/}
+            {/*                <h3>*/}
+            {/*                    <a href="mailto:mladi.abonma@gmail.com">*/}
+            {/*                        <MdOutlineMailOutline /> mladi.abonma@gmail.com*/}
+            {/*                    </a>*/}
+            {/*                </h3>*/}
+            {/*                <div className="social-icons">*/}
+            {/*                    <a href=""><FaYoutube /></a>*/}
+            {/*                    <a href=""><RiInstagramFill /></a>*/}
+            {/*                    <a href=""><FaFacebook /></a>*/}
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+
+
+
+            {/*        <div className="kontakt-desno center kld">*/}
+            {/*            <KontaktForma />*/}
+
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</section>*/}
         </div>
     );
 };

@@ -2148,3 +2148,15 @@ img {
   }
 }
 
+
+.gumb-nazaj-aan {
+  color: #1C5677;
+  transition: color 0.3s;
+}
+.gumb-nazaj-aan:hover {
+  color: #4C7F93;
+}
+
+.onas-act {
+  margin-top: 0 !important;
+}

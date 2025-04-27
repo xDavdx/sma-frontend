@@ -144,10 +144,6 @@ const Koncerti = () => {
                                                 <FaRegCalendarAlt style={{ marginRight: "10px" }} />
                                                 {formatirajDatum(koncert.datum)}
                                             </p>
-                                            <p style={{ display: "flex", alignItems: "center", color: "#656565" }}>
-                                                <FaLocationDot style={{ marginRight: "10px" }} />
-                                                {koncert.lokacija}
-                                            </p>
                                             <h3>{koncert.ime}</h3>
                                             <p style={{ color: "#656565", marginBottom: "0.7em" }}>{koncert.podnaslov}</p>
                                             <Link to={`/koncerti/${koncert._id}`}>
