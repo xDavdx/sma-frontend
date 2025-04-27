@@ -26,7 +26,6 @@ const Novice = () => {
 
     const renderSlika = (novica) => {
         if (!novica.slike || novica.slike.length === 0) return null;
-        console.log(novica.slike[0])
         return (
             <img
                 src={novica.slike[0]}
