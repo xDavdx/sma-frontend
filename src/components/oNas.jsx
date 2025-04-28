@@ -28,18 +28,18 @@ const ONas = () => {
                 <section className="odeon-content">
                     <h1>O nas</h1>
                     <p>
-                        Slovenski mladi abonma organiziramo mladi glasbeniki, študenti glasbenih akademij po celi Evropi.
+                        Slovenski mladi abonma organiziramo mladi slovenski glasbeniki.
                     </p>
 
                     <div className="onas-uvod-header-desno">
                         <img src={onasSlika} alt="Kulturno društvo Odeon"/>
-                        <p>
-                            <strong>Kaj počnemo?</strong><br/>
-                            Slovenski mladi abonma organiziramo mladi glasbeniki, študenti glasbenih akademij po celi Evropi.
-                            S svojim trudom si želimo pomagati mladim slovenskim umetnikom, ki iščejo pot do profesionalne kariere.
-                            Abonma je prostor, kjer lahko mladi ustvarjamo po svoje in skupaj raziskujemo nova glasbena obzorja.
-                            Mlada ekipa vedno išče nove načine za ustvarjanje priložnosti in bogatiti slovensko kulturno dogajanje.
-                        </p>
+                        <div className="onas-uvod-header-desno-div">
+                            <h2>Kaj počnemo?</h2>
+                            <p>
+                                Koncertni cikel Slovenski mladi abonma organiziramo mladi glasbeniki, ki svoje znanje o glasbi izpopolnjujemo na univerzah po celi Evropi. S svojim trudom želimo pomagati mladim slovenskim umetnikom, ki iščejo pot do profesionalne kariere, jim dati oder in omogočati njihov umetniški razvoj. Abonma je prostor, kjer lahko mladi ustvarjamo po svoje in skupaj raziskujemo nova glasbena obzorja. Vedno iščemo nove načine za ustvarjanje priložnosti in bogatiti slovensko kulturno dogajanje.
+
+                            </p>
+                        </div>
                     </div>
                 </section>
             </div>

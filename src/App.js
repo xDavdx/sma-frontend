@@ -17,6 +17,7 @@ import PregledRezervacij from "./components/pregledRezervacij";
 import PoskrolajNavrh from "./components/poskrolajNavrh";
 import GlasbaMladih from "./components/glasbaMladih";
 import PravilnikZasebnosti from "./components/pravilnikZasebnosti";
+import SezonaLetnica from "./components/SezonaLetnica";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./components/Novice.css"
@@ -46,6 +47,7 @@ function App() {
                   <Route path="/o-nas" element={<Onas />} />
                   <Route path="/glasba-mladih" element={<GlasbaMladih />} />
                   <Route path="/pravilnik-zasebnosti" element={<PravilnikZasebnosti />} />
+                  <Route path="/sezona/:leto" element={<SezonaLetnica />} />
               </Routes>
               <Footer />
           </Router>

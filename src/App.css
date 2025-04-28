@@ -1498,6 +1498,14 @@ img {
   border-radius: 65% 35% 72% 28% / 39% 84% 16% 61% ;
 }
 
+.onas-uvod-header-desno-div {
+  text-align: left;
+}
+.onas-uvod-header-desno-div h2 {
+  margin-bottom: 0.5em;
+}
+
+
 @media (max-width: 1500px) {
   .onas-ekipa-grid {
     margin: 0;

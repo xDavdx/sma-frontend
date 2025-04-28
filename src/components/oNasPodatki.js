@@ -3,6 +3,7 @@ import laura from "./laura.avif"
 import an from "./an.avif"
 import vid from "./vid.avif"
 import patricija from "./patricija.avif"
+import nusa from "./nusaDolinsek.png"
 
 
 export const oNasPodatki = [
@@ -38,6 +39,13 @@ export const oNasPodatki = [
         ime: "Patricija Malovrh Mlačnik",
         opis: "Soorganizatorka, violistka",
         slika: patricija,
+        facebook: "https://facebook.com/tina",
+        instagram: "https://instagram.com/tina",
+    },
+    {
+        ime: "Nuša Dolinšek",
+        opis: "Soorganizatorka, flavtistka",
+        slika: nusa,
         facebook: "https://facebook.com/tina",
         instagram: "https://instagram.com/tina",
     },

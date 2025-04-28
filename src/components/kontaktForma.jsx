@@ -19,7 +19,7 @@ function KontaktForma() {
         <div className="kontaktForma">
             <div className="center kontakt-forma-div">
                 <h1>Pošlji sporočilo:</h1>
-                <h3>z idejami za koncerte, možnosti za sodelovanja ali ponudbami se lahko javite preko obrazca</h3>
+                <h3>Kontaktirajte nas z idejami za projekte, sodelovanja in drugimi vprašanji!</h3>
             </div>
             <form className="kontakt-forma" onSubmit={handleSubmit}>
                 <input

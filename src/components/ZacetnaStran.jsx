@@ -95,6 +95,7 @@ import {Helmet} from "react-helmet";
                 <div className="prva">
                     <div className="prva-levo">
                         <h1>Slovenski Mladi Abonma</h1>
+                        <h2>Koncertni cikel mladih glasbenikov</h2>
                         <h2>
                             Slovenski mladi abonma organiziramo mladi glasbeniki, študenti glasbenih akademij po celi Evropi.
                         </h2>
