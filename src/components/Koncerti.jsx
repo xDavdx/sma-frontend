@@ -126,7 +126,7 @@ const Koncerti = () => {
                         <div key={sezona.leto} className="sezona-kartica">
                             <img src={sezona.slika} alt={sezona.ime} className="sezona-slika" />
                             <h1>{sezona.ime}</h1>
-                            <p>Število koncertov: {koncerti.filter(k => new Date(k.datum).getFullYear() === sezona.leto).length}</p>
+                            <p>Število koncertov: <i><b>{koncerti.filter(k => new Date(k.datum).getFullYear() === sezona.leto).length}</b></i></p>
                             <Link className="center" to={`/sezona/${sezona.leto}`}>
                                 <button className="koncert-gumb sezona-gumb-lala">Pregled sezone</button>
                             </Link>

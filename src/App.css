@@ -2168,3 +2168,72 @@ img {
 .onas-act {
   margin-top: 0 !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* GLASBA MLADIH */
+
+.glasba-mladih-vsebina {
+  width: 100%;
+}
+.glasba-mladih-iniciativa {
+  margin: 2em;
+}
+.glasba-mladih-vsebina p, ul, li {
+  font-size: 14pt;
+  line-height: 1.4;
+  margin: 0.5em 0;
+}
+
+.glasba-mladih-clani {
+  background-color: #1c5677;
+  color: white;
+  padding: 2em;
+}
+.glasba-mladih-clani h1 {
+  text-align: center;
+}
+.glasba-mmladih-clani-div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin: 2em;
+}
+.glasba-mmladih-clani-div div {
+  min-width: 12em;
+}
+.glasba-mmladih-clani-div div li {
+  list-style-type: upper-roman;
+  color: #B9D9EA;
+}
+.glasba-mladih-vodje {
+  display: flex;
+  gap: 4em;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 2em 0;
+}
+.glasba-mladih-vodje div li {
+  list-style-type: upper-roman;
+  color: #B9D9EA;
+}

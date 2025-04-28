@@ -96,7 +96,10 @@ a {
 }
 
 .karta-zac-stran {
-    background-color: #f2f2f2;
+    background-color: unset;
+}
+.karta-zac-stran:hover {
+    box-shadow: 10px 8px 20px rgba(0,0,0,0.1);
 }
 
 .karta-tekst h5 {
@@ -465,14 +468,18 @@ a {
 
 /* Koncertna karta */
 .arhiv-koncert-karta {
-    background-color: #f0f0f0;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: box-shadow 0.5s;
+    animation: fadeIn 0.8s ease-in-out backwards;
+}
+.arhiv-koncert-karta:hover {
+    box-shadow: 10px 8px 20px rgba(0,0,0,0.1);
 }
 
 /* Slika koncerta (60% širine kartice) */
@@ -796,23 +803,38 @@ background-color: #f0f4f8;
     margin: 2em 0;
 }
 
+.spreminjanje-koncertov-blabla {
+    flex-wrap: wrap;
+}
+
 .spreminjanje-koncertov-karta {
-    background-color: #4C7F93;
-    color: white;
+    color: black;
     padding: 1em;
     margin: 0.5em;
     border-radius: 10px;
     min-height: 30vh;
 }
 .spreminjanje-koncertov-karta button {
-    background-color: green;
+    background-color: rgba(109, 161, 109, 0.75);
     border: none;
     color: white;
     padding: 0.5em;
     margin: 0.5em 0;
     cursor: pointer;
     font-size: 12pt;
+    border-radius: 10px;
+    transition: background-color 0.25s;
 }
+
+.spreminjanje-koncertov-karta p {
+    margin-top: 0.3em;
+}
+
+.spreminjanje-koncertov-karta button:hover {
+    background-color: rgba(109, 161, 109, 1);
+}
+
+.spreminjanje-koncertov-karta
 
 .dodajanje-slika {
     width: 300px;
@@ -828,13 +850,16 @@ background-color: #f0f4f8;
 }
 
 .sezona-kartica {
-    background-color: #f0f0f0;
     color: black;
     padding: 0.7em;
     border-radius: 10px;
     width: 340px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    transition: box-shadow 0.5s;
+}
+.sezona-kartica:hover {
+    box-shadow: 10px 8px 20px rgba(0,0,0,0.1);
 }
 
 .sezona-kartica h1 {
@@ -873,8 +898,6 @@ background-color: #f0f4f8;
 
 
 .gm-sekcija {
-    margin-top: 5em;
-    background-color: #f0f0f0;
     color: black;
     padding: 2em 2em;
     display: flex;
@@ -882,7 +905,6 @@ background-color: #f0f4f8;
 
 .gm-naslov {
     font-size: 2rem;
-    margin-bottom: 0.8em;
 }
 
 .gm-sekcija-slika {

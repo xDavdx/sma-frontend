@@ -9,7 +9,15 @@ import logo from "./sma-logo-font.png";
 const SezonaLetnica = () => {
     const { leto } = useParams();
     const [koncerti, setKoncerti] = useState([]);
-    const [loading, setLoading] = useState(true); // <-- dodamo loading state
+    const [loading, setLoading] = useState(true); //
+
+
+    function formatirajDatum(datum) {
+        const meseci = ["januar", "februar", "marec", "april", "maj", "junij", "julij", "avgust", "september", "oktober", "november", "december"];
+        const date = new Date(datum);
+        return `${date.getDate()}. ${meseci[date.getMonth()]} ob ${date.getHours().toString().padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`;
+    }
+
 
     useEffect(() => {
         setLoading(true); // pri vsaki spremembi leta ponovno naloži
@@ -46,6 +54,7 @@ const SezonaLetnica = () => {
         );
     }
 
+
     return (
         <section className="sezona-stran">
             <section className="onas-uvod center">
@@ -75,14 +84,6 @@ const SezonaLetnica = () => {
                                     <div>
                                         <h2 className="gm-naslov">{sezona.gmNaslov}</h2>
                                     </div>
-                                    <div className="gm-vsebina">
-                                        {sezona.gmVsebina.split("\n").map((paragraph, index) => (
-                                            <p key={index}>{paragraph}</p>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className="gm-sekcija-slika">
-                                    <img src={sezona.slika} alt="Slika" />
                                 </div>
                             </div>
                         ) : cikel === "mlada klasika" && sezona.mkVsebina ? (
@@ -91,14 +92,6 @@ const SezonaLetnica = () => {
                                     <div>
                                         <h2 className="gm-naslov">{sezona.mkNaslov}</h2>
                                     </div>
-                                    <div className="gm-vsebina">
-                                        {sezona.mkVsebina.split("\n").map((paragraph, index) => (
-                                            <p key={index}>{paragraph}</p>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className="gm-sekcija-slika">
-                                    <img src={sezona.slika} alt="Slika" />
                                 </div>
                             </div>
                         ) : (
@@ -111,11 +104,20 @@ const SezonaLetnica = () => {
                                 <div key={koncert._id} className="arhiv-koncert-karta">
                                     <div className="arhiv-karta-slika">
                                         <img src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
+                                        <div className="tekst-nad-sliko">
+                                            {cikli[koncert.cikel] && (
+                                                <Link to={"/o-nas"}> <img
+                                                    src={cikli[koncert.cikel].logo}
+                                                    alt={cikli[koncert.cikel].ime}
+                                                    style={{ maxWidth: "70px" }}
+                                                /></Link>
+                                            )}
+                                        </div>
                                     </div>
                                     <div className="arhiv-karta-tekst">
                                         <p style={{ display: "flex", alignItems: "center", color: "#656565" }}>
                                             <FaRegCalendarAlt style={{ marginRight: "10px" }} />
-                                            {new Date(koncert.datum).toLocaleDateString()}
+                                            {formatirajDatum(new Date(koncert.datum))}
                                         </p>
                                         <h3>{koncert.ime}</h3>
                                         <p>{koncert.podnaslov}</p>

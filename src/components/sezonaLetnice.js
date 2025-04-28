@@ -3,14 +3,6 @@ import slikaLala from "./placeholder.jpg"
 
 export const sezone = [
     {
-        leto: 2021,
-        ime: "Sezona 2021",
-        opis: "opis",
-        slika: slikaLala,
-        gmNaslov: "Glasba mladih",
-        gmVsebina: "Premierna izvedba skupne ideje o skladateljskem koncertu mladih ustvarjalcev. Takratni maturantje Konservatorija za glasbo in balet Ljubljana so na pobudo mladega skladatelja Vida Ožbolta zorganizirali koncert nove komorne glasbe, preostanek skladb so napisali njihovi sošolci in znanci. Na krstnem koncertu v Radovljici je publika napolnila cerkev sv. Petra in mladim dala zagon za nadaljevanje s projektom."
-    },
-    {
         leto: 2022,
         ime: "Sezona 2022",
         opis: "opis",

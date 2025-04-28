@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {FaRegCalendarAlt} from "react-icons/fa";
+import { FaRegCalendarAlt, FaRegEdit } from "react-icons/fa";
+
 
 const DodajKoncerte = () => {
     const [ime, setIme] = useState("");
@@ -315,17 +316,31 @@ const DodajKoncerte = () => {
 
             <h1 className="center" style={{ marginTop: "1em" }}>Urejanje koncertov:</h1>
             <div className="spreminjanje-koncertov center">
-                <div className="center">
-                    {Array.isArray(koncerti) && koncerti.map((koncert) => (
-                        <div key={koncert._id} className="spreminjanje-koncertov-karta">
-                            <img className="dodajanje-slika" src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
-                            <p><FaRegCalendarAlt style={{ marginRight: "10px" }} />{formatirajDatum(new Date(koncert.datum)).toLocaleString()}</p>
-                            <h3><b>{koncert.ime}</b></h3>
-                            <button type="button" onClick={() => naloziKoncertZaUrejanje(koncert._id)}>Uredi</button>
-                        </div>
-                    ))}
+                <div className="center spreminjanje-koncertov-blabla">
+                    {Array.isArray(koncerti) && koncerti
+                        .slice()
+                        .sort((a, b) => new Date(b.datum) - new Date(a.datum))
+                        .map((koncert) => (
+                            <div key={koncert._id} className="spreminjanje-koncertov-karta">
+                                <img className="dodajanje-slika" src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
+                                <p><FaRegCalendarAlt style={{ marginRight: "10px" }} />{formatirajDatum(new Date(koncert.datum))}</p>
+                                <h2><b>{koncert.ime}</b></h2>
+                                <button
+                                    className="center"
+                                    type="button"
+                                    onClick={() => {
+                                        naloziKoncertZaUrejanje(koncert._id);
+                                        window.scrollTo({ top: 0, behavior: "smooth" }); // poscrolla lepo na vrh
+                                    }}
+                                >
+                                    <FaRegEdit style={{ marginRight: "8px" }} /> Uredi
+                                </button>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
+
 
 
         </div>
