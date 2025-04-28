@@ -792,3 +792,29 @@ background-color: #f0f4f8;
     cursor: pointer;
 }
 
+.spreminjanje-koncertov {
+    margin: 2em 0;
+}
+
+.spreminjanje-koncertov-karta {
+    background-color: #4C7F93;
+    color: white;
+    padding: 1em;
+    margin: 0.5em;
+    border-radius: 10px;
+    min-height: 30vh;
+}
+.spreminjanje-koncertov-karta button {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    cursor: pointer;
+    font-size: 12pt;
+}
+
+.dodajanje-slika {
+    width: 300px;
+    border-radius: 10px;
+}

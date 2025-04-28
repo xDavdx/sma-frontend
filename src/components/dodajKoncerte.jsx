@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import {FaRegCalendarAlt} from "react-icons/fa";
 
 const DodajKoncerte = () => {
     const [ime, setIme] = useState("");
@@ -41,16 +42,24 @@ const DodajKoncerte = () => {
         });
 
         try {
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/koncerti/dodaj`, {
-                method: "POST",
+            const url = editingKoncertId
+                ? `${process.env.REACT_APP_BACKEND_URL}/koncerti/uredi/${editingKoncertId}`
+                : `${process.env.REACT_APP_BACKEND_URL}/koncerti/dodaj`;
+
+            const method = editingKoncertId ? "PUT" : "POST";
+
+            const response = await fetch(url, {
+                method,
                 body: formData,
             });
 
             if (response.ok) {
-                alert("Koncert uspešno dodan!");
+                alert(editingKoncertId ? "Koncert uspešno posodobljen!" : "Koncert uspešno dodan!");
+                setEditingKoncertId(null); // Reset
+                // Po potrebi sprazni formo
             } else {
                 const errorResponse = await response.json();
-                alert("Napaka pri dodajanju koncerta: " + errorResponse.message);
+                alert("Napaka: " + errorResponse.message);
             }
         } catch (error) {
             console.error("Napaka pri pošiljanju podatkov:", error);
@@ -127,6 +136,58 @@ const DodajKoncerte = () => {
     const handleRemoveProgramItem = (itemIndex) => {
         setProgramItems((prev) => prev.filter((_, i) => i !== itemIndex));
     };
+
+
+    const [editingKoncertId, setEditingKoncertId] = useState(null); // <-- NOVO
+
+    const naloziKoncertZaUrejanje = async (id) => {
+        try {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/koncerti/${id}`);
+            const data = await response.json();
+
+            setIme(data.ime || "");
+            setPodnaslov(data.podnaslov || "");
+            setDatum(data.datum ? new Date(data.datum).toISOString().slice(0, 16) : "");
+            setLokacija(data.lokacija || "");
+            setVsebina(data.vsebina || "");
+            setProgramItems(Array.isArray(data.program) ? data.program : [{ skladatelj: "", naslov: "", stavki: [""] }]);
+            setSkupine(Array.isArray(data.izvajalci) ? data.izvajalci : [{ imeSkupine: "", izvajalci: [{ ime: "", instrument: "" }] }]);
+            setCikel(data.cikel || "mlada klasika");
+            setEditingKoncertId(id);
+        } catch (error) {
+            console.error("Napaka pri nalaganju koncerta:", error);
+        }
+    };
+
+
+
+    const [koncerti, setKoncerti] = useState([]);
+
+    useEffect(() => {
+        const fetchKoncerti = async () => {
+            try {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/koncerti`);
+                const data = await response.json();
+                if (Array.isArray(data)) {
+                    setKoncerti(data);
+                } else {
+                    console.error("Pričakoval array, dobil:", data);
+                    setKoncerti([]); // fallback na prazen array
+                }
+            } catch (error) {
+                console.error("Napaka pri pridobivanju koncertov:", error);
+                setKoncerti([]); // fallback na prazen array
+            }
+        };
+        fetchKoncerti();
+    }, []);
+
+
+    function formatirajDatum(datum) {
+        const meseci = ["januar", "februar", "marec", "april", "maj", "junij", "julij", "avgust", "september", "oktober", "november", "december"];
+        const date = new Date(datum);
+        return `${date.getDate()}. ${meseci[date.getMonth()]} ob ${date.getHours().toString().padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`;
+    }
 
 
 
@@ -250,6 +311,22 @@ const DodajKoncerte = () => {
                     <button type="submit">Shrani koncert</button>
                 </form>
             </div>
+
+
+            <h1 className="center" style={{ marginTop: "1em" }}>Urejanje koncertov:</h1>
+            <div className="spreminjanje-koncertov center">
+                <div className="center">
+                    {Array.isArray(koncerti) && koncerti.map((koncert) => (
+                        <div key={koncert._id} className="spreminjanje-koncertov-karta">
+                            <img className="dodajanje-slika" src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
+                            <p><FaRegCalendarAlt style={{ marginRight: "10px" }} />{formatirajDatum(new Date(koncert.datum)).toLocaleString()}</p>
+                            <h3><b>{koncert.ime}</b></h3>
+                            <button type="button" onClick={() => naloziKoncertZaUrejanje(koncert._id)}>Uredi</button>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
 
         </div>
     );
