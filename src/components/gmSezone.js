@@ -9,7 +9,7 @@ export const gmSezone = [
         slika2: "path/to/slika2-2021.jpg",
         logo: logo1,
         naslov: "Glasba mladih",
-        vsebina: "Vsebina sezone 2021... \n Prva sezona z mladimi skladatelji.",
+        vsebina: "Premierna izvedba skupne ideje o skladateljskem koncertu mladih ustvarjalcev. Takratni maturantje Konservatorija za glasbo in balet Ljubljana so na pobudo mladega skladatelja Vida Ožbolta zorganizirali koncert nove komorne glasbe, preostanek skladb so napisali njihovi sošolci in znanci. Na krstnem koncertu v Radovljici je publika napolnila cerkev sv. Petra in mladim dala zagon za nadaljevanje s projektom.\n",
     },
     {
         leto: 2022,

@@ -2467,3 +2467,31 @@ img {
 .sezona-podrobnosti {
   margin-top: 8em;
 }
+
+.ansambel-glasba-mladih-tekst {
+  max-width: 1000px;
+  text-align: center;
+}
+.mt-4 {
+  margin-bottom: 3em;
+}
+
+.zamenjevalnik-pike {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.pika {
+  width: 10px;
+  height: 10px;
+  background-color: gray;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pika.aktivna {
+  background-color: black;
+}

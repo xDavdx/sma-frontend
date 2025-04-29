@@ -11,6 +11,8 @@ import { FaLocationDot } from "react-icons/fa6";
 import {cikli} from "./cikli";
 import "./Novice.css";
 import {Helmet} from "react-helmet";
+import slika1 from "./placeholder.jpg";
+import ZamenjavaSekcije from "./zamenjavaSekcije"
 
 
     const ZacetnaStran = () => {
@@ -158,6 +160,12 @@ import {Helmet} from "react-helmet";
 
 
 
+
+            <section>
+                <ZamenjavaSekcije />
+            </section>
+
+
             <section className="featured-section featured-section-zac">
                 <h1 className="center naslov-novice-zac">Novice</h1>
                 <div className="center">
@@ -188,6 +196,10 @@ import {Helmet} from "react-helmet";
                 </div>
                 </div>
             </section>
+
+
+
+
 
                 <div className="kontakt center">
                     <div className="kontakt-levo kld">

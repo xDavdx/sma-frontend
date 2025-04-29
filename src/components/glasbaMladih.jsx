@@ -98,11 +98,13 @@ const ONas = () => {
 
 
                 <div className="glasba-mladih-clani">
-                    <div>
-                        <h1>Ansambel Glasba mladih</h1>
-                        <p>Iz projektov se je oblikoval projektni ansambel, ki združuje mlade slovenske glasbenike – instrumentaliste, pevce in dirigente. Vizija ansambla je, da bi skozi leta dosegel večjo samostojnost in se uveljavil na področju sodobne, kot tudi starejše klasične glasbe. </p>
-                        <p>Osredotočamo se na vrhunsko uigranost ter natančno in predano izvedbo novih glasbenih del. Ansambel nima stalne oblike, temveč se prilagaja različnim projektom.
-                        </p>
+                    <div className="center mt-4">
+                        <div className="ansambel-glasba-mladih-tekst">
+                            <h1>Ansambel Glasba mladih</h1>
+                            <p>Iz projektov se je oblikoval projektni ansambel, ki združuje mlade slovenske glasbenike – instrumentaliste, pevce in dirigente. Vizija ansambla je, da bi skozi leta dosegel večjo samostojnost in se uveljavil na področju sodobne, kot tudi starejše klasične glasbe. </p>
+                            <p>Osredotočamo se na vrhunsko uigranost ter natančno in predano izvedbo novih glasbenih del. Ansambel nima stalne oblike, temveč se prilagaja različnim projektom.
+                            </p>
+                        </div>
                     </div>
                     <h1>Člani ansambla:</h1>
                         <div className="glasba-mladih-vodje">
