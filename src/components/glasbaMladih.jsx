@@ -1,5 +1,4 @@
-import React from "react";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import logo from "./smglasbamladih.png";
 import {
     GiFlute,
@@ -14,6 +13,22 @@ import {
 } from "react-icons/gi";
 import { LuDrum } from "react-icons/lu";
 import { FaHouseUser } from "react-icons/fa";
+import slika1 from "./placeholder.jpg"
+import Galerija from "./Galerija";
+import {Link} from "react-router-dom";
+import React from "react";
+import { gmSezone } from "./gmSezone";
+
+const slike = [
+    slika1,
+    slika1,
+    slika1,
+    slika1,
+    slika1,
+    slika1,
+    slika1,
+    slika1,
+];
 
 
 
@@ -37,20 +52,58 @@ const ONas = () => {
 
             <section className="glasba-mladih-vsebina">
                 <div className="glasba-mladih-iniciativa">
-                    <h1>Iniciativa Glasba mladih</h1>
-                    <p>Glasba mladih je iniciativa, ki je nastala iz želje po izvajanju, pisanju in promoviranju novonastale vokalno-instrumentalne klasične glasbe mladih slovenskih skladateljev.
-                    </p>
-                    <p>Prvo izvedbo je projekt doživel leta 2021 v Radovljici pod idejnim vodstvom Vida Ožbolta, kasneje pa je ideja prerasla v samostojen in celovit projekt, za katerega si želimo, da bi dolgo let bogatil slovensko kulturno zakladnico. Tako smo poleti leta 2022 izvedli nov koncert, kjer so se s še bolj zanimivo zasedbo predstavili še bolj raznoliki skladatelji; prvič nas je v živo snemala tudi RTV Slovenije, ki je koncert predvajala v dveh oddajah na programu Ars. Društvo slovenskih skladateljev je v lanski sezoni celo izdalo notno gradivo nekaterih skladb, tako da je dela naših sodelujočih umetnikov mogoče izvajati tudi zunaj projekta in prijateljskih krogov.
-                    </p>
-                    <p>Od leta 2023 iniciativa še aktivneje deluje pod okriljem Kulturnega društva Odeon, ki je istega leta nastalo prav z namenom, da bo mladi generaciji služilo kot razvojno in organizacijsko telo. Dolgoročno želimo ustvariti tudi založbo, ki bo podpirala mlade umetnike in finančno omogočila izvajanje vseh projektov. Eden izmed večjih ciljev iniciative je z mladostniško energijo in sodobno pripravljenimi projekti v dvorane pripeljati čim več ljudi, ki klasične glasbe ne poznajo dobro, ali pa jo dojemajo celo kot zastarelo in nepomembno. Želimo jim pokazati, da imamo kljub mladosti že veliko za povedati, predvsem pa želimo s projekti spodbuditi razvoj slovenske klasične glasbe in omogočati raznolike priložnosti za uveljavljanje na glasbenem trgu. S tem počasi ustvarjamo pogoje za razcvet slovenske mlade umetnosti in sodobne klasične glasbe.
-                    </p>
-
-                    <h1>Ansambel Glasba mladih</h1>
-                    <p>Iz projektov se je oblikoval projektni ansambel, ki združuje mlade slovenske glasbenike – instrumentaliste, pevce in dirigente. Vizija ansambla je, da bi skozi leta dosegel večjo samostojnost in se uveljavil na področju sodobne, kot tudi starejše klasične glasbe. </p>
-                    <p>Osredotočamo se na vrhunsko uigranost ter natančno in predano izvedbo novih glasbenih del. Ansambel nima stalne oblike, temveč se prilagaja različnim projektom.
-                    </p>
+                    <div className="iniciativa-container">
+                        <div className="iniciativa-image">
+                            <img src={slika1} alt="Iniciativa Glasba mladih" />
+                        </div>
+                        <div className="iniciativa-content">
+                            <h1>Iniciativa Glasba mladih</h1>
+                            <p>Glasba mladih je iniciativa, ki je nastala iz želje po izvajanju, pisanju in promoviranju novonastale vokalno-instrumentalne klasične glasbe mladih slovenskih skladateljev.</p>
+                            <p>Prvo izvedbo je projekt doživel leta 2021 v Radovljici pod idejnim vodstvom Vida Ožbolta, kasneje pa je ideja prerasla v samostojen in celovit projekt, za katerega si želimo, da bi dolgo let bogatil slovensko kulturno zakladnico. Tako smo poleti leta 2022 izvedli nov koncert, kjer so se s še bolj zanimivo zasedbo predstavili še bolj raznoliki skladatelji; prvič nas je v živo snemala tudi RTV Slovenije, ki je koncert predvajala v dveh oddajah na programu Ars. Društvo slovenskih skladateljev je v lanski sezoni celo izdalo notno gradivo nekaterih skladb, tako da je dela naših sodelujočih umetnikov mogoče izvajati tudi zunaj projekta in prijateljskih krogov.</p>
+                            <p>Od leta 2023 iniciativa še aktivneje deluje pod okriljem Kulturnega društva Odeon, ki je istega leta nastalo prav z namenom, da bo mladi generaciji služilo kot razvojno in organizacijsko telo. Dolgoročno želimo ustvariti tudi založbo, ki bo podpirala mlade umetnike in finančno omogočila izvajanje vseh projektov. Eden izmed večjih ciljev iniciative je z mladostniško energijo in sodobno pripravljenimi projekti v dvorane pripeljati čim več ljudi, ki klasične glasbe ne poznajo dobro, ali pa jo dojemajo celo kot zastarelo in nepomembno. Želimo jim pokazati, da imamo kljub mladosti že veliko za povedati, predvsem pa želimo s projekti spodbuditi razvoj slovenske klasične glasbe in omogočati raznolike priložnosti za uveljavljanje na glasbenem trgu. S tem počasi ustvarjamo pogoje za razcvet slovenske mlade umetnosti in sodobne klasične glasbe.</p>
+                        </div>
+                    </div>
                 </div>
+
+
+
+
+                <section className="arhiv-koncertov-container gm-sezone-glasba-mladih">
+                    <h2 className="arhiv-koncertov-naslov">Sezone</h2>
+
+                    <div className="sezone-container">
+                        {gmSezone.sort((a, b) => b.leto - a.leto).map((sezona) => (
+                            <div key={sezona.leto} className="sezona-kartica">
+                                <img
+                                    src={sezona.logo}
+                                    alt={sezona.ime}
+                                    className="sezona-logo"
+                                />
+                                <h1>{sezona.ime}</h1>
+                                <p>{sezona.naslov}</p>
+                                <Link className="center" to={`/glasba-mladih/${sezona.leto}`}>
+                                    <button className="koncert-gumb sezona-gumb-lala">
+                                        Pregled sezone
+                                    </button>
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+
+
+
+
+
+
                 <div className="glasba-mladih-clani">
+                    <div>
+                        <h1>Ansambel Glasba mladih</h1>
+                        <p>Iz projektov se je oblikoval projektni ansambel, ki združuje mlade slovenske glasbenike – instrumentaliste, pevce in dirigente. Vizija ansambla je, da bi skozi leta dosegel večjo samostojnost in se uveljavil na področju sodobne, kot tudi starejše klasične glasbe. </p>
+                        <p>Osredotočamo se na vrhunsko uigranost ter natančno in predano izvedbo novih glasbenih del. Ansambel nima stalne oblike, temveč se prilagaja različnim projektom.
+                        </p>
+                    </div>
                     <h1>Člani ansambla:</h1>
                         <div className="glasba-mladih-vodje">
                             <div>
@@ -200,6 +253,7 @@ const ONas = () => {
                             </div>
                     </div>
                 </div>
+                <Galerija slike={slike} />
             </section>
         </div>
     );
