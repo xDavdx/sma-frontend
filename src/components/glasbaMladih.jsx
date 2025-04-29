@@ -18,17 +18,14 @@ import Galerija from "./Galerija";
 import {Link} from "react-router-dom";
 import React from "react";
 import { gmSezone } from "./gmSezone";
+import GmPlaceholder from "./gm-placeholder.png"
+import GmSlika1 from "./gmSlika1.png"
+import GmSlika2 from "./GmSlika2.png"
+import GmSlika3 from "./GmSlika3.png"
+import GmSlika4 from "./GmSlika4.png"
+import GmSlika5 from "./GmSlika5.png"
+import GmSlika6 from "./GmSlika6.png"
 
-const slike = [
-    slika1,
-    slika1,
-    slika1,
-    slika1,
-    slika1,
-    slika1,
-    slika1,
-    slika1,
-];
 
 
 
@@ -54,7 +51,7 @@ const ONas = () => {
                 <div className="glasba-mladih-iniciativa">
                     <div className="iniciativa-container">
                         <div className="iniciativa-image">
-                            <img src={slika1} alt="Iniciativa Glasba mladih" />
+                            <img src={GmPlaceholder} alt="Iniciativa Glasba mladih" />
                         </div>
                         <div className="iniciativa-content">
                             <h1>Iniciativa Glasba mladih</h1>
@@ -255,8 +252,17 @@ const ONas = () => {
                             </div>
                     </div>
                 </div>
-                <Galerija slike={slike} />
             </section>
+
+            <section className="slike-grid-section">
+                <img src={GmSlika1} alt=""/>
+                <img src={GmSlika2} alt=""/>
+                <img src={GmSlika3} alt=""/>
+                <img src={GmSlika4} alt=""/>
+                <img src={GmSlika5} alt=""/>
+                <img src={GmSlika6} alt=""/>
+            </section>
+
         </div>
     );
 };

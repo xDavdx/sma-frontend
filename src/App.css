@@ -2495,3 +2495,12 @@ img {
 .pika.aktivna {
   background-color: black;
 }
+
+.slike-grid-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1em;
+  margin: 2em;
+} .slike-grid-section img {
+  border-radius: 10px;
+  }
