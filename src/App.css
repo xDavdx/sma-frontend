@@ -1688,6 +1688,13 @@ img {
   transition: transform 0.2s ease;
 }
 
+.razlozeni-cikli-wrapper a {
+  color: green;
+}
+.ikone-admin-dodajanje {
+  font-size: 25pt !important;
+}
+
 .razlozeni-cikli-kartica img {
   width: 140px;
   margin-bottom: 1rem;

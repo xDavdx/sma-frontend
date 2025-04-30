@@ -3,30 +3,51 @@ import { Link } from "react-router-dom";
 import "./Admin.css";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { CiViewList } from "react-icons/ci";
+import LogoKlasika from "./smklasik.png";
+import LogoGlasbaM from "./smglasbamladih.png";
+import LogoKreativa from "./smkreativ.png";
+import LogoGostuje from "./smagost.png";
 
 
 
 function Admin() {
     return (
         <div className="admin-container center">
-            <div>
-                <h1>Admin Nadzorna plošča</h1>
-                <div className="admin-buttons">
+            <section className="razlozeni-cikli">
+                <h1 className="arhiv-koncertov-naslov">
+                    Admin nadzorna plošča
+                </h1>
+
+                <div className="razlozeni-cikli-wrapper">
                     <Link to="/admin/dodaj-koncerte">
-                        <button className="admin-button"><IoIosAddCircleOutline />
-                             Dodaj koncert</button>
+                        <div className="razlozeni-cikli-kartica">
+                            <h1 className="ikone-admin-dodajanje"><IoIosAddCircleOutline /></h1>
+                            <h1>Dodaj/uredi koncert</h1>
+                        </div>
                     </Link>
+
                     <Link to="/admin/dodaj-novice">
-                        <button className="admin-button"><IoIosAddCircleOutline />
-                             Dodaj novico</button>
+                        <div className="razlozeni-cikli-kartica">
+                            <h1 className="ikone-admin-dodajanje"><IoIosAddCircleOutline /></h1>
+                            <h1>Dodaj novico</h1>
+                        </div>
                     </Link>
+
                     <Link to="/admin/pregled-rezervacij">
-                        <button className="admin-button"><CiViewList />
-                            Pregled rezervacij</button>
+                        <div className="razlozeni-cikli-kartica">
+                            <h1 className="ikone-admin-dodajanje"><CiViewList /></h1>
+                            <h1>Pregled rezervacij</h1>
+                        </div>
+                    </Link>
+
+                    <Link to="/admin/pregled-abonentov">
+                        <div className="razlozeni-cikli-kartica">
+                            <h1 className="ikone-admin-dodajanje"><CiViewList /></h1>
+                            <h1>Abonenti</h1>
+                        </div>
                     </Link>
                 </div>
-
-            </div>
+            </section>
         </div>
     );
 }

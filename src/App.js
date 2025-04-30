@@ -14,6 +14,7 @@ import DodajNovice from "./components/dodajNovice";
 import Onas from "./components/oNas";
 import Admin from "./components/admin";
 import PregledRezervacij from "./components/pregledRezervacij";
+import PregledAbonentov from "./components/pregledAbonentov";
 import PoskrolajNavrh from "./components/poskrolajNavrh";
 import GlasbaMladih from "./components/glasbaMladih";
 import PravilnikZasebnosti from "./components/pravilnikZasebnosti";
@@ -45,6 +46,7 @@ function App() {
                   <Route path="/admin/dodaj-novice" element={<DodajNovice />} />
                   <Route path="/admin-dodajaj" element={<Admin />} />
                   <Route path="/admin/pregled-rezervacij" element={<PregledRezervacij />} />
+                  <Route path="/admin/pregled-abonentov" element={<PregledAbonentov />} />
                   <Route path="/o-nas" element={<Onas />} />
                   <Route path="/glasba-mladih" element={<GlasbaMladih />} />
                   <Route path="/pravilnik-zasebnosti" element={<PravilnikZasebnosti />} />
