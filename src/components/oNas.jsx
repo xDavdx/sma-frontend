@@ -7,6 +7,10 @@ import KontaktForma from "./kontaktForma";
 import {MdOutlineMailOutline} from "react-icons/md";
 import {RiInstagramFill} from "react-icons/ri";
 import {Helmet} from "react-helmet";
+import LogoKlasika from "./smklasik.png"
+import LogoGlasbaM from "./smglasbamladih.png"
+import LogoKreativa from "./smkreativ.png"
+import LogoGostuje from "./smagost.png"
 
 const ONas = () => {
     return (
@@ -53,6 +57,45 @@ const ONas = () => {
                     </div>
                 </section>
             </div>
+
+
+
+
+            <section className="razlozeni-cikli">
+                <h1 className="arhiv-koncertov-naslov">
+                    Abonma sestavljajo štirje koncertni cikli, ki se razlikujejo po vsebini in izvajalcih:
+                </h1>
+
+                <div className="razlozeni-cikli-wrapper">
+                    <div className="razlozeni-cikli-kartica">
+                        <img src={LogoKlasika} alt="" />
+                        <h1>Slovenska mlada klasika</h1>
+                        <p>koncerti in recitali klasične glasbe za komorne zasedbe, zbore, solistične glasbenike… </p>
+                    </div>
+
+                    <div className="razlozeni-cikli-kartica">
+                        <img src={LogoGlasbaM} alt="" />
+                        <h1>Iniciativa glasba mladih</h1>
+                        <p>projekti na katerih so v prvi vrsti izvajana dela mladih slovenskih skladateljev</p>
+                    </div>
+
+                    <div className="razlozeni-cikli-kartica">
+                        <img src={LogoKreativa} alt="" />
+                        <h1>Slovenska mlada kreativa</h1>
+                        <p>cikel koncertov samoiniciativnih projektov, ki jih društvo organizatorsko in finančno podpira</p>
+                    </div>
+
+                    <div className="razlozeni-cikli-kartica">
+                        <img src={LogoGostuje} alt="" />
+                        <h1>SMA gostuje</h1>
+                        <p>koncerti gostujočih mladih tujih glasbenikov ali skupin, ki delujejo izven Slovenije</p>
+                    </div>
+                </div>
+            </section>
+
+
+
+
 
             {/* Sekcija: Spoznajte nas */}
             <section className="onas-ekipa">

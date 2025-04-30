@@ -1654,6 +1654,91 @@ img {
 }
 
 
+.razlozeni-cikli {
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+.razlozeni-cikli h1 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.razlozeni-cikli-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.razlozeni-cikli-kartica {
+  background-color: #f4f4f4;
+  width: 250px;
+  padding: 1.5rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.razlozeni-cikli-kartica img {
+  width: 140px;
+  margin-bottom: 1rem;
+}
+
+.razlozeni-cikli-kartica h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.razlozeni-cikli-kartica p {
+  font-size: 1.2rem;
+}
+
+/* Hover efekt (opcijsko) */
+.razlozeni-cikli-kartica:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive prilagoditev */
+@media (max-width: 768px) {
+  .razlozeni-cikli-kartica {
+    width: 45%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Footer */
 .footer {
   background-color: rgba(9, 40, 61);
@@ -2604,3 +2689,24 @@ img {
     color: white;
     font-size: 1.5rem;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
