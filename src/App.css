@@ -364,7 +364,7 @@ img {
   font-size: 50pt;
   font-weight: bold;
   color: white;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.2em;
 }
 
 .prva-levo h2 {
@@ -375,6 +375,14 @@ img {
   max-width: 500px;
   text-align: left;
   margin-bottom: 0.5em;
+}
+
+.podnaslov {
+  color: white !important;
+  margin-top: 0;
+  line-height: 1.2 !important;
+  font-size: 22pt !important;
+  margin-bottom: 1em !important;
 }
 
 .zamaknjeno-besedilo {
@@ -1349,7 +1357,79 @@ img {
   line-height: 1.6;
 }
 
-/* 🟢 Sekcija "Spoznajte nas" */
+.onas-uvod {
+  background-image: url("./components/proba-landing.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 8rem 0 3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.onas-uvod-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.onas-uvod-left,
+.onas-uvod-center,
+.onas-uvod-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.onas-uvod-right {
+  justify-content: flex-end;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.onas-uvod-right a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease-in-out;
+}
+.onas-uvod-right a:hover {
+  color: #B9D9EA;
+}
+
+@media (max-width: 768px) {
+  .onas-uvod-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .onas-uvod-left,
+  .onas-uvod-center,
+  .onas-uvod-right {
+    justify-content: center;
+  }
+
+  .onas-uvod-right {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .onas-uvod-right a {
+    font-size: 1rem;
+  }
+
+  .onas-uvod img {
+    width: 70%;
+    max-width: 300px;
+  }
+}
+
+
+/*  Sekcija "Spoznajte nas" */
 .onas-ekipa {
   width: 100vw;
   min-height: 80vh;
@@ -1791,7 +1871,7 @@ img {
 
 .odeon-activities {
   width: 100vw;
-  margin: 5em auto;
+  margin: 5em auto 0 auto;
   padding: 5em 8em;
   display: flex;
   flex-direction: column;
@@ -2432,9 +2512,15 @@ img {
 }
 
 .iniciativa-content h1 {
-  color: #4C7F93;
+  color: black;
   font-size: 2rem;
   margin-bottom: 0.5rem;
+}
+.glasba-mmladih-clani-div h3 {
+  font-size: 17pt;
+}
+.glasba-mladih-vodje h3 {
+  font-size: 17pt;
 }
 
 .iniciativa-content p {
@@ -2472,8 +2558,16 @@ img {
   max-width: 1000px;
   text-align: center;
 }
+.ansambel-glasba-mladih-tekst img {
+  border-radius: 10px;
+  width: 45%;
+  margin-top: 1em;
+}
+.ansambel-glasba-mladih-tekst p {
+  line-height: 1.6;
+}
 .mt-4 {
-  margin-bottom: 3em;
+  margin: 5em 0;
 }
 
 .zamenjevalnik-pike {
@@ -2503,4 +2597,10 @@ img {
   margin: 2em;
 } .slike-grid-section img {
   border-radius: 10px;
+  }
+
+  .podpiraj-dejavnost {
+    margin-top: 2em;
+    color: white;
+    font-size: 1.5rem;
   }

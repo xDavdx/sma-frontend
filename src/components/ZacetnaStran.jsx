@@ -1,6 +1,6 @@
 import zacetnaSlika from "./placeholder.jpg";
 import KontaktForma from "./kontaktForma";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaPhoneAlt, FaRegCalendarAlt, FaYoutube, FaFacebook } from "react-icons/fa";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { IoIosArrowForward } from "react-icons/io";
@@ -82,6 +82,19 @@ import ZamenjavaSekcije from "./zamenjavaSekcije"
             );
         };
 
+        function Home() {
+            const location = useLocation();
+
+            useEffect(() => {
+                if (location.hash === '#kontakt') {
+                    const element = document.getElementById('kontakt');
+                    if (element) {
+                        element.scrollIntoView({behavior: 'smooth'});
+                    }
+                }
+            }, [location]);
+        }
+
 
 
 
@@ -97,7 +110,7 @@ import ZamenjavaSekcije from "./zamenjavaSekcije"
                 <div className="prva">
                     <div className="prva-levo">
                         <h1>Slovenski Mladi Abonma</h1>
-                        <h2>Koncertni cikel mladih glasbenikov</h2>
+                        <h2 className="podnaslov">Koncertni cikel mladih glasbenikov</h2>
                         <h2>
                             Slovenski mladi abonma organiziramo mladi glasbeniki, študenti glasbenih akademij po celi Evropi.
                         </h2>
@@ -201,7 +214,7 @@ import ZamenjavaSekcije from "./zamenjavaSekcije"
 
 
 
-                <div className="kontakt center">
+                <section className="kontakt center" id="kontakt">
                     <div className="kontakt-levo kld">
                         <div>
                             <h1>Kontaktirajte nas</h1>
@@ -232,7 +245,7 @@ import ZamenjavaSekcije from "./zamenjavaSekcije"
                     <KontaktForma />
 
                 </div>
-            </div>
+            </section>
 
 
 

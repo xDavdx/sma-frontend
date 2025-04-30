@@ -41,9 +41,18 @@ const ONas = () => {
                 <meta name="robots" content="index, follow" />
             </Helmet>
             {/* Sekcija: O nas */}
-            <section className="onas-uvod center">
-                <div className="onas-uvod-header-levo">
-                    <img src={logo} alt="logo" style={{ width: "25em" }}/>
+            <section className="onas-uvod">
+                <div className="onas-uvod-container">
+                    <div className="onas-uvod-left"></div>
+
+                    <div className="onas-uvod-center">
+                        <img src={logo} alt="logo" style={{ width: "18em" }} />
+                    </div>
+
+                    <div className="onas-uvod-right">
+                        <a href="/o-nas">O nas</a>
+                        <a href="/drustvo-odeon">Društvo Odeon</a>
+                    </div>
                 </div>
             </section>
 
@@ -66,7 +75,7 @@ const ONas = () => {
 
 
                 <section className="arhiv-koncertov-container gm-sezone-glasba-mladih">
-                    <h2 className="arhiv-koncertov-naslov">Sezone</h2>
+                    <h2 className="arhiv-koncertov-naslov">Pregled sezon</h2>
 
                     <div className="sezone-container">
                         {gmSezone.sort((a, b) => b.leto - a.leto).map((sezona) => (
@@ -93,17 +102,17 @@ const ONas = () => {
 
 
 
-
-                <div className="glasba-mladih-clani">
-                    <div className="center mt-4">
-                        <div className="ansambel-glasba-mladih-tekst">
-                            <h1>Ansambel Glasba mladih</h1>
-                            <p>Iz projektov se je oblikoval projektni ansambel, ki združuje mlade slovenske glasbenike – instrumentaliste, pevce in dirigente. Vizija ansambla je, da bi skozi leta dosegel večjo samostojnost in se uveljavil na področju sodobne, kot tudi starejše klasične glasbe. </p>
-                            <p>Osredotočamo se na vrhunsko uigranost ter natančno in predano izvedbo novih glasbenih del. Ansambel nima stalne oblike, temveč se prilagaja različnim projektom.
-                            </p>
-                        </div>
+                <div className="center mt-4">
+                    <div className="ansambel-glasba-mladih-tekst">
+                        <h1 className="arhiv-koncertov-naslov">Ansambel Glasba mladih</h1>
+                        <p>Iz projektov se je oblikoval projektni ansambel, ki združuje mlade slovenske glasbenike – instrumentaliste, pevce in dirigente. Vizija ansambla je, da bi skozi leta dosegel večjo samostojnost in se uveljavil na področju sodobne, kot tudi starejše klasične glasbe. </p>
+                        <p>Osredotočamo se na vrhunsko uigranost ter natančno in predano izvedbo novih glasbenih del. Ansambel nima stalne oblike, temveč se prilagaja različnim projektom.
+                        </p>
+                        <img src={GmSlika3} alt="ansambel"/>
                     </div>
-                    <h1>Člani ansambla:</h1>
+                </div>
+                <div className="glasba-mladih-clani">
+                    <h1 className="arhiv-koncertov-naslov" style={{ color: "white" }}>Člani ansambla:</h1>
                         <div className="glasba-mladih-vodje">
                             <div>
                                 <h3><FaHouseUser style={{ marginRight: "8px" }}/>Umetniški vodja:</h3>

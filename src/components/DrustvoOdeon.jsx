@@ -2,15 +2,24 @@ import React from "react";
 import logo from "./odeon-logo.png";
 import onasSlika from "./placeholder.jpg";
 import {Helmet} from "react-helmet";
+import {Link} from "react-router-dom";
 
 const DrustvoOdeon = () => {
     return (
         <div className="odeon-container">
             {/* Naslovna sekcija */}
-            <section className="onas-uvod center">
-                <div className="onas-uvod-header-levo">
-                    <img src={logo} alt="logo" style={{ width: "25em" }}/>
-                    {/*<h2>Prostor razvoja in umetnosti</h2>*/}
+            <section className="onas-uvod">
+                <div className="onas-uvod-container">
+                    <div className="onas-uvod-left"></div>
+
+                    <div className="onas-uvod-center">
+                        <img src={logo} alt="logo" style={{ width: "25em" }} />
+                    </div>
+
+                    <div className="onas-uvod-right">
+                        <a href="/o-nas">O nas</a>
+                        <a href="/glasba-mladih">Glasba mladih</a>
+                    </div>
                 </div>
             </section>
 
@@ -31,6 +40,7 @@ const DrustvoOdeon = () => {
                         organizacijsko telo za vse projekte, v ospredju pa bosta koncertni
                         cikel Slovenski mladi abonma in iniciativa Glasba mladih.
                     </p>
+                    <p>Želiš postati član društva in uresničiti našo vizijo? <Link to="/#kontakt" style={{ color: "#4C7F93" }}>Postani član</Link> </p>
 
                     <div className="onas-uvod-header-desno">
                         <img src={onasSlika} alt="Kulturno društvo Odeon"/>
@@ -66,42 +76,14 @@ const DrustvoOdeon = () => {
                             pomembna vizualna podoba in vsebinska pristnost cikla.
                         </p>
                     </div>
+
+                </div>
+                <div className="podpiraj-dejavnost">
+                    <h3>Želite podpirati naše dejavnosti? <Link to="/#kontakt" style={{ color: "#B9D9EA" }}>Kontaktirajte nas!</Link> </h3>
                 </div>
             </section>
 
 
-
-            {/* Sekcija "Postani del ekipe" */}
-{/*          <section className="odeon-team">*/}
-{/*                <h2>Postani del ekipe!</h2>*/}
-{/*                <p>*/}
-{/*                    Ekipa Slovenskega mladega abonmaja se širi! Iščemo mlade in zagnane*/}
-{/*                    soorganizatorje, ki si želijo izkušenj in znanja na področju*/}
-{/*                    organizacije glasbenih dogodkov, vodenja društva, promocije in še*/}
-{/*                    več.*/}
-{/*                </p>*/}
-{/*                <p>*/}
-{/*                    Vedno iščemo nove poglede in načine za promocijo in uveljavitev cikla,*/}
-{/*                    vsaka ideja bo dobrodošla!*/}
-{/*                </p>*/}
-{/*                <h1>Slika2</h1>*/}
-{/*            </section>*/}
-
-
-{/*            /!* Sekcija "Nove ideje" *!/*/}
-{/*            <section className="odeon-ideas">*/}
-{/*                <h2>Nove ideje</h2>*/}
-{/*                <p>*/}
-{/*                    Vedno iščemo nove in boljše načine za uveljavitev naših projektov,*/}
-{/*                    ustvarjanje dohodka, promocijo naših umetnikov in drugo.*/}
-{/*                </p>*/}
-{/*                <h1>Slika4</h1>*/}
-{/*            </section>*/}
-
-{/*            /!* Kontaktna sekcija *!/*/}
-{/*            <section className="odeon-contact">*/}
-{/*                <h2>KONTAKTIRAJ NAS!</h2>*/}
-{/*            </section>*/}
         </div>
     );
 };

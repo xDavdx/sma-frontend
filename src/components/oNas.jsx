@@ -17,11 +17,21 @@ const ONas = () => {
                 <meta name="robots" content="index, follow" />
             </Helmet>
             {/* Sekcija: O nas */}
-            <section className="onas-uvod center">
-                <div className="onas-uvod-header-levo">
-                    <img src={logo} alt="logo" style={{ width: "25em" }}/>
+            <section className="onas-uvod">
+                <div className="onas-uvod-container">
+                    <div className="onas-uvod-left"></div>
+
+                    <div className="onas-uvod-center">
+                        <img src={logo} alt="logo" style={{ width: "25em" }} />
+                    </div>
+
+                    <div className="onas-uvod-right">
+                        <a href="/drustvo-odeon">Društvo Odeon</a>
+                        <a href="/glasba-mladih">Glasba mladih</a>
+                    </div>
                 </div>
             </section>
+
 
             {/* Uvodni opis */}
             <div className="center">
