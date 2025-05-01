@@ -111,9 +111,7 @@ import ZamenjavaSekcije from "./zamenjavaSekcije"
                     <div className="prva-levo">
                         <h1>Slovenski Mladi Abonma</h1>
                         <h2 className="podnaslov">Koncertni cikel mladih glasbenikov</h2>
-                        <h2>
-                            Slovenski mladi abonma organiziramo mladi glasbeniki, študenti glasbenih akademij po celi Evropi.
-                        </h2>
+
                         <Link to={`/o-nas`}>
                             <button className="koncert-gumb vec-o-nas">Več o nas <IoIosArrowForward className="puscica" /></button>
                         </Link>

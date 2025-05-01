@@ -16,7 +16,7 @@ import { FaHouseUser } from "react-icons/fa";
 import slika1 from "./placeholder.jpg"
 import Galerija from "./Galerija";
 import {Link} from "react-router-dom";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { gmSezone } from "./gmSezone";
 import GmPlaceholder from "./gm-placeholder.png"
 import GmSlika1 from "./gmSlika1.png"
@@ -28,11 +28,25 @@ import GmSlika6 from "./GmSlika6.png"
 
 
 
-
-
-
-
 const ONas = () => {
+
+
+    const [showFullText, setShowFullText] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768); // npr. za <768px
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const fullText = `Glasba mladih je iniciativa, ki je nastala iz želje po izvajanju, pisanju in promoviranju novonastale vokalno-instrumentalne klasične glasbe mladih slovenskih skladateljev. \n\n Prvo izvedbo je projekt doživel leta 2021 v Radovljici pod idejnim vodstvom Vida Ožbolta, kasneje pa je ideja prerasla v samostojen in celovit projekt, za katerega si želimo, da bi dolgo let bogatil slovensko kulturno zakladnico. Tako smo poleti leta 2022 izvedli nov koncert, kjer so se s še bolj zanimivo zasedbo predstavili še bolj raznoliki skladatelji; prvič nas je v živo snemala tudi RTV Slovenije, ki je koncert predvajala v dveh oddajah na programu Ars. Društvo slovenskih skladateljev je v lanski sezoni celo izdalo notno gradivo nekaterih skladb, tako da je dela naših sodelujočih umetnikov mogoče izvajati tudi zunaj projekta in prijateljskih krogov.\n\n Od leta 2023 iniciativa še aktivneje deluje pod okriljem Kulturnega društva Odeon, ki je istega leta nastalo prav z namenom, da bo mladi generaciji služilo kot razvojno in organizacijsko telo. Dolgoročno želimo ustvariti tudi založbo, ki bo podpirala mlade umetnike in finančno omogočila izvajanje vseh projektov. Eden izmed večjih ciljev iniciative je z mladostniško energijo in sodobno pripravljenimi projekti v dvorane pripeljati čim več ljudi, ki klasične glasbe ne poznajo dobro, ali pa jo dojemajo celo kot zastarelo in nepomembno. Želimo jim pokazati, da imamo kljub mladosti že veliko za povedati, predvsem pa želimo s projekti spodbuditi razvoj slovenske klasične glasbe in omogočati raznolike priložnosti za uveljavljanje na glasbenem trgu. S tem počasi ustvarjamo pogoje za razcvet slovenske mlade umetnosti in sodobne klasične glasbe.`; // Vse tvoje besedilo
+    const shortText = fullText.split(" ").slice(0, 50).join(" ") + "...";
+
+
     return (
         <div className="onas-container">
             <Helmet>
@@ -59,17 +73,34 @@ const ONas = () => {
             <section className="glasba-mladih-vsebina">
                 <div className="glasba-mladih-iniciativa">
                     <div className="iniciativa-container">
+
                         <div className="iniciativa-image">
-                            <img src={GmPlaceholder} alt="Iniciativa Glasba mladih" />
+                            <img src={GmPlaceholder} alt="Slika 1" />
+                            <img src={GmSlika1} alt="Slika 2" />
+                            <img src={GmSlika3} alt="Slika 3" />
                         </div>
+
                         <div className="iniciativa-content">
                             <h1>Iniciativa Glasba mladih</h1>
-                            <p>Glasba mladih je iniciativa, ki je nastala iz želje po izvajanju, pisanju in promoviranju novonastale vokalno-instrumentalne klasične glasbe mladih slovenskih skladateljev.</p>
-                            <p>Prvo izvedbo je projekt doživel leta 2021 v Radovljici pod idejnim vodstvom Vida Ožbolta, kasneje pa je ideja prerasla v samostojen in celovit projekt, za katerega si želimo, da bi dolgo let bogatil slovensko kulturno zakladnico. Tako smo poleti leta 2022 izvedli nov koncert, kjer so se s še bolj zanimivo zasedbo predstavili še bolj raznoliki skladatelji; prvič nas je v živo snemala tudi RTV Slovenije, ki je koncert predvajala v dveh oddajah na programu Ars. Društvo slovenskih skladateljev je v lanski sezoni celo izdalo notno gradivo nekaterih skladb, tako da je dela naših sodelujočih umetnikov mogoče izvajati tudi zunaj projekta in prijateljskih krogov.</p>
-                            <p>Od leta 2023 iniciativa še aktivneje deluje pod okriljem Kulturnega društva Odeon, ki je istega leta nastalo prav z namenom, da bo mladi generaciji služilo kot razvojno in organizacijsko telo. Dolgoročno želimo ustvariti tudi založbo, ki bo podpirala mlade umetnike in finančno omogočila izvajanje vseh projektov. Eden izmed večjih ciljev iniciative je z mladostniško energijo in sodobno pripravljenimi projekti v dvorane pripeljati čim več ljudi, ki klasične glasbe ne poznajo dobro, ali pa jo dojemajo celo kot zastarelo in nepomembno. Želimo jim pokazati, da imamo kljub mladosti že veliko za povedati, predvsem pa želimo s projekti spodbuditi razvoj slovenske klasične glasbe in omogočati raznolike priložnosti za uveljavljanje na glasbenem trgu. S tem počasi ustvarjamo pogoje za razcvet slovenske mlade umetnosti in sodobne klasične glasbe.</p>
+
+                            {(isMobile ? (showFullText ? fullText : shortText) : fullText)
+                                .split("\n\n")
+                                .map((paragraph, index) => (
+                                    <p key={index} className="iniciativa-text">
+                                        {paragraph}
+                                    </p>
+                                ))}
+
+                            {isMobile && (
+                                <button onClick={() => setShowFullText(!showFullText)} className="iniciativa-toggle">
+                                    {showFullText ? "Prikaži manj" : "Preberi več..."}
+                                </button>
+                            )}
                         </div>
+
                     </div>
                 </div>
+
 
 
 
@@ -86,7 +117,6 @@ const ONas = () => {
                                     className="sezona-logo"
                                 />
                                 <h1>{sezona.ime}</h1>
-                                <p>{sezona.naslov}</p>
                                 <Link className="center" to={`/glasba-mladih/${sezona.leto}`}>
                                     <button className="koncert-gumb sezona-gumb-lala">
                                         Pregled sezone
@@ -263,14 +293,14 @@ const ONas = () => {
                 </div>
             </section>
 
-            <section className="slike-grid-section">
-                <img src={GmSlika1} alt=""/>
-                <img src={GmSlika2} alt=""/>
-                <img src={GmSlika3} alt=""/>
-                <img src={GmSlika4} alt=""/>
-                <img src={GmSlika5} alt=""/>
-                <img src={GmSlika6} alt=""/>
-            </section>
+            {/*<section className="slike-grid-section">*/}
+            {/*    <img src={GmSlika1} alt=""/>*/}
+            {/*    <img src={GmSlika2} alt=""/>*/}
+            {/*    <img src={GmSlika3} alt=""/>*/}
+            {/*    <img src={GmSlika4} alt=""/>*/}
+            {/*    <img src={GmSlika5} alt=""/>*/}
+            {/*    <img src={GmSlika6} alt=""/>*/}
+            {/*</section>*/}
 
         </div>
     );
