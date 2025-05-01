@@ -2709,6 +2709,38 @@ img {
   .iniciativa-image img:not(:first-child) {
     display: none;
   }
+
+  .razlozeni-cikli-kartica p {
+    font-size: 1rem;
+  }
+
+  .razlozeni-cikli-kartica {
+    padding: 0.7rem;
+  }
+  .razlozeni-cikli-kartica h1 {
+    font-size: 1.3rem;
+  }
+  .glasba-mmladih-clani-div {
+    margin: 0;
+  }
+  .glasba-mmladih-clani-div div {
+    min-width: 5em;
+  }
+  .glasba-mladih-vsebina p, ul, li {
+    margin: 0.2em 0;
+  }
+  .ansambel-glasba-mladih-tekst {
+    margin: 0 1em;
+  }
+  .ansambel-glasba-mladih-tekst img {
+    width: 80%;
+  }
+  .sezona-kartica {
+    width: 45% !important;
+  }
+  .sezone-container {
+    gap: 0.7em !important;
+  }
 }
 
 .iniciativa-content {
