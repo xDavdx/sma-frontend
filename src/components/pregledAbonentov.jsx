@@ -32,8 +32,28 @@ function PregledAbonentov() {
         <div className="pregled-rezervacij-container">
             <h1>Pregled Abonentov</h1>
             <div>
-                <h3>V delu..</h3>
+                {rezervacije.length === 0 ? (
+                    <p>Ni prijavljenih abonentov.</p>
+                ) : (
+                    <table className="abonenti-table">
+                        <thead>
+                        <tr>
+                            <th>Ime</th>
+                            <th>Email</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {rezervacije.map((abonent, index) => (
+                            <tr key={index}>
+                                <td>{abonent.name}</td>
+                                <td>{abonent.email}</td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                )}
             </div>
+
         </div>
     );
 }

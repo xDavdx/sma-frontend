@@ -2771,6 +2771,22 @@ img {
 }
 
 
+.abonenti-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2em;
+}
+
+.abonenti-table th,
+.abonenti-table td {
+  border: 1px solid #4C7F93;
+  padding: 0.5em;
+  text-align: left;
+}
+
+.abonenti-table th {
+  background-color: #B9D9EA;
+}
 
 
 

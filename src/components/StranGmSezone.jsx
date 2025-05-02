@@ -15,7 +15,6 @@ const SezonaDetail = () => {
             <div className="sezona-podrobnosti-header">
                 <img src={sezona.logo} alt={sezona.ime} className="sezona-logo" />
                 <h1>{sezona.ime}</h1>
-                <p>{sezona.naslov}</p>
             </div>
 
             <div className="sezona-podrobnosti-vsebina">
