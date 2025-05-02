@@ -318,23 +318,39 @@ a {
     }
 
     .karta-tekst h1 {
-        font-size: 1.4rem !important;
+        font-size: 1.2rem !important;
     }
 
     .karta-tekst h3,
     .karta-tekst h5 {
-        font-size: 0.85rem !important;
+        font-size: 0.75rem !important;
     }
 
     .karta-slika {
-        height: 170px;
-        width: 50%;
+        height: 150px;
+        width: 40%;
     }
     .koncert-gumb {
         font-size: 0.8rem;
         padding: 1em;
         margin: 1em 0;
         width: 100%;
+    }
+
+    .sezona-slika {
+        height: 150px !important;
+    }
+    .glasba-mladih-vsebina p, ul, li {
+        font-size: 1rem;
+    }
+    .glasba-mladih-iniciativa {
+        margin: 2em 1em;
+    }
+    .iniciativa-container {
+        padding: 1em;
+    }
+    .gm-sezone-glasba-mladih {
+        padding: 2em 0 !important;
     }
 
     .arhiv-koncerti-karta-container {
