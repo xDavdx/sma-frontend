@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaRegCalendarAlt, FaRegEdit } from "react-icons/fa";
+import { MdDeleteOutline } from "react-icons/md";
+
 
 
 const DodajKoncerte = () => {
@@ -191,9 +193,53 @@ const DodajKoncerte = () => {
     }
 
 
+    const [pokaziModal, setPokaziModal] = useState(false);
+    const [izbranIdZaBrisanje, setIzbranIdZaBrisanje] = useState(null);
+
+    const potrdiBrisanje = (id) => {
+        setIzbranIdZaBrisanje(id);
+        setPokaziModal(true);
+    };
+
+    const izbrisiKoncert = async (id) => {
+        try {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/koncerti/${id}`, {
+                method: "DELETE",
+            });
+
+            if (!res.ok) {
+                const msg = await res.json();
+                alert(`Napaka: ${msg.message}`);
+                return;
+            }
+
+            alert("Koncert uspešno izbrisan!");
+            setKoncerti(prev => prev.filter(k => k._id !== id));
+        } catch (err) {
+            console.error("Napaka pri brisanju:", err);
+            alert("Napaka pri brisanju koncerta.");
+        } finally {
+            setPokaziModal(false);
+        }
+    };
+
+
+
+
 
     return (
-        <div>
+            <div>
+                {pokaziModal && (
+                    <div className="modal-overlay">
+                        <div className="modal-content">
+                            <h3>Ali res želiš izbrisati ta koncert?</h3>
+                            <div className="modal-buttons">
+                                <button onClick={() => izbrisiKoncert(izbranIdZaBrisanje)} className="potrdi"><MdDeleteOutline />Mhm</button>
+                                <button onClick={() => setPokaziModal(false)} className="preklici">Ne!</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
             <div className="dodaj-koncert">
                 <h2>Dodaj Koncert</h2>
 
@@ -325,16 +371,26 @@ const DodajKoncerte = () => {
                                 <img className="dodajanje-slika" src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
                                 <p><FaRegCalendarAlt style={{ marginRight: "10px" }} />{formatirajDatum(new Date(koncert.datum))}</p>
                                 <h2><b>{koncert.ime}</b></h2>
-                                <button
-                                    className="center"
-                                    type="button"
-                                    onClick={() => {
-                                        naloziKoncertZaUrejanje(koncert._id);
-                                        window.scrollTo({ top: 0, behavior: "smooth" }); // poscrolla lepo na vrh
-                                    }}
-                                >
-                                    <FaRegEdit style={{ marginRight: "8px" }} /> Uredi
-                                </button>
+                                <div className="center mal-gapa">
+                                    <button
+                                        className="center"
+                                        type="button"
+                                        onClick={() => {
+                                            naloziKoncertZaUrejanje(koncert._id);
+                                            window.scrollTo({ top: 0, behavior: "smooth" }); // poscrolla lepo na vrh
+                                        }}
+                                    >
+                                        <FaRegEdit style={{ marginRight: "8px" }} /> Uredi
+                                    </button>
+                                    <button
+                                        className="center izbris-gumb"
+                                        type="button"
+                                        onClick={() => potrdiBrisanje(koncert._id)}
+                                    >
+                                        <MdDeleteOutline /> Odstrani
+                                    </button>
+                                </div>
+
                             </div>
                         ))
                     }
