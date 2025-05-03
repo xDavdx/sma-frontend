@@ -1,5 +1,6 @@
 .admin-container {
     height: 100vh;
+    margin-top: 5em;
 }
 
 .admin-buttons {
@@ -25,7 +26,31 @@
     background-color: #B9D9EA;
 }
 
-
+.admin-plosca-gumb {
+    min-width: 20vw;
+    min-height: 15vh;
+    border-radius: 39px;
+    background: linear-gradient(145deg, #51889d, #447284);
+    box-shadow:  5px 5px 10px #48798c,
+    -5px -5px 10px #50859a;
+    transition: all 0.3s ease-in-out;
+}
+.admin-plosca-gumb:hover {
+    border-radius: 39px;
+    background: linear-gradient(145deg, #447284, #51889d);
+    box-shadow:  5px 5px 10px #48798c,
+    -5px -5px 10px #50859a;
+}
+.admin-plosca-gumb h1 {
+    font-size: 18pt;
+    color: white;
+    margin: 0.4em;
+}
+.admin-plosca {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
 
 
 

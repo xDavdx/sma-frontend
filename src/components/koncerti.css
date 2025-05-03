@@ -831,6 +831,11 @@ background-color: #f0f4f8;
     margin: 0.5em;
     border-radius: 10px;
     min-height: 30vh;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+.spreminjanje-koncertov-karta:hover {
+    box-shadow: 10px 8px 20px rgba(0,0,0,0.1);
 }
 .spreminjanje-koncertov-karta button {
     background-color: rgba(109, 161, 109, 0.75);
@@ -949,11 +954,11 @@ background-color: #f0f4f8;
 }
 
 .izbris-gumb {
-    background-color: #ff4d4d !important;
+    background-color: #f36262 !important;
     color: white;
 }
 .izbris-gumb:hover {
-    background-color: #e60000 !important;
+    background-color: #f14444 !important;
 }
 
 .mal-gapa {
