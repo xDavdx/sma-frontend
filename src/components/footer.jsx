@@ -24,22 +24,22 @@ const Footer = () => {
                 {/* Sredina: Povezave */}
                 <div className="footer-links center">
                     <div>
-                        <div className="linki-margin">
-                            <ul>
-                                <li><Link to="/koncerti">Koncerti</Link>
-                                    <ul className="footer-linki-ul">
-                                       <li><Link to="/koncerti">sfsd</Link></li>
-                                    </ul>
-                                </li>
-                                <li><Link to="/novice">Novice</Link></li>
-                                <li><Link to="/o-nas">O nas<IoIosArrowDown /></Link>
-                                    <ul className="footer-linki-ul">
-                                        <li><Link to="/drustvo-odeon">Društvo Odeon</Link></li>
-                                        <li><Link to="/glasba-mladih">Glasba mladih</Link></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+                        {/*<div className="linki-margin">*/}
+                        {/*    <ul>*/}
+                        {/*        <li><Link to="/koncerti">Koncerti</Link>*/}
+                        {/*            <ul className="footer-linki-ul">*/}
+                        {/*               <li><Link to="/koncerti">sfsd</Link></li>*/}
+                        {/*            </ul>*/}
+                        {/*        </li>*/}
+                        {/*        <li><Link to="/novice">Novice</Link></li>*/}
+                        {/*        <li><Link to="/o-nas">O nas<IoIosArrowDown /></Link>*/}
+                        {/*            <ul className="footer-linki-ul">*/}
+                        {/*                <li><Link to="/drustvo-odeon">Društvo Odeon</Link></li>*/}
+                        {/*                <li><Link to="/glasba-mladih">Glasba mladih</Link></li>*/}
+                        {/*            </ul>*/}
+                        {/*        </li>*/}
+                        {/*    </ul>*/}
+                        {/*</div>*/}
                         <div>
                             <h2>Abonma podpirajo:</h2>
                             <div className="center margin-alala">
@@ -80,6 +80,7 @@ const Footer = () => {
 
             <div className="center footer-spodaj">
                 <hr className="footer-hr"/>
+
                 <p>
                     © 2025 - Slovenski mladi abonma. Vse pravice pridržane |{" "}
                     <a href="/pravilnik-zasebnosti" className="zasebnost-footer">
