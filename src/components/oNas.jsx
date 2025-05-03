@@ -11,6 +11,8 @@ import LogoKlasika from "./smklasik.png"
 import LogoGlasbaM from "./smglasbamladih.png"
 import LogoKreativa from "./smkreativ.png"
 import LogoGostuje from "./smagost.png"
+import {Link} from "react-router-dom";
+import { cikliPodatki } from "./oNasCikliPodatki"
 
 const ONas = () => {
     return (
@@ -67,30 +69,17 @@ const ONas = () => {
                 </h1>
 
                 <div className="razlozeni-cikli-wrapper">
-                    <div className="razlozeni-cikli-kartica">
-                        <img src={LogoKlasika} alt="" />
-                        <h1>Slovenska mlada klasika</h1>
-                        <p>koncerti in recitali klasične glasbe za komorne zasedbe, zbore, solistične glasbenike… </p>
-                    </div>
-
-                    <div className="razlozeni-cikli-kartica">
-                        <img src={LogoGlasbaM} alt="" />
-                        <h1>Iniciativa glasba mladih</h1>
-                        <p>projekti na katerih so v prvi vrsti izvajana dela mladih slovenskih skladateljev</p>
-                    </div>
-
-                    <div className="razlozeni-cikli-kartica">
-                        <img src={LogoKreativa} alt="" />
-                        <h1>Slovenska mlada kreativa</h1>
-                        <p>cikel koncertov samoiniciativnih projektov, ki jih društvo organizatorsko in finančno podpira</p>
-                    </div>
-
-                    <div className="razlozeni-cikli-kartica">
-                        <img src={LogoGostuje} alt="" />
-                        <h1>SMA gostuje</h1>
-                        <p>koncerti gostujočih mladih tujih glasbenikov ali skupin, ki delujejo izven Slovenije</p>
-                    </div>
+                    {cikliPodatki.map((cikel, index) => (
+                        <Link to={`/o-nas/${cikel.slug}`} style={{ color: "black" }} key={cikel.slug}>
+                            <div className="razlozeni-cikli-kartica">
+                                <img src={cikel.logo} alt={cikel.ime} />
+                                <h1>{cikel.ime}</h1>
+                                <p>{cikel.opis}</p>
+                            </div>
+                        </Link>
+                    ))}
                 </div>
+
             </section>
 
 

@@ -1686,6 +1686,7 @@ img {
   align-items: center;
   text-align: left;
   transition: transform 0.2s ease;
+  min-height: 35vh;
 }
 
 .razlozeni-cikli-wrapper a {
@@ -1755,12 +1756,38 @@ img {
 }
 
 .footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "logo linki linki social";
   margin: 0 auto;
   padding: 0 1em;
+}
+.footer-logo {
+  grid-area: logo;
+}
+.footer-links {
+  grid-area: linki;
+}
+.footer-contact {
+  grid-area: social;
+}
+
+.footer-linki-ul {
+  flex-direction: column;
+}
+.footer-linki-ul li a {
+  color: #bfbfbf;
+}
+
+.footer-links div {
+  gap: 3em;
+}
+
+.linki-margin {
+  margin-bottom: 3em;
+}
+.margin-alala {
+  margin-top: 1em;
 }
 
 .footer-logo img {
@@ -2789,7 +2816,9 @@ img {
 }
 
 
-
+.cikel-stran {
+  margin-top: 7em;
+}
 
 
 
