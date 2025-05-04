@@ -1762,6 +1762,28 @@ img {
   margin: 0 auto;
   padding: 0 1em;
 }
+
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "logo"
+                          "linki"
+                          "social";
+  ;
+  }
+  .footer {
+    width: 100vw;
+  }
+  .footer-logo {
+    width: 100vw;
+  }
+  .margin-alala {
+    flex-direction: column;
+  }
+}
+
+
 .footer-logo {
   grid-area: logo;
 }
@@ -2676,9 +2698,6 @@ img {
 }
 
 
-.sezona-podrobnosti {
-  margin-top: 8em;
-}
 
 .ansambel-glasba-mladih-tekst {
   max-width: 1000px;
@@ -2827,8 +2846,22 @@ img {
 
 
 
+/* stran GM sezone */
 
 
-
-
-
+.stran-gm-sezone-vsebina {
+  display: flex;
+  margin: 2em 4em;
+}
+.sezona-podrobnosti-vsebina {
+  width: 50%;
+  padding: 0 4em;
+  line-height: 1.4;
+}
+.sezona-podrobnosti-slika {
+  width: 50%;
+}
+.sezona-podrobnosti-slika img {
+  width: 25vw;
+  height: 100%;
+}
