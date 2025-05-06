@@ -86,7 +86,7 @@ function StranKoncerta() {
             });
 
             if (res.ok) {
-                alert("Rezervacija uspešno poslana!");
+                alert("Rezervacija uspešna!");
                 setIme("");
                 setEmail("");
                 setSteviloVstopnic("");

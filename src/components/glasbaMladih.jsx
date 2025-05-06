@@ -267,7 +267,7 @@ const ONas = () => {
                             <div>
                                 <h3><GiTrombone style={{ marginRight: "8px" }} />Pozavna:</h3>
                                 <ul>
-                                    <li>Kozjek</li>
+                                    <li>Blaž Kozjek</li>
                                 </ul>
                             </div>
                             <div>
