@@ -5,6 +5,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import {IoIosArrowBack} from "react-icons/io";
+import axios from "axios";
 
 function StranKoncerta() {
     const { id } = useParams();
@@ -62,6 +63,9 @@ function StranKoncerta() {
     };
 
     const [privacyChecked, setPrivacyChecked] = useState(false);
+    const [vir, setVir] = useState("");
+    const [drugiVir, setDrugiVir] = useState("");
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -69,6 +73,9 @@ function StranKoncerta() {
             alert("Prosimo, da se strinjate s pravilnikom o zasebnosti.");
             return;
         }
+        const poslaniVir = vir === "drugo" ? drugiVir : vir;
+
+
 
         const novaRezervacija = {
             ime,
@@ -78,6 +85,7 @@ function StranKoncerta() {
             koncertIme: koncert.ime,
             koncertDatum: koncert.datum,
             koncertLokacija: koncert.lokacija,
+            vir: poslaniVir,
         };
 
         try {
@@ -263,6 +271,25 @@ function StranKoncerta() {
                             onChange={(e) => setSteviloVstopnic(e.target.value)}
                             required
                         />
+                        <label htmlFor="vir">Kje ste izvedeli za koncert?</label>
+                        <select id="vir" name="vir" value={vir} onChange={e => setVir(e.target.value)}>
+                            <option value="">-- izberi --</option>
+                            <option value="družabna omrežja">Na družabnih omrežjih</option>
+                            <option value="plakati">S plakatov</option>
+                            <option value="časopisi">Iz časopisov</option>
+                            <option value="radio">Po radiu</option>
+                            <option value="drugo">Drugo</option>
+                        </select>
+
+                        {vir === "drugo" && (
+                            <input
+                                type="text"
+                                placeholder="Drugo"
+                                value={drugiVir}
+                                onChange={e => setDrugiVir(e.target.value)}
+                            />
+                        )}
+
                         <div className="checkbox-wrapper" style={{ margin: "1em 0", fontSize: "0.95em" }}>
                             <input
                                 type="checkbox"

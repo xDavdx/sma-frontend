@@ -29,7 +29,7 @@ function PregledRezervacij() {
 
     // Združi rezervacije po koncertu
     const zdruzenePoKoncertih = rezervacije.reduce((acc, rezervacija) => {
-        const { koncertId, koncertIme, ime, email, steviloVstopnic } = rezervacija;
+        const { koncertId, koncertIme, ime, email, steviloVstopnic, vir } = rezervacija;
         if (!acc[koncertId]) {
             acc[koncertId] = {
                 koncertIme,
@@ -37,7 +37,7 @@ function PregledRezervacij() {
                 skupno: 0,
             };
         }
-        acc[koncertId].rezervacije.push({ ime, email, steviloVstopnic });
+        acc[koncertId].rezervacije.push({ ime, email, steviloVstopnic, vir });
         acc[koncertId].skupno += parseInt(steviloVstopnic);
         return acc;
     }, {});
@@ -48,17 +48,31 @@ function PregledRezervacij() {
             {Object.entries(zdruzenePoKoncertih).map(([koncertId, data]) => (
                 <div key={koncertId} className="rezervacija-kartica">
                     <h2>{data.koncertIme}</h2>
-                    <ul>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Ime/mail</th>
+                            <th>Koliko</th>
+                            <th>Iz kje</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         {data.rezervacije.map((r, index) => (
-                            <li key={index}>
-                                <strong>Kdo: {r.ime},</strong>{r.email}, {r.steviloVstopnic} vstopnica/e
-                            </li>
+                            <tr key={index}>
+                                <td>{r.ime} - {r.email}</td>
+                                <td>{r.steviloVstopnic} vstopnic/e</td>
+                                <td>{r.vir}</td>
+                            </tr>
                         ))}
-                    </ul>
-                    <p className="skupno-vstopnic">Skupaj rezerviranih vstopnic: <strong>{data.skupno}</strong></p>
+                        </tbody>
+                    </table>
+                    <p className="skupno-vstopnic">
+                        Skupaj rezerviranih vstopnic: <strong>{data.skupno}</strong>
+                    </p>
                 </div>
             ))}
         </div>
+
     );
 }
 
