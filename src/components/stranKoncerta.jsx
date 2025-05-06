@@ -76,6 +76,8 @@ function StranKoncerta() {
             steviloVstopnic,
             koncertId: koncert._id,
             koncertIme: koncert.ime,
+            koncertDatum: koncert.datum,
+            koncertLokacija: koncert.lokacija,
         };
 
         try {

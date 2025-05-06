@@ -13,7 +13,7 @@ export const cikliPodatki = [
         vsebina: "dasfsdfasdfasd",
     },
     {
-        slug: "iniciativa-glasba-mladih",
+        slug: "glasba-mladih",
         ime: "Iniciativa glasba mladih",
         opis: "projekti na katerih so v prvi vrsti izvajana dela mladih slovenskih skladateljev",
         logo: LogoGlasbaM,

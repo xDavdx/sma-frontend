@@ -70,7 +70,7 @@ const ONas = () => {
 
                 <div className="razlozeni-cikli-wrapper">
                     {cikliPodatki.map((cikel, index) => (
-                        <Link to={`/o-nas/${cikel.slug}`} style={{ color: "black" }} key={cikel.slug}>
+                        <Link className="flex-onas-cikli" to={`/o-nas/${cikel.slug}`} style={{ color: "black" }} key={cikel.slug}>
                             <div className="razlozeni-cikli-kartica">
                                 <img src={cikel.logo} alt={cikel.ime} />
                                 <h1>{cikel.ime}</h1>
@@ -140,46 +140,6 @@ const ONas = () => {
                     </div>
                 </div>
             </section>
-
-
-            {/*/!* Sekcija: Postani del ekipe *!/*/}
-            {/*<section className="onas-pridruzi">*/}
-            {/*    <div className="kontakt center">*/}
-            {/*        <div className="kontakt-levo kld">*/}
-            {/*            <div>*/}
-            {/*                <h1>Postani del ekipe!</h1>*/}
-            {/*                <h3>*/}
-            {/*                    <a href="tel:+38631726060">*/}
-            {/*                        Vedno iščemo mlade, ki si želijo tudi izkušenj v organizacijskih vodah! Če vas zanima, nam pišite ali nas kontaktirajte preko družabnih omrežij!*/}
-            {/*                    </a>*/}
-            {/*                </h3>*/}
-            {/*                <h1>Kontakt:</h1>*/}
-            {/*                <h3>*/}
-            {/*                    <a href="tel:+38631726060">*/}
-            {/*                        <FaPhoneAlt /> +386 31 726 060*/}
-            {/*                    </a>*/}
-            {/*                </h3>*/}
-            {/*                <h3>*/}
-            {/*                    <a href="mailto:mladi.abonma@gmail.com">*/}
-            {/*                        <MdOutlineMailOutline /> mladi.abonma@gmail.com*/}
-            {/*                    </a>*/}
-            {/*                </h3>*/}
-            {/*                <div className="social-icons">*/}
-            {/*                    <a href=""><FaYoutube /></a>*/}
-            {/*                    <a href=""><RiInstagramFill /></a>*/}
-            {/*                    <a href=""><FaFacebook /></a>*/}
-            {/*                </div>*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-
-
-
-            {/*        <div className="kontakt-desno center kld">*/}
-            {/*            <KontaktForma />*/}
-
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</section>*/}
         </div>
     );
 };
