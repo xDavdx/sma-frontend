@@ -342,6 +342,7 @@ a {
     }
     .glasba-mladih-vsebina p, ul, li {
         font-size: 1rem;
+        text-align: justify;
     }
     .glasba-mladih-iniciativa {
         margin: 2em 1em;
@@ -409,10 +410,10 @@ a {
         padding: 7em 2em;
     }
     .prva-levo h1 {
-        font-size: 3.3rem;
+        font-size: 42pt;
     }
     .prva-levo h2 {
-        font-size: 14pt;
+        font-size: 15pt !important;
     }
 }
 
