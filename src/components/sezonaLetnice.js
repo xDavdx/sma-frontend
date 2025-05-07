@@ -1,4 +1,7 @@
-import slikaLala from "./placeholder.jpg"
+import sezona2022 from "./arhiv2022.jpg"
+import sezona2023 from "./arhiv2023.jpg"
+import sezona2024 from "./arhiv2024.jpg"
+import sezona2025 from "./arhiv2025.jpg"
 
 
 export const sezone = [
@@ -6,7 +9,7 @@ export const sezone = [
         leto: 2022,
         ime: "Sezona 2022",
         opis: "opis",
-        slika: slikaLala,
+        slika: sezona2022,
         gmNaslov: "Glasba mladih II",
         gmVsebina: "Druga izvedba projekta je prinesla večjo zasedbo, nove skladatelje in več koncertov. Premierni koncert je bil izveden v radovljiški župnijski cerkvi sv. Petra, posnela ga je ekipa RTV Slovenija. Projekt smo predstavili še v dvorani Pokrajinskega muzeja Koper, Dvorani Lucijana Marije Škerjanca na Konservatoriju za glasbo in balet Ljubljana in v Kulturnem domu Postojna."
     },
@@ -14,7 +17,7 @@ export const sezone = [
         leto: 2023,
         ime: "Sezona 2023",
         opis: "blabla",
-        slika: slikaLala,
+        slika: sezona2023,
         gmNaslov: "Glasba mladih III",
         gmVsebina: "Celovečerni koncert nove glasbe \n" +
             "za večje komorne zasedbe\n" +
@@ -24,7 +27,7 @@ export const sezone = [
         leto: 2024,
         ime: "Sezona 2024",
         opis: "opis",
-        slika: slikaLala,
+        slika: sezona2024,
         gmNaslov: "Glasba mladih IV",
         gmVsebina: "Projekt Glasba mladih tudi letos ponosno nadaljuje svojo pot s četrto izdajo koncertnega večera, posvečenega izključno mladim slovenskim skladateljem in njihovi najnovejši ustvarjalnosti. Na koncertu Glasba mladih IV so obiskovalci doživeli šest krstnih izvedb izpod peres nekaterih najbolj obetavnih mladih umetnikov.\n" +
             "Pod glasbenim vodstvom dirigentke Lare Willewaldt je Ansambel Glasba mladih izvedel raznolik in vsebinsko bogat program, ki je s svojo svežino in izrazno močjo znova dokazal, da ima slovenska sodobna glasba izjemno prihodnost."
@@ -33,7 +36,7 @@ export const sezone = [
         leto: 2025,
         ime: "Sezona 2025",
         opis: "opis",
-        slika: slikaLala,
+        slika: sezona2025,
         gmNaslov: "Glasba mladih V",
         gmVsebina: "Projekt Glasba mladih tudi letos ponosno nadaljuje svojo pot s četrto izdajo koncertnega večera, posvečenega izključno mladim slovenskim skladateljem in njihovi najnovejši ustvarjalnosti. Na koncertu Glasba mladih IV so obiskovalci doživeli šest krstnih izvedb izpod peres nekaterih najbolj obetavnih mladih umetnikov.\n" +
             "Pod glasbenim vodstvom dirigentke Lare Willewaldt je Ansambel Glasba mladih izvedel raznolik in vsebinsko bogat program, ki je s svojo svežino in izrazno močjo znova dokazal, da ima slovenska sodobna glasba izjemno prihodnost.",

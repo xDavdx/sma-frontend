@@ -2672,7 +2672,7 @@ img {
 
 .iniciativa-content h1 {
   color: black;
-  font-size: 2rem;
+  font-size: 33pt;
   margin-bottom: 0.5rem;
 }
 .glasba-mmladih-clani-div h3 {
@@ -2682,10 +2682,22 @@ img {
   font-size: 17pt;
 }
 
+.vir-select {
+  padding: 0.5em;
+  background-color: unset;
+  border: 0.5px solid #2c3e50;
+  border-radius: 5px;
+}
+
+.vir-mb {
+  margin: 1em 0;
+}
+
 .iniciativa-content p {
   color: #444;
   line-height: 1.6;
   margin-bottom: 1rem;
+  font-size: 13pt;
 }
 
 @media (max-width: 768px) {
@@ -2805,11 +2817,6 @@ img {
   max-width: 650px;
 }
 
-.iniciativa-content h1 {
-  color: black;
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
 
 .iniciativa-toggle {
   background-color: transparent;

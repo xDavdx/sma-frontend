@@ -271,8 +271,8 @@ function StranKoncerta() {
                             onChange={(e) => setSteviloVstopnic(e.target.value)}
                             required
                         />
-                        <label htmlFor="vir">Kje ste izvedeli za koncert?</label>
-                        <select id="vir" name="vir" value={vir} onChange={e => setVir(e.target.value)}>
+                        <label className="vir-mb" htmlFor="vir">Kje ste izvedeli za koncert?</label>
+                        <select className="vir-select" id="vir" name="vir" value={vir} onChange={e => setVir(e.target.value)}>
                             <option value="">-- izberi --</option>
                             <option value="družabna omrežja">Na družabnih omrežjih</option>
                             <option value="plakati">S plakatov</option>

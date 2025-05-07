@@ -113,10 +113,9 @@ const Koncerti = () => {
 
 
 
-
-
-
             <Link to={"/admin-dodajaj"}><h1 className="koncert-gumb dodaj-koncerte-gumb">+ Dodaj koncert</h1></Link>
+
+
             <section className="arhiv-koncertov-container">
                 <h2 className="arhiv-koncertov-naslov">Arhiv koncertov</h2>
 
