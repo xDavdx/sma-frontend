@@ -185,7 +185,7 @@ import ZamenjavaSekcije from "./zamenjavaSekcije"
                         <div className="featured-main featured-main-zac">
                             {renderSlika(featured)}
                             <h2>{featured.ime}</h2>
-                            <p>{featured.podnaslov}</p>
+                            <p>{prikaziKrajseBesedilo(featured.podnaslov)}</p>
                             {/*<span>{new Date(featured.datum).toLocaleString()}</span>*/}
                             <Link to={`/novice/${featured._id}`} className="preberi-vec">Preberi več</Link>
                         </div>
