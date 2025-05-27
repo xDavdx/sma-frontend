@@ -35,6 +35,12 @@ const Novice = () => {
         );
     };
 
+    function prikaziKrajseBesedilo(besedilo, steviloBesed = 10) {
+        const besede = besedilo.split(" ");
+        if (besede.length <= steviloBesed) return besedilo;
+        return besede.slice(0, steviloBesed).join(" ") + "...";
+    }
+
 
 
     return (
@@ -51,7 +57,7 @@ const Novice = () => {
                         <div className="featured-main">
                             {renderSlika(featured)}
                             <h2>{featured.ime}</h2>
-                            <p>{featured.podnaslov}</p>
+                            <p>{prikaziKrajseBesedilo(featured.podnaslov)}</p>
                             {/*<span>*/}
                               {/*{new Date(featured.datum).toLocaleString("sl-SI", {*/}
                               {/*    day: "2-digit",*/}

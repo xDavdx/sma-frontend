@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Link, useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import "./Novice.css";
 
@@ -20,6 +20,15 @@ const StranNovice = () => {
 
         fetchNovica();
     }, [id]);
+
+    const formatirajDatum = (datum) => {
+        const meseci = [
+            "januar", "februar", "marec", "april", "maj", "junij",
+            "julij", "avgust", "september", "oktober", "november", "december"
+        ];
+        const date = new Date(datum);
+        return `${date.getDate()}. ${meseci[date.getMonth()]} ob ${date.getHours().toString().padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`;
+    };
 
     if (!novica) return <p>Nalaganje...</p>;
 
@@ -42,10 +51,20 @@ const StranNovice = () => {
                 </div>
             </div>
 
+            <div className="novica-spodaj-content">
+                {novica.vsebina && (
+                    <div className="vsebina" dangerouslySetInnerHTML={{ __html: novica.vsebina }} />
+                )}
 
-
-            <div className="spodaj-content">
-                <div className="vsebina" dangerouslySetInnerHTML={{ __html: novica.vsebina }} />
+                {novica.sekcije && novica.sekcije.length > 0 && novica.sekcije.map((sekcija, idx) => (
+                    <div key={idx} className="novica-sekcija">
+                        {sekcija.datum && (
+                            <h5>{formatirajDatum(sekcija.datum)}</h5>
+                        )}
+                        {sekcija.podpodnaslov && <h3>{sekcija.podpodnaslov}</h3>}
+                        <p>{sekcija.vsebina}</p>
+                    </div>
+                ))}
             </div>
         </div>
     );
