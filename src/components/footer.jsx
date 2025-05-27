@@ -7,6 +7,7 @@ import {MdOutlineMailOutline} from "react-icons/md";
 import Sponzor1 from "./MinistrstvoZaKulturo.png";
 import Sponzor2 from "./RADOLCA.png"
 import Sponzor3 from "./radovljica.png"
+import Sponzor4 from "./Zavarovalnica-Triglav_LOGO-Vertical_Negativ-02.png"
 import { IoIosArrowDown } from "react-icons/io";
 
 
@@ -41,11 +42,12 @@ const Footer = () => {
                         {/*    </ul>*/}
                         {/*</div>*/}
                         <div>
-                            <h2>Abonma podpirajo:</h2>
+                            <h2>Abonma podpirajo</h2>
                             <div className="center margin-alala">
                                 <Link to="https://www.gov.si/drzavni-organi/ministrstva/ministrstvo-za-kulturo/" target="_blank"><img src={Sponzor1} alt="" style={{ width: "12em" }} /></Link>
                                 <Link to="https://www.radolca.si/?gad_source=1&gbraid=0AAAAADL-WxNGblb0hfXq96xH8ej7HnkGC&gclid=Cj0KCQjw_dbABhC5ARIsAAh2Z-SjXcZzz8MD2rijCpF6Ylh38wGxif4GudSAJIxrjqLfU4YdMXPq9uwaAlV3EALw_wcB" target="_blank"><img src={Sponzor2} alt="" style={{ width: "7em" }}/></Link>
                                 <Link to="https://www.radovljica.si/" target="_blank"><img src={Sponzor3} alt="" style={{ width: "3em" }}/></Link>
+                                <Link to="https://www.radovljica.si/" target="_blank"><img src={Sponzor4} alt="" style={{ width: "10em" }}/></Link>
                             </div>
                         </div>
                     </div>
