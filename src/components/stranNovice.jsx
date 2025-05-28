@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import "./Novice.css";
+import {FaRegCalendarAlt} from "react-icons/fa";
 
 const StranNovice = () => {
     const { id } = useParams();
@@ -34,37 +35,50 @@ const StranNovice = () => {
 
     return (
         <div className="stran-novice-wrapper">
-            <div className="stran-novice-content center">
+            <div className="stran-novice-content center wdt">
                 <div className="leva-stran">
-                    <Link to="/novice" className="gumb-nazaj-aan">
+                    <Link to="/novice" className="gumb-nazaj-aan margin-mal">
                         <IoIosArrowBack /> Nazaj na novice
                     </Link>
                     <h1>{novica.ime}</h1>
                     <h3>{novica.podnaslov}</h3>
                     {novica.slike && novica.slike.length > 0 && (
-                        <img
-                            src={novica.slike[0]}
-                            alt={novica.ime}
-                            className="stran-novice-slika"
-                        />
+                        <div className="slika-novica-flexk center">
+                            <img
+                                src={novica.slike[0]}
+                                alt={novica.ime}
+                                className="stran-novice-slika"
+                            />
+                            {novica.slike.length > 1 && (
+                                <img
+                                    src={novica.slike[1]}
+                                    alt={`${novica.ime} - slika 2`}
+                                    className="stran-novice-slika"
+                                    style={{ marginLeft: "1em" }} // ali drugačna razporeditev
+                                />
+                            )}
+                        </div>
                     )}
+
                 </div>
             </div>
 
-            <div className="novica-spodaj-content">
-                {novica.vsebina && (
-                    <div className="vsebina" dangerouslySetInnerHTML={{ __html: novica.vsebina }} />
-                )}
+            <div className="novica-spodajlala center wdt">
+                <div className="novica-spodaj-content">
+                    {novica.vsebina && (
+                        <div className="vsebina" dangerouslySetInnerHTML={{ __html: novica.vsebina }} />
+                    )}
 
-                {novica.sekcije && novica.sekcije.length > 0 && novica.sekcije.map((sekcija, idx) => (
-                    <div key={idx} className="novica-sekcija">
-                        {sekcija.datum && (
-                            <h5>{formatirajDatum(sekcija.datum)}</h5>
-                        )}
-                        {sekcija.podpodnaslov && <h3>{sekcija.podpodnaslov}</h3>}
-                        <p>{sekcija.vsebina}</p>
-                    </div>
-                ))}
+                    {novica.sekcije && novica.sekcije.length > 0 && novica.sekcije.map((sekcija, idx) => (
+                        <div key={idx} className="novica-sekcija">
+                            {sekcija.datum && (
+                                <h5><FaRegCalendarAlt style={{ marginRight: "10px" }} /> {formatirajDatum(sekcija.datum)}</h5>
+                            )}
+                            {sekcija.podpodnaslov && <h3>{sekcija.podpodnaslov}</h3>}
+                            <p>{sekcija.vsebina}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );

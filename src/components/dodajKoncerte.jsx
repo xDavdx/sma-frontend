@@ -232,7 +232,7 @@ const DodajKoncerte = () => {
                 {pokaziModal && (
                     <div className="modal-overlay">
                         <div className="modal-content">
-                            <h3>Ali res želiš izbrisati ta koncert?</h3>
+                            <h3>A si ziher da bi izbrisal ta koncert?</h3>
                             <div className="modal-buttons">
                                 <button onClick={() => izbrisiKoncert(izbranIdZaBrisanje)} className="potrdi"><MdDeleteOutline />Mhm</button>
                                 <button onClick={() => setPokaziModal(false)} className="preklici">Ne!</button>

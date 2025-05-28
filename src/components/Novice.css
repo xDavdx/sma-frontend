@@ -263,3 +263,51 @@
 }
 
 
+.novica-sekcija {
+    margin-bottom: 1.5em;
+}
+.novica-sekcija p {
+    font-size: 13pt;
+    margin-top: 5px;
+}
+.novica-sekcija h5 {
+    color: grey;
+    margin-bottom: 3px;
+    font-size: 12pt;
+}
+.novica-sekcija h3 {
+    font-size: 18pt;
+}
+
+.novica-spodaj-content {
+    max-width: 80vw;
+}
+.novica-spodajlala {
+    background-color: #f8f9fa;
+    padding: 1.5em 0;
+}
+
+.wdt {
+    width: 100vw;
+}
+
+.leva-stran {
+    max-width: 80vw;
+}
+
+.leva-stran h1 {
+    margin: 0.5em 0;
+}
+.leva-stran h3 {
+    font-weight: 500;
+}
+
+.slika-novica-flexk {
+    display: flex;
+}
+.slika-novica-flexk img {
+    width: 30vw;
+    border-radius: 10px;
+}
+
+
