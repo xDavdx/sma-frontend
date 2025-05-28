@@ -6,7 +6,9 @@ import { FaLocationDot } from "react-icons/fa6";
 import "./koncerti.css";
 import {cikli} from "./cikli";
 import {Helmet} from "react-helmet";
-import { sezone } from "./sezonaLetnice"
+import { sezone } from "./sezonaLetnice";
+import { TailSpin } from 'react-loader-spinner';
+
 
 const Koncerti = () => {
 
@@ -18,12 +20,14 @@ const Koncerti = () => {
     const [koncerti, setKoncerti] = useState([]);
     const [steviloVidnihPrihodnjih, setSteviloVidnihPrihodnjih] = useState(4);
     const [vidniPoLetih, setVidniPoLetih] = useState({});
+    const [nalaganje, setNalaganje] = useState(true);
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_BACKEND_URL}/koncerti`)
             .then((res) => res.json())
             .then((data) => setKoncerti(data))
-            .catch((error) => console.error("Napaka pri pridobivanju koncertov:", error));
+            .catch((error) => console.error("Napaka pri pridobivanju koncertov:", error))
+            .finally(() => setNalaganje(false));
     }, []);
 
     const danes = new Date().toISOString().split("T")[0];
@@ -76,37 +80,50 @@ const Koncerti = () => {
                         <h1>Prihajajoči koncerti</h1>
                     </div>
                     <div className="koncert-karta">
-                        {prihodnjiKoncerti.slice(0, 4).map((koncert) => (
-                            <div key={koncert._id} className="karta">
-                                <div className="center karta-slika">
-                                    <img src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
-                                    <div className="tekst-nad-sliko">
-                                        {cikli[koncert.cikel] && (
-                                            <Link to={"/o-nas"}> <img
-                                                src={cikli[koncert.cikel].logo}
-                                                alt={cikli[koncert.cikel].ime}
-                                                style={{ maxWidth: "70px" }}
-                                            /></Link>
-                                        )}
+                        {nalaganje ? (
+                            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "2rem" }}>
+                                <TailSpin
+                                    height="60"
+                                    width="60"
+                                    color="#B9D9EA"
+                                    ariaLabel="nalaganje-koncertov"
+                                />
+                            </div>
+                        ) : prihodnjiKoncerti.length > 0 ? (
+                            prihodnjiKoncerti.slice(0, 4).map((koncert) => (
+                                <div key={koncert._id} className="karta">
+                                    <div className="center karta-slika">
+                                        <img src={koncert.slike?.[0] || "/fallback.jpg"} alt={koncert.ime} />
+                                        <div className="tekst-nad-sliko">
+                                            {cikli[koncert.cikel] && (
+                                                <Link to={"/o-nas"}> <img
+                                                    src={cikli[koncert.cikel].logo}
+                                                    alt={cikli[koncert.cikel].ime}
+                                                    style={{ maxWidth: "70px" }}
+                                                /></Link>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <div className="karta-tekst">
+                                        <h3 style={{ display: "flex", alignItems: "center", color: "#B9D9EA" }}>
+                                            <FaRegCalendarAlt style={{ marginRight: "10px" }} />
+                                            {formatirajDatum(koncert.datum)}
+                                        </h3>
+                                        <h3 style={{ display: "flex", alignItems: "center", color: "#B9D9EA" }}>
+                                            <FaLocationDot style={{ marginRight: "10px" }} />
+                                            {koncert.lokacija}
+                                        </h3>
+                                        <h1>{koncert.ime}</h1>
+                                        <h5 style={{ color: "#B9D9EA" }}>{koncert.podnaslov}</h5>
+                                        <Link to={`/koncerti/${koncert._id}`}>
+                                            <button className="koncert-gumb">Več o koncertu <IoIosArrowForward className="puscica" /></button>
+                                        </Link>
                                     </div>
                                 </div>
-                                <div className="karta-tekst">
-                                    <h3 style={{ display: "flex", alignItems: "center", color: "#B9D9EA" }}>
-                                        <FaRegCalendarAlt style={{ marginRight: "10px" }} />
-                                        {formatirajDatum(koncert.datum)}
-                                    </h3>
-                                    <h3 style={{ display: "flex", alignItems: "center", color: "#B9D9EA" }}>
-                                        <FaLocationDot style={{ marginRight: "10px" }} />
-                                        {koncert.lokacija}
-                                    </h3>
-                                    <h1>{koncert.ime}</h1>
-                                    <h5 style={{ color: "#B9D9EA" }}>{koncert.podnaslov}</h5>
-                                    <Link to={`/koncerti/${koncert._id}`}>
-                                        <button className="koncert-gumb">Več o koncertu <IoIosArrowForward className="puscica" /></button>
-                                    </Link>
-                                </div>
-                            </div>
-                        ))}
+                            ))
+                        ) : (
+                            <p style={{ textAlign: "center", color: "#fff" }}>Ni prihajajočih koncertov.</p>
+                        )}
                     </div>
                 </div>
             </div>
