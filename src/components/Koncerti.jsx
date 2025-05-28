@@ -7,7 +7,6 @@ import "./koncerti.css";
 import {cikli} from "./cikli";
 import {Helmet} from "react-helmet";
 import { sezone } from "./sezonaLetnice";
-import { TailSpin } from 'react-loader-spinner';
 
 
 const Koncerti = () => {
@@ -81,14 +80,7 @@ const Koncerti = () => {
                     </div>
                     <div className="koncert-karta">
                         {nalaganje ? (
-                            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "2rem" }}>
-                                <TailSpin
-                                    height="60"
-                                    width="60"
-                                    color="#B9D9EA"
-                                    ariaLabel="nalaganje-koncertov"
-                                />
-                            </div>
+                            <p style={{ textAlign: "center", color: "#fff" }}>Nalaganje koncertov ...</p>
                         ) : prihodnjiKoncerti.length > 0 ? (
                             prihodnjiKoncerti.slice(0, 4).map((koncert) => (
                                 <div key={koncert._id} className="karta">
