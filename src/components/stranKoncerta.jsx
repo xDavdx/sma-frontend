@@ -311,21 +311,11 @@ function StranKoncerta() {
                     <div className="koncert-desno-info center" style={{ backgroundColor: "unset", boxShadow: "none" }}>
                         <h3>
                             <h4><FaRegCalendarAlt style={{ marginRight: "10px" }} /></h4>
-                            {razdeliPoDvehBesedah(formatirajDatum(koncert.datum)).map((del, i) => (
-                                <span key={i}>
-                                    {del}
-                                    <br />
-                                 </span>
-                            ))}
+                            <span>{formatirajDatum(koncert.datum)}</span>
                         </h3>
                         <h3>
                             <h4><FaLocationDot style={{ marginRight: "10px" }} /></h4>
-                            {razdeliPoDvehBesedah(koncert.lokacija).map((del, i) => (
-                                <span key={i}>
-                                    {del}
-                                    <br />
-                                </span>
-                            ))}
+                            <span>{koncert.lokacija}</span>
                         </h3>
                     </div>
                 </div>

@@ -27,8 +27,7 @@
     background-size: cover;
     background-position: center;
     color: white;
-    min-height: 80vh;
-    padding: 8em 20px 20px 30px;
+    padding: 8em 0 20px 0;
 }
 
 .featured-section-zac {
@@ -50,6 +49,8 @@
         flex-direction: row;
         width: 100vw;
     }
+
+
 
 }
 
@@ -166,7 +167,24 @@
 
 
 
+@media (max-width: 768px) {
+    .featured-grid {
+        width: 90vw !important;
+    }
 
+    .featured-main h2 {
+        font-size: 14pt;
+    }
+
+    .featured-main p {
+        font-size: 11pt;
+    }
+
+    .novica-slika {
+        max-height: 150px !important;
+    }
+
+}
 
 
 

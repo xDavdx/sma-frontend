@@ -172,9 +172,7 @@ import ZamenjavaSekcije from "./zamenjavaSekcije"
 
 
 
-            <section>
-                <ZamenjavaSekcije />
-            </section>
+
 
 
             <section className="featured-section featured-section-zac">
@@ -209,7 +207,19 @@ import ZamenjavaSekcije from "./zamenjavaSekcije"
             </section>
 
 
+            <section>
+                <ZamenjavaSekcije />
+            </section>
 
+
+
+
+            {/*<section className="namest-zamenjalne-sekcije">*/}
+            {/*    <div>*/}
+            {/*        <img src={zacetnaSlika} alt=""/>*/}
+            {/*    </div>*/}
+            {/*    <div></div>*/}
+            {/*</section>*/}
 
 
                 <section className="kontakt center" id="kontakt">
