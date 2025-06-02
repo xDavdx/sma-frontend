@@ -1021,3 +1021,38 @@ background-color: #f0f4f8;
     background-color: #6c757d;
     color: white;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* stran GM sezone */
+
+.sezona-linki ul {
+    list-style-type: none;
+} .sezona-linki ul li a {
+      color: #90C0D3;
+  } .sezona-linki ul li a:hover {
+    color: #B9D9EA;
+      }
+
+.sezona-linki ul li {
+    border: 1px dotted #90C0D3;
+    padding: 0.5em;
+    border-radius: 10px;
+}
+
+.sezona-program ul {
+    list-style-type: none;
+}
+
+.izvajalci-karta ul {
+    list-style-type: none;
+}

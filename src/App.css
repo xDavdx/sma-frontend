@@ -2889,11 +2889,13 @@ img {
   line-height: 1.4;
 }
 .sezona-podrobnosti-slika {
+  display: flex;
   width: 50%;
 }
 .sezona-podrobnosti-slika img {
-  width: 25vw;
+  width: 24vw;
   height: 100%;
+  margin: 0 0.5em;
 }
 
 

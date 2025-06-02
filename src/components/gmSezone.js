@@ -2,6 +2,7 @@ import logo1 from "./smglasbamladih.png"
 import gm2021 from "./gmSezona2021.png"
 import gm2022 from "./gm2022.png"
 import gmplace2021 from "./gmplace2021.jpg"
+import gmplace20212 from "./gmplace20212.jpg"
 import gmplace2022 from "./gmplace2022.jpg"
 import gmplace2023 from "./gmplace2023.jpg"
 import gmplace2024 from "./gmplace2024.jpg"
@@ -11,9 +12,9 @@ export const gmSezone = [
     {
         leto: 2021,
         ime: "Sezona 2021",
-        slika1: gm2021,
-        slika2: "path/to/slika2-2021.jpg",
-        logo: gmplace2021,
+        slika1: gmplace2021,
+        slika2: gmplace20212,
+        logo: gm2021,
         naslov: "Glasba mladih",
         vsebina: "Premierna izvedba skupne ideje o skladateljskem koncertu mladih ustvarjalcev. Takratni maturantje Konservatorija za glasbo in balet Ljubljana so na pobudo mladega skladatelja Vida Ožbolta zorganizirali koncert nove komorne glasbe, preostanek skladb so napisali njihovi sošolci in znanci. Na krstnem koncertu v Radovljici je publika napolnila cerkev sv. Petra in mladim dala zagon za nadaljevanje s projektom.\n",
         program1: [

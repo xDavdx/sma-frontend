@@ -32,6 +32,23 @@ const SezonaDetail = () => {
                     {sezona.vsebina.split('\n').map((line, index) => (
                         <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
                     ))}
+
+                    {sezona.linki && sezona.linki.length > 0 && (
+                        <div className="sezona-linki">
+                            <h2>Povezave</h2>
+                            <ul>
+                                {sezona.linki.map((item, index) => (
+                                    <li key={index}>
+                                        <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                            {item.text}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+
+
                 </div>
 
                 <div className="sezona-podrobnosti-slika">
@@ -86,23 +103,6 @@ const SezonaDetail = () => {
 
             </section>
 
-
-
-
-            {sezona.linki && sezona.linki.length > 0 && (
-                <div className="sezona-linki">
-                    <h2>Povezave</h2>
-                    <ul>
-                        {sezona.linki.map((item, index) => (
-                            <li key={index}>
-                                <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                    {item.text}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
         </section>
     );
 };
