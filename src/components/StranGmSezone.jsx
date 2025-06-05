@@ -23,9 +23,86 @@ const SezonaDetail = () => {
                 </div>
             </section>
 
+            {/* MALA MLADA GLASBA */}
             <section className="stran-gm-sezone-vsebina">
                 <div className="sezona-podrobnosti-vsebina">
-                    <h2>Vsebina</h2>
+                    <h2>{sezona.naslov1}</h2>
+                    {sezona.vsebina1.split('\n').map((line, index) => (
+                        <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
+                    ))}
+
+                    {sezona.linkiMmg && sezona.linkiMmg.length > 0 && (
+                        <div className="sezona-linki">
+                            <h3>Posnetek koncerta je bil predvajan po Radiu Ars, poslušate si jih lahko na povezavah:</h3>
+                            <ul>
+                                {sezona.linkiMmg.map((item, index) => (
+                                    <li key={index}>
+                                        <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                            {item.text}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+                </div>
+
+                <div className="sezona-podrobnosti-slika">
+                    <img src={sezona.slika1} alt="Slika 1" className="sezona-slika" />
+                    <img src={sezona.slika2} alt="Slika 2" className="sezona-slika" />
+                </div>
+            </section>
+            <section className="mmg2023-flexbox">
+                <div>
+                    <h2>O projektu</h2>
+                    {sezona.oProjektu.split('\n').map((line, index) => (
+                        <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
+                    ))}
+                </div>
+                <div>
+                    <h2>Vizija</h2>
+                    {sezona.vizija.split('\n').map((line, index) => (
+                        <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
+                    ))}
+                </div>
+            </section>
+            <section className="koncert-program center">
+                <div className="izvajalci-pri-programu">
+                    <img src="" alt=""/>
+                </div>
+                <div className="center">
+                    <div className="stran-koncerta-program-wrapper">
+                        <div className="center-program">
+                            <h1>Program:</h1>
+                            <hr style={{ width: "10%" }} />
+                        </div>
+
+                        <div className="array-program">
+                            {sezona.programMmg && sezona.programMmg.length > 0 && (
+                                <div className="sezona-program">
+                                    <ul>
+                                        {sezona.programMmg.map((item, index) => (
+                                            <li key={index}>
+                                                <strong>{item.skladatelj}</strong> – {item.naslov}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+
+            <section className="stran-gm-sezone-vsebina">
+                <div className="sezona-podrobnosti-vsebina">
+                    <h2>{sezona.naslov}</h2>
                     {sezona.vsebina.split('\n').map((line, index) => (
                         <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
                     ))}

@@ -2898,4 +2898,12 @@ img {
   margin: 0 0.5em;
 }
 
+.mmg2023-flexbox {
+  display: flex;
+  margin: 2em 4em;
+}
+.mmg2023-flexbox div {
+  width: 50%;
+  padding: 0 4em;
+}
 
