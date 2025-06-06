@@ -24,61 +24,78 @@ const SezonaDetail = () => {
             </section>
 
             {/* MALA MLADA GLASBA */}
-            <section className="stran-gm-sezone-vsebina">
-                <div className="sezona-podrobnosti-vsebina">
-                    <h2>{sezona.naslov1}</h2>
-                    {sezona.vsebina1.split('\n').map((line, index) => (
-                        <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
-                    ))}
-
-                    {sezona.linkiMmg && sezona.linkiMmg.length > 0 && (
-                        <div className="sezona-linki">
-                            <h3>Posnetek koncerta je bil predvajan po Radiu Ars, poslušate si jih lahko na povezavah:</h3>
-                            <ul>
-                                {sezona.linkiMmg.map((item, index) => (
-                                    <li key={index}>
-                                        <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                            {item.text}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
+            {(sezona.naslov1 || sezona.vsebina1 || (sezona.linkiMmg && sezona.linkiMmg.length > 0)) && (
+                <section className="stran-gm-sezone-vsebina">
+                    <div className="sezona-podrobnosti-vsebina">
+                        {sezona.naslov1 && <h2>{sezona.naslov1}</h2>}
+                        {sezona.vsebina1 && sezona.vsebina1.split('\n').map((line, index) => (
+                            <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
+                        ))}
+                        {sezona.linkiMmg && sezona.linkiMmg.length > 0 && (
+                            <div className="sezona-linki">
+                                <h3>Posnetek koncerta je bil predvajan po Radiu Ars, poslušate si jih lahko na povezavah:</h3>
+                                <ul>
+                                    {sezona.linkiMmg.map((item, index) => (
+                                        <li key={index}>
+                                            <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                                {item.text}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                    </div>
+                    {(sezona.logo || sezona.slika1 || sezona.slika2) && (
+                        <div className="sezona-podrobnosti-slika">
+                            {sezona.logo && <img src={sezona.logo} alt="Slika 1" className="sezona-slika" />}
+                            {sezona.logo && <img src={sezona.logo} alt="Slika 2" className="sezona-slika" />}
                         </div>
                     )}
-                </div>
+                </section>
+            )}
 
-                <div className="sezona-podrobnosti-slika">
-                    <img src={sezona.slika1} alt="Slika 1" className="sezona-slika" />
-                    <img src={sezona.slika2} alt="Slika 2" className="sezona-slika" />
-                </div>
-            </section>
-            <section className="mmg2023-flexbox">
-                <div>
-                    <h2>O projektu</h2>
-                    {sezona.oProjektu.split('\n').map((line, index) => (
-                        <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
-                    ))}
-                </div>
-                <div>
-                    <h2>Vizija</h2>
-                    {sezona.vizija.split('\n').map((line, index) => (
-                        <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
-                    ))}
-                </div>
-            </section>
-            <section className="koncert-program center">
-                <div className="izvajalci-pri-programu">
-                    <img src="" alt=""/>
-                </div>
-                <div className="center">
-                    <div className="stran-koncerta-program-wrapper">
-                        <div className="center-program">
-                            <h1>Program:</h1>
-                            <hr style={{ width: "10%" }} />
+
+
+
+
+            {(sezona.oProjektu || sezona.vizija) && (
+                <section className="mmg2023-flexbox">
+                    {sezona.oProjektu && (
+                        <div>
+                            <h2>O projektu</h2>
+                            {sezona.oProjektu.split('\n').map((line, index) => (
+                                <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
+                            ))}
                         </div>
+                    )}
+                    {sezona.vizija && (
+                        <div>
+                            <h2>Vizija</h2>
+                            {sezona.vizija.split('\n').map((line, index) => (
+                                <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
+                            ))}
+                        </div>
+                    )}
+                </section>
+            )}
 
-                        <div className="array-program">
-                            {sezona.programMmg && sezona.programMmg.length > 0 && (
+
+
+            {(sezona.programMmg && sezona.programMmg.length > 0) && (
+                <section className="koncert-program center">
+                    <div className="izvajalci-pri-programu">
+                        {sezona.logo && (
+                            <img src={sezona.logo} alt="sezona 2023 program" style={{ width: "70%", borderRadius: "10px" }} />
+                        )}
+                    </div>
+                    <div className="center">
+                        <div className="stran-koncerta-program-wrapper">
+                            <div className="center-program">
+                                <h1>Program:</h1>
+                                <hr style={{ width: "10%" }} />
+                            </div>
+                            <div className="array-program">
                                 <div className="sezona-program">
                                     <ul>
                                         {sezona.programMmg.map((item, index) => (
@@ -88,11 +105,11 @@ const SezonaDetail = () => {
                                         ))}
                                     </ul>
                                 </div>
-                            )}
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            )}
 
 
 
@@ -100,34 +117,38 @@ const SezonaDetail = () => {
 
 
 
-            <section className="stran-gm-sezone-vsebina">
-                <div className="sezona-podrobnosti-vsebina">
-                    <h2>{sezona.naslov}</h2>
-                    {sezona.vsebina.split('\n').map((line, index) => (
-                        <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
-                    ))}
 
-                    {sezona.linki && sezona.linki.length > 0 && (
-                        <div className="sezona-linki">
-                            <h2>Povezave</h2>
-                            <ul>
-                                {sezona.linki.map((item, index) => (
-                                    <li key={index}>
-                                        <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                            {item.text}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
+            {(sezona.naslov || sezona.vsebina || (sezona.linki && sezona.linki.length > 0)) && (
+                <section className="stran-gm-sezone-vsebina">
+                    <div className="sezona-podrobnosti-vsebina">
+                        {sezona.naslov && <h2>{sezona.naslov}</h2>}
+                        {sezona.vsebina && sezona.vsebina.split('\n').map((line, index) => (
+                            <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
+                        ))}
+                        {sezona.linki && sezona.linki.length > 0 && (
+                            <div className="sezona-linki">
+                                <h2>Povezave</h2>
+                                <ul>
+                                    {sezona.linki.map((item, index) => (
+                                        <li key={index}>
+                                            <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                                {item.text}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                    </div>
+                    {(sezona.slika1 || sezona.slika2) && (
+                        <div className="sezona-podrobnosti-slika">
+                            {sezona.slika1 && <img src={sezona.slika1} alt="Slika 1" className="sezona-slika" />}
+                            {sezona.slika2 && <img src={sezona.slika2} alt="Slika 2" className="sezona-slika" />}
                         </div>
                     )}
-                </div>
+                </section>
+            )}
 
-                <div className="sezona-podrobnosti-slika">
-                    <img src={sezona.slika1} alt="Slika 1" className="sezona-slika" />
-                    <img src={sezona.slika2} alt="Slika 2" className="sezona-slika" />
-                </div>
-            </section>
 
             {/* PROGRAM 1 */}
             <section className="koncert-program center">
