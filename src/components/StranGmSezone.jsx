@@ -65,7 +65,7 @@ const SezonaDetail = () => {
                         <div>
                             <h2>O projektu</h2>
                             {sezona.oProjektu.split('\n').map((line, index) => (
-                                <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
+                                <p className="ln14" style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
                             ))}
                         </div>
                     )}
@@ -73,7 +73,7 @@ const SezonaDetail = () => {
                         <div>
                             <h2>Vizija</h2>
                             {sezona.vizija.split('\n').map((line, index) => (
-                                <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
+                                <p className="ln14" style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
                             ))}
                         </div>
                     )}
@@ -194,12 +194,110 @@ const SezonaDetail = () => {
                 </div>
             </section>
 
+
+
+            {/* ANSANBEL GLASBA MLADIH */}
+            {(sezona.naslov3 || sezona.vsebina3) && (
+                <section className="ansanbel-gm-sredina">
+                    {sezona.naslov3 && (
+                        <div>
+                            <h2>{sezona.naslov3}</h2>
+                            {sezona.vsebina3.split('\n').map((line, index) => (
+                                <p className="ln14" style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
+                            ))}
+                        </div>
+                    )}
+                    <div className="center">
+                        {(sezona.slika1 || sezona.slika2) && (
+                            <div className="sezona-podrobnosti-slika">
+                                {sezona.slika1 && <img src={sezona.slika1} alt="Slika 1" className="sezona-slika" />}
+                                {sezona.slika2 && <img src={sezona.slika2} alt="Slika 2" className="sezona-slika" />}
+                            </div>
+                        )}
+                    </div>
+                </section>
+            )}
+
+
+
+
+            {(sezona.naslov4 || sezona.vsebina4) && (
+                <section className="stran-gm-sezone-vsebina">
+                    <div className="sezona-podrobnosti-vsebina">
+                        {sezona.naslov4 && <h2>{sezona.naslov4}</h2>}
+                        {sezona.vsebina4 && sezona.vsebina4.split('\n').map((line, index) => (
+                            <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
+                        ))}
+                    </div>
+                    {(sezona.logo || sezona.slika1 || sezona.slika2) && (
+                        <div className="sezona-podrobnosti-slika">
+                            {sezona.logo && <img src={sezona.logo} alt="Slika 1" className="sezona-slika" />}
+                            {sezona.logo && <img src={sezona.logo} alt="Slika 2" className="sezona-slika" />}
+                        </div>
+                    )}
+                </section>
+            )}
+            {(sezona.naslov41 || sezona.vsebina41) && (
+                <section className="ansanbel-gm-sredina">
+                    {sezona.naslov41 && (
+                        <div>
+                            <h2>{sezona.naslov41}</h2>
+                            {sezona.vsebina3.split('\n').map((line, index) => (
+                                <p className="ln14" style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
+                            ))}
+                        </div>
+                    )}
+                    <div className="center">
+                        {(sezona.slika1 || sezona.slika2) && (
+                            <div className="sezona-podrobnosti-slika">
+                                {sezona.slika1 && <img src={sezona.slika1} alt="Slika 1" className="sezona-slika" />}
+                                {sezona.slika2 && <img src={sezona.slika2} alt="Slika 2" className="sezona-slika" />}
+                            </div>
+                        )}
+                    </div>
+                </section>
+            )}
+
+
+
+
+            {(sezona.naslov2 || sezona.vsebina2 || (sezona.linki2 && sezona.linki2.length > 0)) && (
+                <section className="stran-gm-sezone-vsebina">
+                    <div className="sezona-podrobnosti-vsebina">
+                        {sezona.naslov2 && <h2>{sezona.naslov2}</h2>}
+                        {sezona.vsebina2 && sezona.vsebina2.split('\n').map((line, index) => (
+                            <p style={{ marginBottom: "0.5em" }} key={index}>{line}</p>
+                        ))}
+                        {sezona.linki2 && sezona.linki2.length > 0 && (
+                            <div className="sezona-linki">
+                                <h3>Posnetek koncerta je bil predvajan po Radiu Ars, poslušate si jih lahko na povezavah:</h3>
+                                <ul>
+                                    {sezona.linki2.map((item, index) => (
+                                        <li key={index}>
+                                            <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                                {item.text}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                    </div>
+                    {(sezona.logo || sezona.slika1 || sezona.slika2) && (
+                        <div className="sezona-podrobnosti-slika">
+                            {sezona.logo && <img src={sezona.logo} alt="Slika 1" className="sezona-slika" />}
+                            {sezona.logo && <img src={sezona.logo} alt="Slika 2" className="sezona-slika" />}
+                        </div>
+                    )}
+                </section>
+            )}
+
             {/* PROGRAM 2 */}
             {sezona.naslov2 && (
                 <section className="koncert-program center">
                     <div className="izvajalci-pri-programu">
                         <div className="izvajalci-pri-programu-tekst">
-                            <h1>{sezona.naslov2}</h1>
+                            <h1>Izvajalci</h1>
                             <hr />
                             {sezona.izvajalci2 && sezona.izvajalci2.length > 0 && (
                                 <div className="izvajalci-karta">
@@ -241,16 +339,16 @@ const SezonaDetail = () => {
             )}
 
             {/* PROGRAM 3 */}
-            {sezona.naslov3 && (
+            {sezona.naslov4 && (
                 <section className="koncert-program center">
                     <div className="izvajalci-pri-programu">
                         <div className="izvajalci-pri-programu-tekst">
-                            <h1>{sezona.naslov3}</h1>
+                            <h1>Izvajalci</h1>
                             <hr />
-                            {sezona.izvajalci3 && sezona.izvajalci3.length > 0 && (
+                            {sezona.izvajalci4 && sezona.izvajalci4.length > 0 && (
                                 <div className="izvajalci-karta">
                                     <ul>
-                                        {sezona.izvajalci3.map((oseba, index) => (
+                                        {sezona.izvajalci4.map((oseba, index) => (
                                             <li key={index}>
                                                 {oseba.ime} – {oseba.instrument}
                                             </li>
@@ -269,10 +367,10 @@ const SezonaDetail = () => {
                             </div>
 
                             <div className="array-program">
-                                {sezona.program3 && sezona.program3.length > 0 && (
+                                {sezona.program4 && sezona.program4.length > 0 && (
                                     <div className="sezona-program">
                                         <ul>
-                                            {sezona.program3.map((item, index) => (
+                                            {sezona.program4.map((item, index) => (
                                                 <li key={index}>
                                                     <strong>{item.skladatelj}</strong> – {item.naslov}
                                                 </li>

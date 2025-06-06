@@ -113,11 +113,11 @@ export const gmSezone = [
         ],
         linki: [
             {
-                text: "Premierni koncert v Radovljici je posnela ekipa RTV Slovenija, predvajan je bil v dveh oddajah programa ARS, poslušajte si jih na povezavah!\n\n 1. del koncerta",
+                text: "ARS 1. del koncerta",
                 link: "https://ars.rtvslo.si/podkast/nove-glasbene-generacije/15104115/174900231"
             },
             {
-                text: "2. del koncerta",
+                text: "ARS 2. del koncerta",
                 link: "https://ars.rtvslo.si/podkast/mladi-virtuozi/15104166/174900969"
             }
         ],
@@ -224,6 +224,8 @@ export const gmSezone = [
             { ime: "Patricija Malovrh Mlačnik", instrument: "viola" },
             { ime: "Ariel Vei Atanasovski", instrument: "violončelo" }
         ],
+
+
 
         naslov2: "Grajski duhovi",
         vsebina2: "Slovenske legende, miti in pripovedke v glasbeni preobrazbi\n" +

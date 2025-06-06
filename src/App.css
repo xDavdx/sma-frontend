@@ -2907,3 +2907,18 @@ img {
   padding: 0 4em;
 }
 
+.ln14 {
+  margin-top: 0.4em;
+  line-height: 1.4;
+}
+
+.ansanbel-gm-sredina {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4em 10em;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
