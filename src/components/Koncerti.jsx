@@ -58,11 +58,6 @@ const Koncerti = () => {
         return `${date.getDate()}. ${meseci[date.getMonth()]} ob ${date.getHours().toString().padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`;
     }
 
-    function prikaziKrajseBesedilo(besedilo, steviloBesed = 10) {
-        const besede = besedilo.split(" ");
-        if (besede.length <= steviloBesed) return besedilo;
-        return besede.slice(0, steviloBesed).join(" ") + "...";
-    }
 
 
     return (
@@ -80,7 +75,7 @@ const Koncerti = () => {
                     </div>
                     <div className="koncert-karta">
                         {nalaganje ? (
-                            <p style={{ textAlign: "center", color: "#fff" }}>Nalaganje koncertov ...</p>
+                            <p style={{ textAlign: "center", color: "#fff", fontSize: "15pt"  }}>Nalaganje koncertov ...</p>
                         ) : prihodnjiKoncerti.length > 0 ? (
                             prihodnjiKoncerti.slice(0, 4).map((koncert) => (
                                 <div key={koncert._id} className="karta">
@@ -114,7 +109,7 @@ const Koncerti = () => {
                                 </div>
                             ))
                         ) : (
-                            <p style={{ textAlign: "center", color: "#fff" }}>Ni prihajajočih koncertov.</p>
+                            <p style={{ textAlign: "center", color: "#fff", fontSize: "15pt" }}>Ni prihajajočih koncertov.</p>
                         )}
                     </div>
                 </div>

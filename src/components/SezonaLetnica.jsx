@@ -60,7 +60,7 @@ const SezonaLetnica = () => {
             <section className="onas-uvod center">
                 <div className="onas-uvod-header-levo">
                     <h1>{sezona.ime}</h1>
-                    <p>{sezona.opis}</p>
+                    {/*<p>{sezona.opis}</p>*/}
                 </div>
             </section>
 
